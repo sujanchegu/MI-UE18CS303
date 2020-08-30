@@ -10,7 +10,17 @@ import math
 
 
 def get_entropy_of_dataset(df):
+    target = df.loc[:,df.columns[-1]]
+    unique_values = target.unique().tolist()
+    uniq = len(unique_values)
+    target = target.tolist()
+    vals = []
+    for i in range(uniq):
+        vals.append(target.count(unique_values[i]))
+    summ = sum(vals)
     entropy = 0
+    for i in range(uniq):
+        entropy += (-1)*(vals[i]/summ)*(math.log(vals[i]/summ, 2))
     return entropy
 
 
