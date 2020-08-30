@@ -50,17 +50,17 @@ def avgInformationEntropy(answerDict, valueOfAttribute_entropy,
 def get_entropy_of_attribute(df, attribute):
     entropy_of_attribute = 0
 
-    if attribute not in df.columns:
+    if attribute not in df.columns.tolist():
         return entropy_of_attribute
 
     # Get the name of the target attribute column
-    TARGET_ATTRIBUTE = df.columns[-1]
+    TARGET_ATTRIBUTE = df.columns.tolist()[-1]
 
     # Get the list of unique values the attribute can take
     valuesOfAttribute = df[attribute].unique().tolist()
 
     # Get the list of unique values the TARGET_ATTRIBUTE can take
-    valuesOfTargetAttribute = df[TARGET_ATTRIBUTE].unique().to_list()
+    valuesOfTargetAttribute = df[TARGET_ATTRIBUTE].unique().tolist()
 
     # Create a dictionary containing the values of attribute as keys
     # and the values as the outcome:no_of_occurrences
@@ -72,6 +72,8 @@ def get_entropy_of_attribute(df, attribute):
     answerDict = {}
     for value in valuesOfAttribute:
         answerDict[value] = dict.fromkeys(valuesOfTargetAttribute, 0)
+
+    # print(answerDict)
 
     # Create a dictionary to hold the unique attribute value with the
     # corresponding df as key-value pairs
@@ -93,12 +95,14 @@ def get_entropy_of_attribute(df, attribute):
 
             answerDict[valueOfAttribute][valueOfTargetAttribute] = temp
 
+    # print(answerDict)
+
     # Use the entropy formula and get the entropy of all the attribute
     # value pairs and take the sum
     valueOfAttribute_entropy = entropyFormula(answerDict)
     entropy_of_attribute = avgInformationEntropy(answerDict,
                                                  valueOfAttribute_entropy,
-                                                 df.shape()[0])
+                                                 df.shape[0])
 
     # 3. Return the sum
     return abs(entropy_of_attribute)
@@ -107,10 +111,14 @@ def get_entropy_of_attribute(df, attribute):
 
 
 def get_information_gain(df,attribute):
+    return 0
     return abs(get_entropy_of_dataset(df) - get_entropy_of_attribute(df, attribute))
 
 
 def get_selected_attribute(df):
+    return 0
+
+    
     information_gains = {}
     selected_column = ''
     max_col = float('-inf')
