@@ -31,6 +31,17 @@ def entropyFormula(answerDict):
     return valueOfAttribute_entropy
 
 
+def avgInformationEntropy(answerDict, valueOfAttribute_entropy,
+                          totalNumberOfSamples):
+    answer = 0
+    for valueOfAttribute in answerDict:
+        numerator = sum(answerDict[valueOfAttribute].values())
+        answer += numerator / totalNumberOfSamples * \
+            valueOfAttribute_entropy[valueOfAttribute]
+
+    return answer
+
+
 '''Return entropy of the attribute provided as parameter'''
 # input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
 # output:int/float/double/large
@@ -84,7 +95,10 @@ def get_entropy_of_attribute(df, attribute):
 
     # Use the entropy formula and get the entropy of all the attribute
     # value pairs and take the sum
-    entropy_of_attribute = sum(entropyFormula(answerDict).values())
+    valueOfAttribute_entropy = entropyFormula(answerDict)
+    entropy_of_attribute = avgInformationEntropy(answerDict,
+                                                 valueOfAttribute_entropy,
+                                                 df.shape()[0])
 
     # 3. Return the sum
     return abs(entropy_of_attribute)
