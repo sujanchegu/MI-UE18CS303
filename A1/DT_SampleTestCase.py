@@ -1,4 +1,5 @@
-from Assignment1 import *   
+from Assignment1.main import *
+import pandas as pd
 
 def test_case():
     outlook = 'overcast,overcast,overcast,overcast,rainy,rainy,rainy,rainy,rainy,sunny,sunny,sunny,sunny,sunny'.split(',')

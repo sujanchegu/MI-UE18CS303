@@ -41,6 +41,17 @@ def entropyFormula(answerDict):
     return valueOfAttribute_entropy
 
 
+def avgInformationEntropy(answerDict, valueOfAttribute_entropy,
+                          totalNumberOfSamples):
+    answer = 0
+    for valueOfAttribute in answerDict:
+        numerator = sum(answerDict[valueOfAttribute].values())
+        answer += numerator / totalNumberOfSamples * \
+            valueOfAttribute_entropy[valueOfAttribute]
+
+    return answer
+
+
 '''Return entropy of the attribute provided as parameter'''
 # input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
 # output:int/float/double/large
@@ -49,17 +60,17 @@ def entropyFormula(answerDict):
 def get_entropy_of_attribute(df, attribute):
     entropy_of_attribute = 0
 
-    if attribute not in df.columns:
+    if attribute not in df.columns.tolist():
         return entropy_of_attribute
 
     # Get the name of the target attribute column
-    TARGET_ATTRIBUTE = df.columns[-1]
+    TARGET_ATTRIBUTE = df.columns.tolist()[-1]
 
     # Get the list of unique values the attribute can take
     valuesOfAttribute = df[attribute].unique().tolist()
 
     # Get the list of unique values the TARGET_ATTRIBUTE can take
-    valuesOfTargetAttribute = df[TARGET_ATTRIBUTE].unique().to_list()
+    valuesOfTargetAttribute = df[TARGET_ATTRIBUTE].unique().tolist()
 
     # Create a dictionary containing the values of attribute as keys
     # and the values as the outcome:no_of_occurrences
@@ -71,6 +82,8 @@ def get_entropy_of_attribute(df, attribute):
     answerDict = {}
     for value in valuesOfAttribute:
         answerDict[value] = dict.fromkeys(valuesOfTargetAttribute, 0)
+
+    # print(answerDict)
 
     # Create a dictionary to hold the unique attribute value with the
     # corresponding df as key-value pairs
@@ -92,9 +105,14 @@ def get_entropy_of_attribute(df, attribute):
 
             answerDict[valueOfAttribute][valueOfTargetAttribute] = temp
 
+    # print(answerDict)
+
     # Use the entropy formula and get the entropy of all the attribute
     # value pairs and take the sum
-    entropy_of_attribute = sum(entropyFormula(answerDict).values())
+    valueOfAttribute_entropy = entropyFormula(answerDict)
+    entropy_of_attribute = avgInformationEntropy(answerDict,
+                                                 valueOfAttribute_entropy,
+                                                 df.shape[0])
 
     # 3. Return the sum
     return abs(entropy_of_attribute)
@@ -103,19 +121,23 @@ def get_entropy_of_attribute(df, attribute):
 
 
 def get_information_gain(df,attribute):
+    return 0
     return abs(get_entropy_of_dataset(df) - get_entropy_of_attribute(df, attribute))
 
 
 def get_selected_attribute(df):
-    information_gains={}
-    selected_column=''
+    return 0
+
+    
+    information_gains = {}
+    selected_column = ''
     max_col = float('-inf')
 
     cols = df.columns
     for i in range(len(cols)):
-    information_gains[cols[i]] = get_information_gain(df, cols[i])
-    if(max_col < information_gains[cols[i]]):
-    max_col = information_gains[cols[i]]
-    selected_column = cols[i]
+        information_gains[cols[i]] = get_information_gain(df, cols[i])
+        if(max_col < information_gains[cols[i]]):
+            max_col = information_gains[cols[i]]
+            selected_column = cols[i]
 
-    return (information_gains,selected_column)
+    return (information_gains, selected_column)
