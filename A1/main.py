@@ -15,6 +15,8 @@ def get_entropy_of_dataset(df):
 
 def entropyFormula():
     pass
+
+
 '''Return entropy of the attribute provided as parameter'''
 # input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
 # output:int/float/double/large
@@ -46,29 +48,28 @@ def get_entropy_of_attribute(df, attribute):
     for value in valuesOfAttribute:
         answerDict[value] = dict.fromkeys(valuesOfTargetAttribute, 0)
 
-
-    # Create a dictionary to hold the unique value with the corresponding df as key-value pairs
+    # Create a dictionary to hold the unique attribute value with the
+    # corresponding df as key-value pairs
     valuesOfAttribute_Dataframe = {}
 
-    # Create separate dataframes (view) for each possbile value of the attribute
+    # Fill in the values in to the: valuesOfAttribute_Dataframe, dictionary
     for value in valuesOfAttribute:
         valuesOfAttribute_Dataframe[value] = df.loc[df[attribute] == value]
 
     # For each dataframe
-    for value_dataframe in valuesOfAttribute_Dataframe:
-    # Find to the number of different entries in the dataframe
+    for value, dataframe in valuesOfAttribute_Dataframe:
+        for value in valuesOfTargetAttribute:
+            # Find to the count of different entries in the target attribute
+            answerDict[value][value] = dataframe.loc[
+                                                    dataframe[TARGET_ATTRIBUTE]
+                                                    == value] \
+                                                .count().tolist()[-1]
+        # Use the entropy formula and get the entropy of the attribute value pair
+        # Add the results to the running sum
+        entropy_of_attribute += 0
 
-
-
-
-noOfYes, noOfNo = value_dataframe[1][df.play == "Yes"].count(), value_dataframe[1][df.play == "No"].count()
-# 2.2 Use the entropy formula and get the entropy of the attribute value pair
-
-# 2.3 Add the results to the running sum
-# 3. Return the sum
-
-
-return abs(entropy_of_attribute)
+    # 3. Return the sum
+    return abs(entropy_of_attribute)
 
 
 
