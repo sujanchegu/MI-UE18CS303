@@ -97,15 +97,15 @@ def get_information_gain(df,attribute):
 
 
 def get_selected_attribute(df):
-    information_gains={}
-    selected_column=''
+    information_gains = {}
+    selected_column = ''
     max_col = float('-inf')
 
     cols = df.columns
     for i in range(len(cols)):
-    information_gains[cols[i]] = get_information_gain(df, cols[i])
-    if(max_col < information_gains[cols[i]]):
-    max_col = information_gains[cols[i]]
-    selected_column = cols[i]
+        information_gains[cols[i]] = get_information_gain(df, cols[i])
+        if(max_col < information_gains[cols[i]]):
+            max_col = information_gains[cols[i]]
+            selected_column = cols[i]
 
-    return (information_gains,selected_column)
+    return (information_gains, selected_column)
