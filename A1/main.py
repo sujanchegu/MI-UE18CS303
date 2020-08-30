@@ -23,7 +23,8 @@ def entropyFormula(answerDict):
         entropy = 0
 
         for count in temp:
-            entropy += -(count/denominator) * math.log2(count/denominator)
+            if (count != 0):
+                entropy += -(count/denominator) * math.log2(count/denominator)
 
         valueOfAttribute_entropy[value] = entropy
 
