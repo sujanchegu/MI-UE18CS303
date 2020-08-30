@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import random
+import math
 
 
 '''Calculate the entropy of the enitre dataset'''
@@ -13,8 +14,20 @@ def get_entropy_of_dataset(df):
     return entropy
 
 
-def entropyFormula():
-    pass
+def entropyFormula(answerDict):
+    valueOfAttribute_entropy = {}
+
+    for value in answerDict:
+        temp = answerDict[value].values()
+        denominator = sum(temp)
+        entropy = 0
+
+        for count in temp:
+            entropy += -(count/denominator) * math.log2(count/denominator)
+
+        valueOfAttribute_entropy[value] = entropy
+
+    return valueOfAttribute_entropy
 
 
 '''Return entropy of the attribute provided as parameter'''
@@ -31,7 +44,7 @@ def get_entropy_of_attribute(df, attribute):
     # Get the name of the target attribute column
     TARGET_ATTRIBUTE = df.columns[-1]
 
-    # Get the list of unique values the attribute can take 
+    # Get the list of unique values the attribute can take
     valuesOfAttribute = df[attribute].unique().tolist()
 
     # Get the list of unique values the TARGET_ATTRIBUTE can take
@@ -41,8 +54,8 @@ def get_entropy_of_attribute(df, attribute):
     # and the values as the outcome:no_of_occurrences
     # E.g.:
     # {
-    # 	'val1': {'a':0, 'b':0},
-    # 	'val2': {'a':0, 'b':0}
+    # 	'val1': {'a':1, 'b':0},
+    # 	'val2': {'a':0, 'b':2}
     # }
     answerDict = {}
     for value in valuesOfAttribute:
@@ -57,16 +70,20 @@ def get_entropy_of_attribute(df, attribute):
         valuesOfAttribute_Dataframe[value] = df.loc[df[attribute] == value]
 
     # For each dataframe
-    for value, dataframe in valuesOfAttribute_Dataframe:
-        for value in valuesOfTargetAttribute:
+    for valueOfAttribute in valuesOfAttribute_Dataframe:
+        dataframe = valuesOfAttribute_Dataframe[valueOfAttribute]
+
+        for valueOfTargetAttribute in valuesOfTargetAttribute:
             # Find to the count of different entries in the target attribute
-            answerDict[value][value] = dataframe.loc[
-                                                    dataframe[TARGET_ATTRIBUTE]
-                                                    == value] \
-                                                .count().tolist()[-1]
-        # Use the entropy formula and get the entropy of the attribute value pair
-        # Add the results to the running sum
-        entropy_of_attribute += 0
+            temp = dataframe.loc[dataframe[TARGET_ATTRIBUTE] ==
+                                 valueOfTargetAttribute] \
+                                 .count().tolist()[-1]
+
+            answerDict[valueOfAttribute][valueOfTargetAttribute] = temp
+
+    # Use the entropy formula and get the entropy of all the attribute
+    # value pairs and take the sum
+    entropy_of_attribute = sum(entropyFormula(answerDict).values())
 
     # 3. Return the sum
     return abs(entropy_of_attribute)
