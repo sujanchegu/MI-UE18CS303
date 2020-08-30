@@ -1,4 +1,3 @@
-#SentinelPrime7 here
 '''
 Assume df is a pandas dataframe object of the dataset given
 '''
@@ -6,11 +5,11 @@ import numpy as np
 import pandas as pd
 import random
 
-# import math
 
 '''Calculate the entropy of the enitre dataset'''
-	#input:pandas_dataframe
-	#output:int/float/double/large
+	# input:pandas_dataframe
+	# output:int/float/double/large
+
 
 def get_entropy_of_dataset(df):
 	entropy = 0
@@ -18,15 +17,15 @@ def get_entropy_of_dataset(df):
 
 
 def entropyFormula():
-  
-
 
 '''Return entropy of the attribute provided as parameter'''
-	#input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
-	#output:int/float/double/large
-def get_entropy_of_attribute(df,attribute):
+	# input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
+	# output:int/float/double/large
+
+
+def get_entropy_of_attribute(df, attribute):
 	entropy_of_attribute = 0
-  
+
   # Steps to solve this function
   # 0. Get the list of values the attributes can take
   valuesOfTheAttribute = df[attribute].unique().tolist()
@@ -52,49 +51,29 @@ def get_entropy_of_attribute(df,attribute):
 
 
 '''Return Information Gain of the attribute provided as parameter'''
-	#input:int/float/double/large,int/float/double/large
-	#output:int/float/double/large
+	# input:int/float/double/large,int/float/double/large
+	# output:int/float/double/large
 def get_information_gain(df,attribute):
 	information_gain = 0
-  #Steps:
-  #0. Given the attribute for which IG should be calculated
-  #1. 
+  # Steps:
+  # 0. Given the attribute for which IG should be calculated
+  # 1. 
 	return information_gain
 
 
 
-''' Returns Attribute with highest info gain'''  
-	#input: pandas_dataframe
-	#output: ({dict},'str')     
+#Ret dict of all IG with attr &
+#the attr with highest IG
 def get_selected_attribute(df):
    
 	information_gains={}
 	selected_column=''
-
-	'''
-	Return a tuple with the first element as a dictionary which has IG of all columns 
-	and the second element as a string with the name of the column selected
-
-	example : ({'A':0.123,'B':0.768,'C':1.23} , 'C')
-	'''
+	max_col = float('-inf')
+  
+	for column in df:
+		information_gains[column] = get_information_gain(df, column)
+		if(max_col < information_gains[column]):
+			max_col = information_gains[column]
+			selected_column = column
 
 	return (information_gains,selected_column)
-
-
-
-'''
-------- TEST CASES --------
-How to run sample test cases ?
-
-Simply run the file DT_SampleTestCase.py
-Follow convention and do not change any file / function names
-
-'''
-
-'''
-In the function get_information_gain(), the description given is:
-	#input:int/float/double/large,int/float/double/large
-	#output:int/float/double/large
-def get_information_gain(df,attribute)
-
-The input types might be wrong. The parameter is given as df b
