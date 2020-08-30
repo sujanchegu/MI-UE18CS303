@@ -1,6 +1,3 @@
-'''
-Assume df is a pandas dataframe object of the dataset given
-'''
 import numpy as np
 import pandas as pd
 import random
@@ -50,30 +47,22 @@ def get_entropy_of_attribute(df, attribute):
 
 
 
-'''Return Information Gain of the attribute provided as parameter'''
-	# input:int/float/double/large,int/float/double/large
-	# output:int/float/double/large
+
 def get_information_gain(df,attribute):
-	information_gain = 0
-  # Steps:
-  # 0. Given the attribute for which IG should be calculated
-  # 1. 
-	return information_gain
+	return abs(get_entropy_of_dataset(df) - get_entropy_of_attribute(df, attribute))
 
 
-
-#Ret dict of all IG with attr &
-#the attr with highest IG
 def get_selected_attribute(df):
    
 	information_gains={}
 	selected_column=''
 	max_col = float('-inf')
   
-	for column in df:
-		information_gains[column] = get_information_gain(df, column)
-		if(max_col < information_gains[column]):
-			max_col = information_gains[column]
-			selected_column = column
+	cols = df.columns
+	for i in range(len(cols)):
+		information_gains[cols[i]] = get_information_gain(df, cols[i])
+		if(max_col < information_gains[cols[i]]):
+			max_col = information_gains[cols[i]]
+			selected_column = cols[i]
 
 	return (information_gains,selected_column)
