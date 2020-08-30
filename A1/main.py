@@ -14,7 +14,7 @@ def get_entropy_of_dataset(df):
 
 
 def entropyFormula():
-
+	pass
 '''Return entropy of the attribute provided as parameter'''
 	# input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
 	# output:int/float/double/large
