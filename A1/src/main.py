@@ -121,14 +121,10 @@ def get_entropy_of_attribute(df, attribute):
 
 
 def get_information_gain(df,attribute):
-    return 0
     return abs(get_entropy_of_dataset(df) - get_entropy_of_attribute(df, attribute))
 
 
-def get_selected_attribute(df):
-    return 0
-
-    
+def get_selected_attribute(df):    
     information_gains = {}
     selected_column = ''
     max_col = float('-inf')
