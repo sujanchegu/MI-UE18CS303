@@ -14,7 +14,7 @@ def get_entropy_of_dataset(df):
     summ = sum(vals)
     entropy = 0
     for i in range(uniq):
-        entropy += (-1)*(vals[i]/summ)*(np.log(vals[i]/summ, 2))
+        entropy += (-1)*(vals[i]/summ)*(np.log2(vals[i]/summ))
     return entropy
 
 
