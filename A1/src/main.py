@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import random
-import math
 
 
 def get_entropy_of_dataset(df):
@@ -15,7 +14,7 @@ def get_entropy_of_dataset(df):
     summ = sum(vals)
     entropy = 0
     for i in range(uniq):
-        entropy += (-1)*(vals[i]/summ)*(math.log(vals[i]/summ, 2))
+        entropy += (-1)*(vals[i]/summ)*(np.log(vals[i]/summ, 2))
     return entropy
 
 
@@ -29,7 +28,7 @@ def entropyFormula(answerDict):
 
         for count in temp:
             if (count != 0):
-                entropy += -(count/denominator) * math.log2(count/denominator)
+                entropy += -(count/denominator) * np.log2(count/denominator)
 
         valueOfAttribute_entropy[value] = entropy
 
