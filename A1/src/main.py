@@ -4,13 +4,8 @@ import random
 import math
 
 
-'''Calculate the entropy of the enitre dataset'''
-# input:pandas_dataframe
-# output:int/float/double/large
-
-
 def get_entropy_of_dataset(df):
-    target = df.loc[:,df.columns[-1]]
+    target = df.loc[:, df.columns[-1]]
     unique_values = target.unique().tolist()
     uniq = len(unique_values)
     target = target.tolist()
@@ -50,11 +45,6 @@ def avgInformationEntropy(answerDict, valueOfAttribute_entropy,
             valueOfAttribute_entropy[valueOfAttribute]
 
     return answer
-
-
-'''Return entropy of the attribute provided as parameter'''
-# input:pandas_dataframe,str   {i.e the column name ,ex: Temperature in the Play tennis dataset}
-# output:int/float/double/large
 
 
 def get_entropy_of_attribute(df, attribute):
@@ -101,7 +91,7 @@ def get_entropy_of_attribute(df, attribute):
             # Find to the count of different entries in the target attribute
             temp = dataframe.loc[dataframe[TARGET_ATTRIBUTE] ==
                                  valueOfTargetAttribute] \
-                                 .count().tolist()[-1]
+                .count().tolist()[-1]
 
             answerDict[valueOfAttribute][valueOfTargetAttribute] = temp
 
@@ -118,13 +108,11 @@ def get_entropy_of_attribute(df, attribute):
     return abs(entropy_of_attribute)
 
 
-
-
-def get_information_gain(df,attribute):
+def get_information_gain(df, attribute):
     return abs(get_entropy_of_dataset(df) - get_entropy_of_attribute(df, attribute))
 
 
-def get_selected_attribute(df):    
+def get_selected_attribute(df):
     information_gains = {}
     selected_column = ''
     max_col = float('-inf')
