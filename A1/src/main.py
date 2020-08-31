@@ -4,9 +4,13 @@ import random
 
 
 def get_entropy_of_dataset(df):
+    # gets the target column
     target = df.loc[:, df.columns[-1]]
     unique_values = target.unique().tolist()
+
+    # number of unique values
     uniq = len(unique_values)
+
     target = target.tolist()
     vals = []
     for i in range(uniq):
