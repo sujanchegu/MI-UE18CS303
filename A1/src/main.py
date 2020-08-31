@@ -130,7 +130,7 @@ def get_selected_attribute(df):
     max_col = float('-inf')
 
     cols = df.columns
-    for i in range(len(cols)):
+    for i in range(len(cols)-1):
         information_gains[cols[i]] = get_information_gain(df, cols[i])
         if(max_col < information_gains[cols[i]]):
             max_col = information_gains[cols[i]]
