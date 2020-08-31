@@ -1,4 +1,4 @@
-from Assignment1.main import *
+from src.main import *
 import pandas as pd
 
 def test_case():
