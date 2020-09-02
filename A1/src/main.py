@@ -98,7 +98,7 @@ def get_entropy_of_attribute(df, attribute):
 
             answerDict[valueOfAttribute][valueOfTargetAttribute] = temp
 
-    # print(answerDict)
+    print(answerDict)
 
     # Use the entropy formula and get the entropy of all the attribute
     # value pairs and take the sum
