@@ -32,11 +32,12 @@ def test_case():
                       'infected'])
 
     try:
-        if get_entropy_of_dataset(df) >= 0.938 and \
-           get_entropy_of_dataset(df) <= 0.942:
+        if get_entropy_of_dataset(df) >= 0.985 and \
+           get_entropy_of_dataset(df) <= 0.986:
             print("Test Case 1 for the function get_entropy_of_dataset PASSED")
         else:
-            print("Test Case 1 for the function get_entropy_of_dataset FAILED")
+            print("Test Case 1 for the function get_entropy_of_dataset FAILED with",
+                  get_entropy_of_dataset(df))
     except:
         print("Test Case 1 for the function get_entropy_of_dataset FAILED")
 
