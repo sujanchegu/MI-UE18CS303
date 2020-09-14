@@ -1,4 +1,4 @@
-from Assignment2 import *
+from src.Assignment2 import *
 
 
 def test_case():
@@ -23,14 +23,14 @@ def test_case():
 
     try:
         # start node is 1, goal states to reach are 6,7 & 10
-        if (tri_Traversal(cost,heuristic, 1, [6, 7, 10]))[0] == [1, 2, 3, 4, 7]:
+        if (tri_traversal(cost,heuristic, 1, [6, 7, 10]))[0] == [1, 2, 3, 4, 7]:
             print("SAMPLE TEST CASE 1 FOR THE  DFS_TRAVERSAL PASSED")
         else:
             print("SAMPLE TEST CASE 1 FOR THE  DFS_TRAVERSAL FAILED")
     except:
         print("TRY FAILED")
     try:
-        if (tri_Traversal(cost,heuristic, 1, [6, 7, 10]))[1] == [1, 5, 4, 7]:
+        if (tri_traversal(cost,heuristic, 1, [6, 7, 10]))[1] == [1, 5, 4, 7]:
             print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
         else:
             print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
@@ -38,7 +38,7 @@ def test_case():
         print("TRY FAILED")
 
     try:
-        if (tri_Traversal(cost,heuristic, 1, [6, 7, 10]))[2] == [1, 5, 4, 7]:
+        if (tri_traversal(cost,heuristic, 1, [6, 7, 10]))[2] == [1, 5, 4, 7]:
             print("SAMPLE TEST CASE 3 FOR THE  A_star_TRAVERSAL PASSED")
         else:
             print("SAMPLE TEST CASE 3 FOR THE  A_star_TRAVERSAL FAILED")
