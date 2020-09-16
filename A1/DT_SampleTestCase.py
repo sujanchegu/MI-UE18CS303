@@ -1,4 +1,4 @@
-from src.main import *
+from src.PESU-MI_0316_1286_2057.py import *
 import pandas as pd
 
 def test_case():
@@ -51,4 +51,4 @@ def test_case():
 
 
 if __name__=="__main__":
-	test_case()
+    test_case()

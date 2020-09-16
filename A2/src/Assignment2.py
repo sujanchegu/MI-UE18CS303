@@ -27,7 +27,65 @@ def dfs(cost, start_point, goals):
     return []
 
 def ucs(cost, start_point, goals):
-    return []
+    l = []
+    
+    # n = total number of nodes + 1
+    n = len(cost[0])
+
+    # We define our node structure to be a list containing
+    # The cost to reach the node from the start_point
+    # The node value
+    # The path considered
+    node = [0, start_point, [start_point]]
+
+    # The frontier is a min heap that will store the nodes
+    frontier = []
+    frontier.append(node)
+
+    # Explored will store all the nodes already explored.
+    explored = set()
+
+    while (True):
+        # If the frontier is empty, our search algorithm has failed
+        if (len(frontier) == 0):
+            return []
+
+        # Pop the node from the heap having the least cost
+        popped_node = heapq.heappop(frontier)
+
+        # If the popped node is a goal, return
+        if (popped_node[1] in goals):
+            return popped_node[2]
+
+        # Add the node to the explored set
+        explored.add(popped_node[1])
+
+        # Going through all the nodes
+        for i in range(1, n):
+
+            # If there's an edge from popped node to i
+            if (cost[popped_node[1]][i] != -1):
+
+                # If the new node is neither in the frontier nor in the explored set, add it to the heap
+                if ((i not in frontier) and (i not in explored)):
+                    temp = popped_node[2] + list((i,))
+                    heapq.heappush(frontier, list((popped_node[0] + cost[popped_node[1]][i], i, temp)))
+
+                # If the new node is already in the frontier
+                elif (i in frontier):
+
+                    # Finding the node with same value in the frontier
+                    for j in fronter:
+                        if (j[1] == i):
+
+                            # If the current cost is lesser than the cost of the node currently in the frontier, update
+                            if (j[0] > popped_node[0] + cost[popped_node[1]][i]):
+                                j[0] = popped_node[0] + cost[popped_node[1]][i]
+                                j[2] = popped_node[2] + list((i,))
+                                heapq.heapify(frontier)
+
+
+    return l
 
 def astar(cost, heuristic, start_point, goals):
     frontier = []
