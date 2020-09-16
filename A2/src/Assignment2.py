@@ -1,5 +1,6 @@
 '''
-Function tri_traversal - performs DFS, UCS and A* traversals and returns the path for each of these traversals 
+Function tri_traversal - performs DFS, UCS and A* traversals and returns the
+                         path for each of these traversals
 
 n - Number of nodes in the graph
 m - Number of goals ( Can be more than 1)
@@ -24,7 +25,9 @@ import heapq
 
 
 def dfs(cost, start_point, goals):
+
     return []
+
 
 def ucs(cost, start_point, goals):
     l = []
@@ -75,7 +78,7 @@ def ucs(cost, start_point, goals):
                 elif (i in frontier):
 
                     # Finding the node with same value in the frontier
-                    for j in fronter:
+                    for j in frontier:
                         if (j[1] == i):
 
                             # If the current cost is lesser than the cost of the node currently in the frontier, update
@@ -87,13 +90,14 @@ def ucs(cost, start_point, goals):
 
     return l
 
+
 def astar(cost, heuristic, start_point, goals):
     frontier = []
     infront = [0]*(len(cost))
     infront[start_point] = 1
     leastcost = [float('inf')]*len(cost)
     leastparent = [-1]*len(cost)
-    #Format: (F, G, NameOfNode)
+    # Format: (F, G, NameOfNode)
     frontier.append((heuristic[start_point], 0, start_point))
     leastcost[start_point] = 0
     ptogoals = []
@@ -103,13 +107,13 @@ def astar(cost, heuristic, start_point, goals):
         for i in range(1,len(cost)):
             if(cost[temp[2]][i] > 0):
                 cc = temp[1]+cost[temp[2]][i]+heuristic[i]
-                if(infront[i] == 0): #The node is not in frontier
+                if(infront[i] == 0):  # The node is not in frontier
                     if(leastcost[i] > cc):
                         leastcost[i] = cc
                         leastparent[i] = temp[2]
                         frontier.append((cc, cc-heuristic[i], i))
                         infront[i] = 1
-                else: #The node is already in frontier
+                else:  # The node is already in frontier
                     for j,value in enumerate(frontier):
                         if(value[2] == i):
                             if((cc - heuristic[i]) < value[1]):
@@ -130,9 +134,8 @@ def astar(cost, heuristic, start_point, goals):
         n2 = leastparent[n2]
     path.append(start_point)
     path.reverse()
-    return path    
+    return path
     
-
 
 def tri_traversal(cost, heuristic, start_point, goals):
     l = []
