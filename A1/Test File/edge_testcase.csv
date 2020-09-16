@@ -1,0 +1,16 @@
+attri1_test,attri2_test,attri3_test,targi_test
+medium,high,a,s1
+large,high,b,s1
+large,low,c,s2
+medium,low,b,s3
+small,high,a,s1
+small,low,c,s3
+medium,low,c,s3
+large,low,a,s1
+large,high,b,s4
+medium,high,b,s4
+small,high,c,s2
+medium,low,c,s3
+small,high,a,s1
+large,low,a,s1
+small,low,b,s4
