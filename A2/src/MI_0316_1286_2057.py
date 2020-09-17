@@ -1,3 +1,6 @@
+import heapq
+from collections import deque
+
 def A_star_Traversal(cost, heuristic, start_point, goals):
     # Frontier for DFS, i.e. the stack
     stack = deque()
@@ -131,7 +134,7 @@ def getNeighbours(adjList):
     return neighbourList[::-1]
 
 
-def dfs(cost, start_point, goals):
+def DFS_Traversal(cost, start_point, goals):
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
@@ -215,7 +218,6 @@ NOTE : you are allowed to write other helper functions that you can call in the 
 '''
 
 
-
 def tri_traversal(cost, heuristic, start_point, goals):
     l = []
 
@@ -227,4 +229,3 @@ def tri_traversal(cost, heuristic, start_point, goals):
     l.append(t2)
     l.append(t3)
     return l
-
