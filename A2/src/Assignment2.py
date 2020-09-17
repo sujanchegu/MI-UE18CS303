@@ -40,34 +40,40 @@ def dfs(cost, start_point, goals):
     exploredSet = set()
 
     # Path list to hold the path as it is being built
+    # As all paths start withe the start_point, it has
+    # been added in by default
     path = [start_point]
 
     # Push the inital node into the frontier/stack
     stack.append(start_point)
 
+    # While the frontier/stack is not empty
     while (stack):
-        # Pop a node from the frontier
+        # Pop a node from the frontier/stack
         poppedNode = stack.pop()
 
         # Check if the popped node is one of the goal states
         if goalTest(poppedNode, goals) is True:
-            # If it is one of the goal states then return the path
+            # Return the path found
             return path
+
+        # If the popped node is not one of the goal states
 
         # Add the node to the explored set
         exploredSet.add(poppedNode)
 
-        # Expand the node
-        # The list is reversed so that we can add the nodes into
+        # Expand the node:
+        # NOTE: The list is reversed so that we can add the nodes into
         # the stack in reverse lexicographical order, so that
-        # while popping from the stack we can retrieve then in
+        # while popping from the stack we can retrieve them in
         # lexicographical order
-        poppedNodeNeighbours = cost[poppedNode][::-1]
+        # We also ignore the first node (as 1 based indexing for nodes has
+        # been used)
+        poppedNodeNeighbours = cost[poppedNode][1::][::-1]
 
-        # Add the resulting nodes into the frontier, if they aren't already
-        # in the frontier nor the explored set
-        # We also ignore the last node (as 1 based indexing)
-        for poppedNodeNeighbour in poppedNodeNeighbours[:-1]:
+        # Add the resulting nodes (child nodes) into the frontier,
+        # if they aren't already in the frontier or the explored set
+        for poppedNodeNeighbour in poppedNodeNeighbours:
             if (poppedNodeNeighbour not in stack) and \
                (poppedNodeNeighbour not in exploredSet):
                 stack.append(poppedNodeNeighbour)
