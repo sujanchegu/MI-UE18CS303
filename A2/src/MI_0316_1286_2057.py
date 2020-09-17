@@ -110,6 +110,7 @@ def UCS_Traversal(cost, start_point, goals):
 def goalTest(state, goals):
     return state in goals
 
+
 # Get a list of the neighbours of the popped node.
 # We return a list of the indices of the neighbours
 def getNeighbours(adjList):
@@ -130,7 +131,7 @@ def getNeighbours(adjList):
     return neighbourList[::-1]
 
 
-def DFS_Traversal(cost, start_point, goals):
+def dfs(cost, start_point, goals):
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
@@ -138,9 +139,7 @@ def DFS_Traversal(cost, start_point, goals):
     exploredSet = set()
 
     # Path list to hold the path as it is being built
-    # As all paths start withe the start_point, it has
-    # been added in by default
-    path = [start_point]
+    path = []
 
     # Push the inital node into the frontier/stack
     stack.append(start_point)
@@ -150,8 +149,14 @@ def DFS_Traversal(cost, start_point, goals):
         # Pop a node from the frontier/stack
         poppedNode = stack.pop()
 
+        # Add the node into the path
+        path.append(poppedNode)
+
         # Check if the popped node is one of the goal states
         if goalTest(poppedNode, goals) is True:
+            # Printing the path found for Diagnostics
+            # print("Path from DFS is:", path)
+
             # Return the path found
             return path
 
@@ -163,10 +168,19 @@ def DFS_Traversal(cost, start_point, goals):
         # Expand the node, and get the list of neighbours' indices
         poppedNodeNeighbours = getNeighbours(cost[poppedNode])
 
+        # Explored set
+        # print("exploredSet:", exploredSet)\
+
+        # Print the poppedNodeNeighbours
+        # print("The poppedNodeNeighbours:", poppedNodeNeighbours)
+
+        # Print the stack
+        # print("Stack:", stack)
+
         # Add the resulting nodes (child nodes) into the frontier,
         # if they aren't already in the frontier or the explored set
         for poppedNodeNeighbour in poppedNodeNeighbours:
-            if (poppedNodeNeighbour not in stack) and \
+            if (poppedNodeNeighbour not in path) and \
                (poppedNodeNeighbour not in exploredSet):
                 stack.append(poppedNodeNeighbour)
 
