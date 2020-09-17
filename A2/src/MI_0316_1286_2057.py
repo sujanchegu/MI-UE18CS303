@@ -134,15 +134,43 @@ def getNeighbours(adjList):
     return neighbourList[::-1]
 
 
+# class Data:
+#     def __init__(self):
+#         self.explored_set = set()
+#         self.path = []
+
+
+# def DFS_Helper(cost, start_point, goals, path, commonData):
+#     if goalTest(start_point, goals) is True:
+#         return True
+
+#     for index, node in enumerate(cost[start_point], start=1):
+#         if (node != -1) and (index != start_point) and \
+#            (node not in commonData.explored_set):
+#             commonData.path.append(start_point)
+
+#             result = DFS_Helper(cost, index, goals, path)
+#             if result is True:
+#                 return True
+
+#     return False
+
+
 def DFS_Traversal(cost, start_point, goals):
+    # commonData = Data()
+
+    # if DFS_Helper(cost, start_point, goals, commonData) is True:
+    #     return commonData.path
+    # else:
+    #     return []
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
     # Set to hold the list of nodes explored
-    exploredSet = set()
+    exploredSet = []
 
     # Path list to hold the path as it is being built
-    path = []
+    # path = []
 
     # Push the inital node into the frontier/stack
     stack.append(start_point)
@@ -152,41 +180,52 @@ def DFS_Traversal(cost, start_point, goals):
         # Pop a node from the frontier/stack
         poppedNode = stack.pop()
 
+        # Print the popped node
+        # print("Popped node:", poppedNode)
+
+        if poppedNode in exploredSet:
+            continue
+
         # Add the node into the path
-        path.append(poppedNode)
+        # path.append(poppedNode)
 
         # Check if the popped node is one of the goal states
         if goalTest(poppedNode, goals) is True:
             # Printing the path found for Diagnostics
             # print("Path from DFS is:", path)
+            exploredSet.append(poppedNode)
 
             # Return the path found
-            return path
+            # return path
+            return exploredSet
 
         # If the popped node is not one of the goal states
 
         # Add the node to the explored set
-        exploredSet.add(poppedNode)
+        exploredSet.append(poppedNode)
 
         # Expand the node, and get the list of neighbours' indices
         poppedNodeNeighbours = getNeighbours(cost[poppedNode])
 
         # Explored set
-        print("exploredSet:", exploredSet)\
+        # print("exploredSet:", exploredSet)
 
         # Print the poppedNodeNeighbours
-        print("The poppedNodeNeighbours:", poppedNodeNeighbours)
+        # print("The poppedNodeNeighbours:", poppedNodeNeighbours)
 
         # Print the stack
-        print("Stack:", stack)
+        # print("Stack:", stack)
 
-        print("---")
+        # The path
+        # print("Path from DFS is:", path)
+        # print("Explored set:", exploredSet)
+
+        # print("---")
 
         # Add the resulting nodes (child nodes) into the frontier,
         # if they aren't already in the frontier or the explored set
         for poppedNodeNeighbour in poppedNodeNeighbours:
-            if (poppedNodeNeighbour not in stack) and \
-               (poppedNodeNeighbour not in exploredSet):
+            if poppedNodeNeighbour not in exploredSet:
                 stack.append(poppedNodeNeighbour)
 
     # If we reached here, then that means that the frontier was emtpy
