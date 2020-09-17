@@ -31,7 +31,7 @@ def dfs(cost, start_point, goals):
 
 def ucs(cost, start_point, goals):
     l = []
-    
+
     # n = total number of nodes + 1
     n = len(cost[0])
 
@@ -72,7 +72,8 @@ def ucs(cost, start_point, goals):
                 # If the new node is neither in the frontier nor in the explored set, add it to the heap
                 if ((i not in frontier) and (i not in explored)):
                     temp = popped_node[2] + list((i,))
-                    heapq.heappush(frontier, list((popped_node[0] + cost[popped_node[1]][i], i, temp)))
+                    heapq.heappush(frontier, list(
+                        (popped_node[0] + cost[popped_node[1]][i], i, temp)))
 
                 # If the new node is already in the frontier
                 elif (i in frontier):
@@ -86,7 +87,6 @@ def ucs(cost, start_point, goals):
                                 j[0] = popped_node[0] + cost[popped_node[1]][i]
                                 j[2] = popped_node[2] + list((i,))
                                 heapq.heapify(frontier)
-
 
     return l
 
@@ -103,8 +103,10 @@ def astar(cost, heuristic, start_point, goals):
     ptogoals = []
     while(len(frontier) != 0):
         temp = frontier.pop(0)
+        if(temp[2] in goals):
+            break
         infront[temp[2]] = 0
-        for i in range(1,len(cost)):
+        for i in range(1, len(cost)):
             if(cost[temp[2]][i] > 0):
                 cc = temp[1]+cost[temp[2]][i]+heuristic[i]
                 if(infront[i] == 0):  # The node is not in frontier
@@ -114,19 +116,17 @@ def astar(cost, heuristic, start_point, goals):
                         frontier.append((cc, cc-heuristic[i], i))
                         infront[i] = 1
                 else:  # The node is already in frontier
-                    for j,value in enumerate(frontier):
+                    for j, value in enumerate(frontier):
                         if(value[2] == i):
                             if((cc - heuristic[i]) < value[1]):
                                 frontier.pop(j)
                                 frontier.append((cc, cc-heuristic[i], i))
                                 leastcost[i] = cc
                                 leastparent[i] = temp[2]
-                if(i in goals):
-                    ptogoals.append((cc, cc, i, temp[2]))
-                    
             heapq.heapify(frontier)
-    n1 = sorted(ptogoals)[0][2]
-    n2 = sorted(ptogoals)[0][3]
+
+    n1 = temp[2]
+    n2 = leastparent[temp[2]]
     path = []
     while(n1 != start_point):
         path.append(n1)
@@ -135,11 +135,10 @@ def astar(cost, heuristic, start_point, goals):
     path.append(start_point)
     path.reverse()
     return path
-    
+
 
 def tri_traversal(cost, heuristic, start_point, goals):
     l = []
-
 
     t1 = dfs(cost, start_point, goals)
     t2 = ucs(cost, start_point, goals)
@@ -149,4 +148,3 @@ def tri_traversal(cost, heuristic, start_point, goals):
     l.append(t2)
     l.append(t3)
     return l
-
