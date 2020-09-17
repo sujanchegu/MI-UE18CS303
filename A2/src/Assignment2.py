@@ -32,6 +32,26 @@ def goalTest(state, goals):
     return state in goals
 
 
+# Get a list of the neighbours of the popped node.
+# We return a list of the indices of the neighbours
+def getNeighbours(adjList):
+    neighbourList = []
+
+    # NOTE: We ignore the first node (as 1 based indexing for nodes has
+    # been used)
+    for index, node in enumerate(adjList[1::], start=1):
+        # If the value is not -1, then there is a path/edge from the
+        # popped node to the node
+        if node != -1:
+            neighbourList.append(index)
+
+    # NOTE: The list is reversed so that we can add the nodes into
+    # the stack in reverse lexicographical order, so that
+    # while popping from the stack we can retrieve them in
+    # lexicographical order
+    return neighbourList[::-1]
+
+
 def dfs(cost, start_point, goals):
     # Frontier for DFS, i.e. the stack
     stack = deque()
@@ -62,14 +82,8 @@ def dfs(cost, start_point, goals):
         # Add the node to the explored set
         exploredSet.add(poppedNode)
 
-        # Expand the node:
-        # NOTE: The list is reversed so that we can add the nodes into
-        # the stack in reverse lexicographical order, so that
-        # while popping from the stack we can retrieve them in
-        # lexicographical order
-        # We also ignore the first node (as 1 based indexing for nodes has
-        # been used)
-        poppedNodeNeighbours = cost[poppedNode][1::][::-1]
+        # Expand the node, and get the list of neighbours' indices
+        poppedNodeNeighbours = getNeighbours(cost[poppedNode])
 
         # Add the resulting nodes (child nodes) into the frontier,
         # if they aren't already in the frontier or the explored set
