@@ -6,10 +6,11 @@ n - Number of nodes in the graph
 m - Number of goals ( Can be more than 1)
 1<=m<=n
 Cost - Cost matrix for the graph of size (n+1)x(n+1)
-IMP : The 0th row and 0th column is not considered as the starting index is from 1 and not 0. 
+IMP : The 0th row and 0th column is not considered as the starting index
+        is from 1 and not 0.
 Refer the sample test case to understand this better
 
-Heuristic - Heuristic list for the graph of size 'n+1' 
+Heuristic - Heuristic list for the graph of size 'n+1'
 IMP : Ignore 0th index as nodes start from index value of 1
 Refer the sample test case to understand this better
 
@@ -18,14 +19,62 @@ goals - list of size 'm' containing 'm' goals to reach from start_point
 
 Return : A list containing a list of all traversals [[],[],[]]
 
-NOTE : you are allowed to write other helper functions that you can call in the given fucntion
+NOTE : you are allowed to write other helper functions that you can call
+        in the given fucntion
 '''
 
 import heapq
+from collections import deque
+
+
+# Defining the Goal Test Function
+def goalTest(state, goals):
+    return state in goals
 
 
 def dfs(cost, start_point, goals):
+    # Frontier for DFS, i.e. the stack
+    stack = deque()
 
+    # Set to hold the list of nodes explored
+    exploredSet = set()
+
+    # Path list to hold the path as it is being built
+    path = [start_point]
+
+    # Push the inital node into the frontier/stack
+    stack.append(start_point)
+
+    while (stack):
+        # Pop a node from the frontier
+        poppedNode = stack.pop()
+
+        # Check if the popped node is one of the goal states
+        if goalTest(poppedNode, goals) is True:
+            # If it is one of the goal states then return the path
+            return path
+
+        # Add the node to the explored set
+        exploredSet.add(poppedNode)
+
+        # Expand the node
+        # The list is reversed so that we can add the nodes into
+        # the stack in reverse lexicographical order, so that
+        # while popping from the stack we can retrieve then in
+        # lexicographical order
+        poppedNodeNeighbours = cost[poppedNode][::-1]
+
+        # Add the resulting nodes into the frontier, if they aren't already
+        # in the frontier nor the explored set
+        # We also ignore the last node (as 1 based indexing)
+        for poppedNodeNeighbour in poppedNodeNeighbours[:-1]:
+            if (poppedNodeNeighbour not in stack) and \
+               (poppedNodeNeighbour not in exploredSet):
+                stack.append(poppedNodeNeighbour)
+
+    # If we reached here, then that means that the frontier was emtpy
+    # before we reached a goal state, and hence there is no solution so
+    # we return an empty list
     return []
 
 
@@ -69,7 +118,8 @@ def ucs(cost, start_point, goals):
             # If there's an edge from popped node to i
             if (cost[popped_node[1]][i] != -1):
 
-                # If the new node is neither in the frontier nor in the explored set, add it to the heap
+                # If the new node is neither in the frontier nor in
+                # the explored set, add it to the heap
                 if ((i not in frontier) and (i not in explored)):
                     temp = popped_node[2] + list((i,))
                     heapq.heappush(frontier, list(
