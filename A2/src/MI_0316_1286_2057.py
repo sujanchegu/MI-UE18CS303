@@ -134,35 +134,7 @@ def getNeighbours(adjList):
     return neighbourList[::-1]
 
 
-# class Data:
-#     def __init__(self):
-#         self.explored_set = set()
-#         self.path = []
-
-
-# def DFS_Helper(cost, start_point, goals, path, commonData):
-#     if goalTest(start_point, goals) is True:
-#         return True
-
-#     for index, node in enumerate(cost[start_point], start=1):
-#         if (node != -1) and (index != start_point) and \
-#            (node not in commonData.explored_set):
-#             commonData.path.append(start_point)
-
-#             result = DFS_Helper(cost, index, goals, path)
-#             if result is True:
-#                 return True
-
-#     return False
-
-
 def DFS_Traversal(cost, start_point, goals):
-    # commonData = Data()
-
-    # if DFS_Helper(cost, start_point, goals, commonData) is True:
-    #     return commonData.path
-    # else:
-    #     return []
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
