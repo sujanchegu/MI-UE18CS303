@@ -166,14 +166,11 @@ def DFS_Traversal(cost, start_point, goals):
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
-    # Set to hold the list of nodes explored
-    exploredSet = []
-
-    # Path list to hold the path as it is being built
-    # path = []
-
     # Push the inital node into the frontier/stack
     stack.append(start_point)
+
+    # Set to hold the list of nodes explored
+    exploredSet = []
 
     # While the frontier/stack is not empty
     while (stack):
@@ -183,26 +180,23 @@ def DFS_Traversal(cost, start_point, goals):
         # Print the popped node
         # print("Popped node:", poppedNode)
 
+        # If the popped node has already been explored
+        # then do not do any further processing for it
         if poppedNode in exploredSet:
             continue
 
-        # Add the node into the path
-        # path.append(poppedNode)
+        # Add the node to the explored set
+        exploredSet.append(poppedNode)
 
         # Check if the popped node is one of the goal states
         if goalTest(poppedNode, goals) is True:
             # Printing the path found for Diagnostics
             # print("Path from DFS is:", path)
-            exploredSet.append(poppedNode)
 
             # Return the path found
-            # return path
             return exploredSet
 
         # If the popped node is not one of the goal states
-
-        # Add the node to the explored set
-        exploredSet.append(poppedNode)
 
         # Expand the node, and get the list of neighbours' indices
         poppedNodeNeighbours = getNeighbours(cost[poppedNode])
