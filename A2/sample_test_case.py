@@ -48,3 +48,23 @@ def test_case():
 
 test_case()
 
+
+cost = [
+        # #, A, B, C
+        [0, 0, 0, 0],   # #
+        [0, 0, 5, 10],  # A
+        [0, -1, 0, 5],  # B
+        [0, -1, -1, 0]  # C
+       ]
+heuristic = [0, 5, 7, 3]
+goals = [3]
+try:
+    answer = tri_traversal(cost, heuristic, 1, goals)[1]
+    if answer == [1, 2, 3]:
+        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
+    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+except:
+    print("SAMPLE TEST CASE 2 FOR THE UCS_TRAVERSAL FAILED")
+
