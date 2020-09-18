@@ -112,22 +112,28 @@ def UCS_Traversal(cost, start_point, goals):
             # If there's an edge from popped node to i
             if (cost[popped_node[1]][i] != -1):
 
+                boo = False
+                for j in frontier:
+                    if(j[1] == i):
+                        boo = True
+                        break
+
                 # If the new node is neither in the frontier nor in
                 # the explored set, add it to the heap
-                if ((i not in frontier) and (i not in explored)):
+                if ((boo == False) and (i not in explored)):
                     temp = popped_node[2] + list((i,))
                     heapq.heappush(frontier, list(
                         (popped_node[0] + cost[popped_node[1]][i], i, temp)))
 
                 # If the new node is already in the frontier
-                elif (i in frontier):
+                elif (boo == True):
 
                     # Finding the node with same value in the frontier
                     for j in frontier:
                         if (j[1] == i):
 
                             # If the current cost is lesser than the cost of the node currently in the frontier, update
-                            if (j[0] > popped_node[0] + cost[popped_node[1]][i]):
+                            if (j[0] >= popped_node[0] + cost[popped_node[1]][i]):
                                 j[0] = popped_node[0] + cost[popped_node[1]][i]
                                 j[2] = popped_node[2] + list((i,))
                                 heapq.heapify(frontier)
