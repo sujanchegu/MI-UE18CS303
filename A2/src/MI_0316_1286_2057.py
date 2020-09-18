@@ -1,6 +1,7 @@
 import heapq
 from collections import deque
 
+
 def A_star_Traversal(cost, heuristic, start_point, goals):
     frontier = []
     infront = [0]*(len(cost))
@@ -45,6 +46,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
     path.append(start_point)
     path.reverse()
     return path
+
 
 def UCS_Traversal(cost, start_point, goals):
     l = []
