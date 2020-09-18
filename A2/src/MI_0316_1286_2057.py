@@ -131,15 +131,34 @@ def UCS_Traversal(cost, start_point, goals):
 
                     # Finding the node with same value in the frontier
                     for j in frontier:
-                        if (j[1] == i):
+                        if j[1] == i:
 
-                            # If the current cost is lesser than the cost of the node currently in the frontier, update
+                            # If the current cost is lesser than or equal to
+                            # the cost of the node currently in the frontier,
+                            # update
                             if (j[0] >= popped_node[0] + cost[popped_node[1]][i]):
+                                # If the path cost is the same then the path
+                                # choosen must be lexicographically smaller,
+                                # to maintain lexicographical order
+                                # which is enforced here
+                                if (j[0] == popped_node[0] + cost[popped_node[1]][i]) \
+                                   and (j[2] <= popped_node[2] + list((i,))):
+                                    # If the new path is lexicographically
+                                    # greater or equal than the current path
+                                    # then break out of the for loop
+                                    break
+
                                 # Update the cost in the frontier
                                 j[0] = popped_node[0] + cost[popped_node[1]][i]
                                 # Update the path in the frontier
                                 j[2] = popped_node[2] + list((i,))
                                 heapq.heapify(frontier)
+
+                                # Once we have modified the node, in the
+                                # frontier we can exit the loop
+                                # There will be only one node of a certain
+                                # number or ID in the frontier always
+                                break
 
     return l
 
