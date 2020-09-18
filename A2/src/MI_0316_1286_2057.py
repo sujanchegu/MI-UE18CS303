@@ -112,6 +112,7 @@ def UCS_Traversal(cost, start_point, goals):
             # If there's an edge from popped node to i
             if (cost[popped_node[1]][i] != -1):
 
+                # Check if the node is in the frontier
                 boo = False
                 for j in frontier:
                     if(j[1] == i):
