@@ -3,67 +3,63 @@ from collections import deque
 
 
 def A_star_Traversal(cost, heuristic, start_point, goals):
-    #List to implement Frontier
+    # List to implement Frontier
     frontier = []
-    #List to specify which elements are in the frontier.
+    # List to specify which elements are in the frontier.
     infront = [0]*(len(cost))
     infront[start_point] = 1
 
-    #List to store the least G value for a node.
+    # List to store the least G value for a node.
     leastcost = [float('inf')]*len(cost)
     leastcost[start_point] = 0
-    #The parent node associated with the corresponding leastcost
+    # The parent node associated with the corresponding leastcost
     leastparent = [-1]*len(cost)
 
     # Format: (F, G, NameOfNode)
     frontier.append((heuristic[start_point], 0, start_point))
-    
-    
+
     while(len(frontier) != 0):
-        #Pop the node with the least F value
+        # Pop the node with the least F value
         temp = frontier.pop(0)
         infront[temp[2]] = 0
 
-        #Goal Node found
+        # Goal Node found
         if(temp[2] in goals):
             break
 
         for i in range(1, len(cost)):
 
-            #if a direct path exist
+            # If a direct path exist
             if(cost[temp[2]][i] > 0):
 
-                #Compute F value
+                # Compute F value
                 cc = temp[1]+cost[temp[2]][i]+heuristic[i]
 
                 # The node is not in frontier
                 if(infront[i] == 0):
                     if(leastcost[i] > cc):
-                        #Update Leastcost & Leastparent for the node
+                        # Update Leastcost & Leastparent for the node
                         leastcost[i] = cc
                         leastparent[i] = temp[2]
 
-                        #Add the node to frontier.
+                        # Add the node to frontier.
                         frontier.append((cc, cc-heuristic[i], i))
                         infront[i] = 1
-                
+
                 # The node is already in frontier
                 else:
                     for j, value in enumerate(frontier):
                         if(value[2] == i):
                             if((cc - heuristic[i]) < value[1]):
-                                
-                                #Replace the node in the frontier.
+                                # Replace the node in the frontier.
                                 frontier.pop(j)
-                                frontier.append((cc, cc-heuristic[i], i)
+                                frontier.append((cc, cc-heuristic[i], i))
                                 leastcost[i] = cc
                                 leastparent[i] = temp[2]
-            
-            #Form the minheap in every iteration.
+
+            # Form the minheap in every iteration.
             heapq.heapify(frontier)
 
-
-    
     n1 = temp[2]
     n2 = leastparent[temp[2]]
     path = []
