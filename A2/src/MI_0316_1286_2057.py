@@ -79,7 +79,7 @@ def UCS_Traversal(cost, start_point, goals):
     n = len(cost[0])
 
     # We define our node structure to be a list containing
-    # The cost to reach the node from the start_point
+    # The cost to reach the node from the start_point, i.e. path cost
     # The node value
     # The path considered
     node = [0, start_point, [start_point]]
@@ -106,9 +106,9 @@ def UCS_Traversal(cost, start_point, goals):
         # Add the node to the explored set
         explored.add(popped_node[1])
 
-        # Going through all the nodes
+        # Going through all the neighbour nodes
         for i in range(1, n):
-
+            # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
             # If there's an edge from popped node to i
             if (cost[popped_node[1]][i] != -1):
 
@@ -120,13 +120,13 @@ def UCS_Traversal(cost, start_point, goals):
 
                 # If the new node is neither in the frontier nor in
                 # the explored set, add it to the heap
-                if ((boo == False) and (i not in explored)):
+                if ((boo is False) and (i not in explored)):
                     temp = popped_node[2] + list((i,))
                     heapq.heappush(frontier, list(
                         (popped_node[0] + cost[popped_node[1]][i], i, temp)))
 
                 # If the new node is already in the frontier
-                elif (boo == True):
+                elif (boo is True):
 
                     # Finding the node with same value in the frontier
                     for j in frontier:
@@ -134,7 +134,9 @@ def UCS_Traversal(cost, start_point, goals):
 
                             # If the current cost is lesser than the cost of the node currently in the frontier, update
                             if (j[0] >= popped_node[0] + cost[popped_node[1]][i]):
+                                # Update the cost in the frontier
                                 j[0] = popped_node[0] + cost[popped_node[1]][i]
+                                # Update the path in the frontier
                                 j[2] = popped_node[2] + list((i,))
                                 heapq.heapify(frontier)
 
