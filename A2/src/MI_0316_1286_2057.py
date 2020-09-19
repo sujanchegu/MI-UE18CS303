@@ -62,7 +62,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
             heapq.heapify(frontier)
 
     n1 = sorted(ptogoals)[0][2]
-    n1 = sorted(ptogoals)[0][3]
+    n2 = sorted(ptogoals)[0][3]
     path = []
     while(n1 != start_point):
         path.append(n1)
