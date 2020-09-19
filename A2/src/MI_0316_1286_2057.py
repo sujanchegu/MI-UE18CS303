@@ -154,11 +154,11 @@ def UCS_Traversal(cost, start_point, goals):
                                 j[2] = popped_node[2] + list((i,))
                                 heapq.heapify(frontier)
 
-                                # Once we have modified the node, in the
-                                # frontier we can exit the loop
-                                # There will be only one node of a certain
-                                # number or ID in the frontier always
-                                break
+                            # Once we have modified the node, in the
+                            # frontier we can exit the loop
+                            # There will be only one node of a certain
+                            # number or ID in the frontier always
+                            break
 
     return l
 
