@@ -18,14 +18,12 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
     # Format: (F, G, NameOfNode)
     frontier.append((heuristic[start_point], 0, start_point))
 
+    ptogoals = []
+
     while(len(frontier) != 0):
         # Pop the node with the least F value
         temp = frontier.pop(0)
         infront[temp[2]] = 0
-
-        # Goal Node found
-        if(temp[2] in goals):
-            break
 
         for i in range(1, len(cost)):
 
@@ -57,11 +55,14 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                 leastcost[i] = cc
                                 leastparent[i] = temp[2]
 
+                if(i in goals):
+                    ptogoals.append((cc, cc, i, temp[2]))
+
             # Form the minheap in every iteration.
             heapq.heapify(frontier)
 
-    n1 = temp[2]
-    n2 = leastparent[temp[2]]
+    n1 = sorted(ptogoals)[0][2]
+    n1 = sorted(ptogoals)[0][3]
     path = []
     while(n1 != start_point):
         path.append(n1)
