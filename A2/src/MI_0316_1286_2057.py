@@ -106,8 +106,17 @@ def UCS_Traversal(cost, start_point, goals):
         # Add the node to the explored set
         explored.add(popped_node[1])
 
-        # Going through all the neighbour nodes
+        # Here, we are logically going through all the neighbour nodes only
+
+        # We iterate through all the nodes mentioned in the cost matrix row
+        # whether there is a direct path to them or not
         for i in range(1, n):
+
+            # Only if there is a direct path from the current popped node
+            # to a node mentioned in the cost matrix row
+            # i.e. when it is a neighbour node, do we proceed with
+            # any further processing on that node
+
             # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
             # If there's an edge from popped node to i
             if (cost[popped_node[1]][i] != -1):
