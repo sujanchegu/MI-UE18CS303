@@ -3,6 +3,10 @@ from collections import deque
 
 
 def A_star_Traversal(cost, heuristic, start_point, goals):
+    
+    if start_point in goals:
+        return [start_point]
+    
     # List to implement Frontier
     frontier = []
     # List to specify which elements are in the frontier.
