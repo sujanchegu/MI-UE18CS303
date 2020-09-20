@@ -185,9 +185,9 @@ def getNeighbours(adjList):
     # NOTE: We ignore the first node (as 1 based indexing for nodes has
     # been used)
     for index, node in enumerate(adjList[1::], start=1):
-        # If the value is not -1, then there is a path/edge from the
+        # If the value is greater than 0, then there is a path/edge from the
         # popped node to the node
-        if node != -1:
+        if node > 0:
             neighbourList.append(index)
 
     # NOTE: The list is reversed so that we can add the nodes into
@@ -198,14 +198,18 @@ def getNeighbours(adjList):
 
 
 def DFS_Traversal(cost, start_point, goals):
+    # return [1]
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
     # Push the inital node into the frontier/stack
-    stack.append(start_point)
+    stack.append({
+                    "node": start_point,
+                    "path": [start_point]
+                 })
 
     # Set to hold the list of nodes explored
-    exploredSet = []
+    exploredSet = set()
 
     # While the frontier/stack is not empty
     while (stack):
@@ -217,24 +221,24 @@ def DFS_Traversal(cost, start_point, goals):
 
         # If the popped node has already been explored
         # then do not do any further processing for it
-        if poppedNode in exploredSet:
+        if poppedNode["node"] in exploredSet:
             continue
 
         # Add the node to the explored set
-        exploredSet.append(poppedNode)
+        exploredSet.add(poppedNode["node"])
 
         # Check if the popped node is one of the goal states
-        if goalTest(poppedNode, goals) is True:
+        if goalTest(poppedNode["node"], goals) is True:
             # Printing the path found for Diagnostics
-            # print("Path from DFS is:", path)
+            print("Path from DFS is:", poppedNode["path"])
 
             # Return the path found
-            return exploredSet
+            return poppedNode["path"]
 
         # If the popped node is not one of the goal states
 
         # Expand the node, and get the list of neighbours' indices
-        poppedNodeNeighbours = getNeighbours(cost[poppedNode])
+        poppedNodeNeighbours = getNeighbours(cost[poppedNode["node"]])
 
         # Explored set
         # print("exploredSet:", exploredSet)
@@ -245,17 +249,17 @@ def DFS_Traversal(cost, start_point, goals):
         # Print the stack
         # print("Stack:", stack)
 
-        # The path
-        # print("Path from DFS is:", path)
-        # print("Explored set:", exploredSet)
-
         # print("---")
 
         # Add the resulting nodes (child nodes) into the frontier,
         # if they aren't already in the frontier or the explored set
         for poppedNodeNeighbour in poppedNodeNeighbours:
             if poppedNodeNeighbour not in exploredSet:
-                stack.append(poppedNodeNeighbour)
+                poppedNodeNeighbourRecord = {
+                    "node": poppedNodeNeighbour,
+                    "path": poppedNode["path"] + [poppedNodeNeighbour]
+                }
+                stack.append(poppedNodeNeighbourRecord)
 
     # If we reached here, then that means that the frontier was emtpy
     # before we reached a goal state, and hence there is no solution so
