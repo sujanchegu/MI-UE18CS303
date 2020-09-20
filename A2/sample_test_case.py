@@ -29,6 +29,7 @@ def test_case():
             print("SAMPLE TEST CASE 1 FOR THE  DFS_TRAVERSAL FAILED")
     except:
         print("TRY FAILED")
+
     try:
         if (tri_traversal(cost,heuristic, 1, [6, 7, 10]))[1] == [1, 5, 4, 7]:
             print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
@@ -48,3 +49,66 @@ def test_case():
 
 test_case()
 
+
+cost = [
+        # #, A,  B, C
+        [0,  0,  0, 0],   # #
+        [0,  0,  5, 10],  # A
+        [0, -1,  0, 5],   # B
+        [0, -1, -1, 0]    # C
+       ]
+heuristic = [0, 5, 7, 3]
+goals = [3]
+try:
+    answer = tri_traversal(cost, heuristic, 1, goals)[1]
+    if answer == [1, 2, 3]:
+        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
+    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+except:
+    print("SAMPLE TEST CASE 2 FOR THE UCS_TRAVERSAL FAILED!")
+
+
+# This Test case fails without the lexicographical order check
+# added to UCS code
+cost = [
+        # #, A, B,  C
+        [0,  0, 0,  0],  # #
+        [0,  0, 10, 5],  # A
+        [0, -1, 0, -1],  # B
+        [0, -1, 5,  0]   # C
+       ]
+heuristic = [0, 5, 7, 3]
+goals = [2]
+try:
+    answer = tri_traversal(cost, heuristic, 1, goals)[1]
+    if answer == [1, 2]:
+        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
+    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+except:
+    print("SAMPLE TEST CASE 2 FOR THE UCS_TRAVERSAL FAILED!")
+
+
+# Backtracking example to test the working of the new DFS code
+cost = [
+        #    A,  B,  C,  D
+        [0,  0,  0,  0,  0],   # #
+        [0,  0,  10, 5, -1],   # A
+        [0, -1,  0, -1, 20],   # B
+        [0, -1, -1,  0, -1],   # C
+        [0, -1, -1, -1,  0]    # D
+       ]
+heuristic = [0, 5, 7, 3, 9]
+goals = [3]
+try:
+    answer = tri_traversal(cost, heuristic, 1, goals)[1]
+    if answer == [1, 3]:
+        print("SAMPLE TEST CASE 2 FOR THE  DFS_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 2 FOR THE  DFS_TRAVERSAL FAILED")
+    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+except:
+    print("SAMPLE TEST CASE 2 FOR THE DFS_TRAVERSAL FAILED!")
