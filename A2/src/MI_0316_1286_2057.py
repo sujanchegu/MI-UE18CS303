@@ -230,7 +230,7 @@ def DFS_Traversal(cost, start_point, goals):
         # Check if the popped node is one of the goal states
         if goalTest(poppedNode["node"], goals) is True:
             # Printing the path found for Diagnostics
-            print("Path from DFS is:", poppedNode["path"])
+            # print("Path from DFS is:", poppedNode["path"])
 
             # Return the path found
             return poppedNode["path"]
