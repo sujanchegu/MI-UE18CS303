@@ -50,7 +50,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                     for j, value in enumerate(frontier):
                         if(value[2] == i):
                             # if((cc - heuristic[i]) < value[1]):
-                            if(((cc - heuristic[i]) < value[1]) or ((cc - heuristic[i]) == value[1] and leastparent[i] > temp[2])):
+                            if(((cc - heuristic[i]) < value[1]) or (((cc - heuristic[i]) == value[1]) and (leastparent[i] < temp[2]))):
                                 # Replace the node in the frontier.
                                 frontier.pop(j)
                                 frontier.append((cc, cc-heuristic[i], i))
