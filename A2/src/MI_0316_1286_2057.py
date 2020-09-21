@@ -262,7 +262,7 @@ def DFS_Traversal(cost, start_point, goals):
                     "path": poppedNode["path"] + [poppedNodeNeighbour]
                 }
                 stack.append(poppedNodeNeighbourRecord)
-
+        # print("Stack:", stack)
     # If we reached here, then that means that the frontier was emtpy
     # before we reached a goal state, and hence there is no solution so
     # we return an empty list
