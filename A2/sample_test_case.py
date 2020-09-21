@@ -28,7 +28,7 @@ def test_case():
         else:
             print("SAMPLE TEST CASE 1 FOR THE  DFS_TRAVERSAL FAILED")
     except:
-        print("TRY FAILED")
+        print("TRY FAILED - 1")
 
     try:
         if (tri_traversal(cost,heuristic, 1, [6, 7, 10]))[1] == [1, 5, 4, 7]:
@@ -36,7 +36,7 @@ def test_case():
         else:
             print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
     except:
-        print("TRY FAILED")
+        print("TRY FAILED - 2")
 
     try:
         if (tri_traversal(cost,heuristic, 1, [6, 7, 10]))[2] == [1, 5, 4, 7]:
@@ -44,7 +44,7 @@ def test_case():
         else:
             print("SAMPLE TEST CASE 3 FOR THE  A_star_TRAVERSAL FAILED")
     except:
-        print("TRY FAILED")
+        print("TRY FAILED - 3")
 
 
 test_case()
@@ -62,12 +62,12 @@ goals = [3]
 try:
     answer = tri_traversal(cost, heuristic, 1, goals)[1]
     if answer == [1, 2, 3]:
-        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
+        print("SAMPLE TEST CASE 4 FOR THE  UCS_TRAVERSAL PASSED")
     else:
-        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
+        print("SAMPLE TEST CASE 4 FOR THE  UCS_TRAVERSAL FAILED")
     print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
 except:
-    print("SAMPLE TEST CASE 2 FOR THE UCS_TRAVERSAL FAILED!")
+    print("TRY FAILED - 4")
 
 
 # This Test case fails without the lexicographical order check
@@ -84,12 +84,12 @@ goals = [2]
 try:
     answer = tri_traversal(cost, heuristic, 1, goals)[1]
     if answer == [1, 2]:
-        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL PASSED")
+        print("SAMPLE TEST CASE 5 FOR THE  UCS_TRAVERSAL PASSED")
     else:
-        print("SAMPLE TEST CASE 2 FOR THE  UCS_TRAVERSAL FAILED")
+        print("SAMPLE TEST CASE 5 FOR THE  UCS_TRAVERSAL FAILED")
     print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
 except:
-    print("SAMPLE TEST CASE 2 FOR THE UCS_TRAVERSAL FAILED!")
+    print("TRY FAILED - 5")
 
 
 # Backtracking example to test the working of the new DFS code
@@ -106,9 +106,40 @@ goals = [3]
 try:
     answer = tri_traversal(cost, heuristic, 1, goals)[1]
     if answer == [1, 3]:
-        print("SAMPLE TEST CASE 2 FOR THE  DFS_TRAVERSAL PASSED")
+        print("SAMPLE TEST CASE 6 FOR THE  DFS_TRAVERSAL PASSED")
     else:
-        print("SAMPLE TEST CASE 2 FOR THE  DFS_TRAVERSAL FAILED")
+        print("SAMPLE TEST CASE 6 FOR THE  DFS_TRAVERSAL FAILED")
     print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
 except:
-    print("SAMPLE TEST CASE 2 FOR THE DFS_TRAVERSAL FAILED!")
+    print("TRY FAILED - 6")
+
+
+cost = [
+        [0,  0,  0,  0],
+        [0,  0,  5, 10],
+        [0, -1,  0,  5],
+        [0, -1, -1,  0]
+       ]
+heuristic = [0, 0, 0, 0]
+goals = [3]
+try:
+    answerDFS, answerUCS, answerA = tri_traversal(cost, heuristic, 1, goals)
+    if answerA == [1, 2, 3]:
+        print("SAMPLE TEST CASE 7 FOR THE  A_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 7 FOR THE  A_TRAVERSAL FAILED")
+    print(f"Answer: {answerA=}")  # Caution this is a feature of Python 3.8
+
+    if answerUCS == [1, 2, 3]:
+        print("SAMPLE TEST CASE 8 FOR THE  UCS_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 8 FOR THE  UCS_TRAVERSAL FAILED")
+    print(f"Answer: {answerUCS=}")  # Caution this is a feature of Python 3.8
+
+    if answerDFS == [1, 2, 3]:
+        print("SAMPLE TEST CASE 8 FOR THE  DFS_TRAVERSAL PASSED")
+    else:
+        print("SAMPLE TEST CASE 8 FOR THE  DFS_TRAVERSAL FAILED")
+    print(f"Answer: {answerDFS=}")  # Caution this is a feature of Python 3.8
+except:
+    print("TRY FAILED - 7, 8, 9")
