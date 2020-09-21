@@ -49,7 +49,8 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                 else:
                     for j, value in enumerate(frontier):
                         if(value[2] == i):
-                            if((cc - heuristic[i]) < value[1]):
+                            # if((cc - heuristic[i]) < value[1]):
+                            if(((cc - heuristic[i]) < value[1]) or (cc - heuristic[i]) == value[1] and leastparent[i] > temp[2]):
                                 # Replace the node in the frontier.
                                 frontier.pop(j)
                                 frontier.append((cc, cc-heuristic[i], i))
@@ -57,13 +58,13 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                 leastparent[i] = temp[2]
 
                 if(i in goals):
-                    ptogoals.append((cc, cc, i, temp[2]))
+                    ptogoals.append((cc-heuristic[i], cc-heuristic[i], i))
 
             # Form the minheap in every iteration.
             heapq.heapify(frontier)
 
     n1 = sorted(ptogoals)[0][2]
-    n2 = sorted(ptogoals)[0][3]
+    n2 = leastparent[n1]
     path = []
     while(n1 != start_point):
         path.append(n1)

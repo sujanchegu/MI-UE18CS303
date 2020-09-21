@@ -9,7 +9,7 @@ def test_case():
     0th index is always 0'''
 
     cost = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-            [0, 0, 5, 9, -1, 6, -1, -1, -1, -1, -1],
+            [0, 0, 5, 9, -1, 6, -1, -1, -1, -1, -1],  
             [0, -1, 0, 3, -1, -1, 9, -1, -1, -1, -1], 
             [0, -1, 2, 0, 1, -1, -1, -1, -1, -1, -1],
             [0, 6, -1, -1, 0, -1, -1, 5, 7, -1, -1],
@@ -65,7 +65,7 @@ try:
         print("SAMPLE TEST CASE 4 FOR THE  UCS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 4 FOR THE  UCS_TRAVERSAL FAILED")
-    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+    # print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
 except:
     print("TRY FAILED - 4")
 
@@ -87,7 +87,7 @@ try:
         print("SAMPLE TEST CASE 5 FOR THE  UCS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 5 FOR THE  UCS_TRAVERSAL FAILED")
-    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+    # print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
 except:
     print("TRY FAILED - 5")
 
@@ -109,7 +109,7 @@ try:
         print("SAMPLE TEST CASE 6 FOR THE  DFS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 6 FOR THE  DFS_TRAVERSAL FAILED")
-    print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
+    # print(f"Answer: {answer=}")  # Caution this is a feature of Python 3.8
 except:
     print("TRY FAILED - 6")
 
@@ -128,18 +128,18 @@ try:
         print("SAMPLE TEST CASE 7 FOR THE  A_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 7 FOR THE  A_TRAVERSAL FAILED")
-    print(f"Answer: {answerA=}")  # Caution this is a feature of Python 3.8
+    # print(f"Answer: {answerA=}")  # Caution this is a feature of Python 3.8
 
     if answerUCS == [1, 2, 3]:
         print("SAMPLE TEST CASE 8 FOR THE  UCS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 8 FOR THE  UCS_TRAVERSAL FAILED")
-    print(f"Answer: {answerUCS=}")  # Caution this is a feature of Python 3.8
+    # print(f"Answer: {answerUCS=}")  # Caution this is a feature of Python 3.8
 
     if answerDFS == [1, 2, 3]:
         print("SAMPLE TEST CASE 8 FOR THE  DFS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 8 FOR THE  DFS_TRAVERSAL FAILED")
-    print(f"Answer: {answerDFS=}")  # Caution this is a feature of Python 3.8
+    # print(f"Answer: {answerDFS=}")  # Caution this is a feature of Python 3.8
 except:
     print("TRY FAILED - 7, 8, 9")
