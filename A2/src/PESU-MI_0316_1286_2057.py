@@ -2,6 +2,12 @@ import heapq
 from collections import deque
 
 
+def shouldswitch(leastparent, temp, value, start_point, cost):
+    if((cost[leastparent[value[2]]][temp[2]] > 0) and (temp[2] < value[2])):
+        return True
+    return False
+
+
 def A_star_Traversal(cost, heuristic, start_point, goals):
 
     if(start_point in goals):
@@ -55,17 +61,20 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                             # if((cc - heuristic[i]) < value[1]):
                             # "and" has a higher precedence than "or"
                             # so bracketing is not required
-                            if ((cc - heuristic[i]) < value[1]) or \
-                               ((cc - heuristic[i]) == value[1]) and \
-                               (leastparent[i] < temp[2]):
-                                # Replace the node in the frontier.
+
+                            # if (((cc-heuristic[i]) < value[1]) or (((cc-heuristic[i]) == value[1]) and leastparent[i] < temp[2])):
+                            # if (((cc-heuristic[i]) < value[1]) or (((cc-heuristic[i]) == value[1]) and leastparent[i] < temp[2] and extendbranch(leastparent, temp, value, start_point) == False)):
+                            # if (((cc-heuristic[i]) < value[1]) or (((cc-heuristic[i]) == value[1]) and leastparent[i] < temp[2] and shouldswitch(leastparent, temp, value, start_point, cost) == True)):
+                            if (((cc-heuristic[i]) < value[1]) or (((cc-heuristic[i]) == value[1]) and shouldswitch(leastparent, temp, value, start_point, cost) is True)):
+                            
+                            # Replace the node in the frontier.
                                 frontier.pop(j)
                                 frontier.append((cc, cc-heuristic[i], i))
                                 leastcost[i] = cc
                                 leastparent[i] = temp[2]
 
                 if(i in goals):
-                    ptogoals.append((cc-heuristic[i], cc-heuristic[i], i))
+                    ptogoals.append((cc-heuristic[i], cc-heuristic[i], i, temp[2]))
 
             # Form the minheap in every iteration.
             heapq.heapify(frontier)
@@ -82,6 +91,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
         n2 = leastparent[n2]
     path.append(start_point)
     path.reverse()
+    # print(path)
     return path
 
 
@@ -217,9 +227,9 @@ def DFS_Traversal(cost, start_point, goals):
 
     # Push the inital node into the frontier/stack
     stack.append({
-                    "node": start_point,
-                    "path": [start_point]
-                 })
+        "node": start_point,
+        "path": [start_point]
+    })
 
     # Set to hold the list of nodes explored
     exploredSet = set()
