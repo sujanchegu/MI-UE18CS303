@@ -20,6 +20,7 @@ then
             echo -e "\033[36m\033[1m[WORKING]\tAdding header to the python file...\033[0m"
             touch ./.temp.py
             cat ./.headers.txt > ./.temp.py
+            echo -e "\n" >> ./.temp.py
             cat $INPUT_PYTHON_FILE_NAME >> ./.temp.py
             rm $INPUT_PYTHON_FILE_NAME
             mv -i ./.temp.py $INPUT_PYTHON_FILE_NAME
