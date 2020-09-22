@@ -4,6 +4,9 @@ from collections import deque
 
 def A_star_Traversal(cost, heuristic, start_point, goals):
 
+    if(start_point in goals):
+        return [start_point]
+
     # List to implement Frontier
     frontier = []
     # List to specify which elements are in the frontier.
@@ -66,6 +69,9 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
 
             # Form the minheap in every iteration.
             heapq.heapify(frontier)
+
+    if(len(ptogoals) == 0):
+        return []
 
     n1 = sorted(ptogoals)[0][2]
     n2 = leastparent[n1]
