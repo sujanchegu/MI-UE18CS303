@@ -7,7 +7,7 @@
 #       SRN: PES1201800316
 #   2. Name: Sanket N D
 #       SRN: PES1201802057
-#   3. Name: Sujan C
+#   3. Name: Sujan C R
 #       SRN: PES1201801286
 #
 #
