@@ -1,0 +1,10108 @@
+# I take no responsibility for the correctness of the test cases.
+# Test cases may included goals unreachable from start point, in which case the result for each search is an empty list
+# ~ST pls dm if you think test cases are wrong :3
+Size of cost matrix:
+4
+Cost matrix:
+0 0 0 0
+0 0 -1 1
+0 3 0 3
+0 -1 -1 0
+********************************
+Test 1 :
+Heuristic:
+0 8 0 3
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 2 :
+Heuristic:
+0 0 0 8
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 3 :
+Heuristic:
+0 0 3 1
+Start point:
+3
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 4 :
+Heuristic:
+0 0 0 8
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 5 :
+Heuristic:
+0 0 0 9
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 6 :
+Heuristic:
+0 7 2 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 7 :
+Heuristic:
+0 0 10 0
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 8 :
+Heuristic:
+0 0 1 0
+Start point:
+3
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 9 :
+Heuristic:
+0 10 0 10
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 10 :
+Heuristic:
+0 9 9 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 11 :
+Heuristic:
+0 0 0 6
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 12 :
+Heuristic:
+0 6 4 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 13 :
+Heuristic:
+0 8 9 0
+Start point:
+2
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 3,2 3,
+********************************
+Test 14 :
+Heuristic:
+0 4 0 0
+Start point:
+3
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 15 :
+Heuristic:
+0 10 0 0
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 16 :
+Heuristic:
+0 3 5 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 17 :
+Heuristic:
+0 0 1 4
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 18 :
+Heuristic:
+0 2 0 10
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 19 :
+Heuristic:
+0 0 9 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 20 :
+Heuristic:
+0 4 0 0
+Start point:
+3
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 21 :
+Heuristic:
+0 1 1 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 22 :
+Heuristic:
+0 0 1 0
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 23 :
+Heuristic:
+0 0 0 5
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 24 :
+Heuristic:
+0 0 0 5
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 25 :
+Heuristic:
+0 0 0 7
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 26 :
+Heuristic:
+0 0 5 0
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 27 :
+Heuristic:
+0 8 0 0
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 28 :
+Heuristic:
+0 0 4 0
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 29 :
+Heuristic:
+0 6 2 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 30 :
+Heuristic:
+0 0 7 5
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 31 :
+Heuristic:
+0 0 0 5
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 32 :
+Heuristic:
+0 6 0 0
+Start point:
+1
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 33 :
+Heuristic:
+0 0 5 6
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 34 :
+Heuristic:
+0 1 0 0
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 35 :
+Heuristic:
+0 5 0 1
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 36 :
+Heuristic:
+0 0 9 0
+Start point:
+3
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 37 :
+Heuristic:
+0 0 6 0
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 38 :
+Heuristic:
+0 2 0 4
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 39 :
+Heuristic:
+0 0 10 5
+Start point:
+3
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 40 :
+Heuristic:
+0 0 0 0
+Start point:
+3
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 41 :
+Heuristic:
+0 2 0 10
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 42 :
+Heuristic:
+0 9 0 0
+Start point:
+1
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 43 :
+Heuristic:
+0 7 3 0
+Start point:
+2
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 3,2 3,
+********************************
+Test 44 :
+Heuristic:
+0 0 0 10
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 45 :
+Heuristic:
+0 6 2 0
+Start point:
+2
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 3,2 3,
+********************************
+Test 46 :
+Heuristic:
+0 0 0 8
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 47 :
+Heuristic:
+0 0 4 0
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 48 :
+Heuristic:
+0 0 0 3
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 49 :
+Heuristic:
+0 10 1 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 50 :
+Heuristic:
+0 0 5 0
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 51 :
+Heuristic:
+0 0 0 0
+Start point:
+1
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 52 :
+Heuristic:
+0 5 5 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 53 :
+Heuristic:
+0 9 0 0
+Start point:
+1
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 54 :
+Heuristic:
+0 6 6 0
+Start point:
+2
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 3,2 3,
+********************************
+Test 55 :
+Heuristic:
+0 0 5 0
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 56 :
+Heuristic:
+0 0 0 7
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 57 :
+Heuristic:
+0 0 0 3
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 58 :
+Heuristic:
+0 0 0 10
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 59 :
+Heuristic:
+0 2 0 0
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 60 :
+Heuristic:
+0 10 6 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 61 :
+Heuristic:
+0 0 1 7
+Start point:
+3
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 62 :
+Heuristic:
+0 0 5 0
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 63 :
+Heuristic:
+0 0 7 0
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 64 :
+Heuristic:
+0 7 10 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 65 :
+Heuristic:
+0 5 0 1
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 66 :
+Heuristic:
+0 10 0 0
+Start point:
+3
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 67 :
+Heuristic:
+0 3 2 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 68 :
+Heuristic:
+0 0 0 1
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 69 :
+Heuristic:
+0 0 0 5
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 70 :
+Heuristic:
+0 0 3 9
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 71 :
+Heuristic:
+0 0 6 7
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 72 :
+Heuristic:
+0 0 0 10
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 73 :
+Heuristic:
+0 0 1 5
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 74 :
+Heuristic:
+0 4 2 0
+Start point:
+2
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 3,2 3,
+********************************
+Test 75 :
+Heuristic:
+0 6 1 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 76 :
+Heuristic:
+0 1 7 0
+Start point:
+2
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 3,2 3,
+********************************
+Test 77 :
+Heuristic:
+0 4 8 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 78 :
+Heuristic:
+0 0 10 8
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 79 :
+Heuristic:
+0 4 0 0
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 80 :
+Heuristic:
+0 0 0 0
+Start point:
+3
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 81 :
+Heuristic:
+0 5 0 10
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 82 :
+Heuristic:
+0 0 0 0
+Start point:
+1
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 83 :
+Heuristic:
+0 2 9 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 84 :
+Heuristic:
+0 0 0 6
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 85 :
+Heuristic:
+0 9 0 0
+Start point:
+1
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 86 :
+Heuristic:
+0 6 0 2
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 87 :
+Heuristic:
+0 3 0 1
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 88 :
+Heuristic:
+0 6 3 0
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 89 :
+Heuristic:
+0 0 0 3
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 90 :
+Heuristic:
+0 0 7 0
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 91 :
+Heuristic:
+0 0 0 1
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 92 :
+Heuristic:
+0 1 0 1
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 93 :
+Heuristic:
+0 0 9 8
+Start point:
+3
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 94 :
+Heuristic:
+0 0 10 0
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 95 :
+Heuristic:
+0 9 1 0
+Start point:
+1
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 96 :
+Heuristic:
+0 0 0 10
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 97 :
+Heuristic:
+0 0 0 10
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 98 :
+Heuristic:
+0 0 0 0
+Start point:
+3
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 99 :
+Heuristic:
+0 5 0 0
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 100 :
+Heuristic:
+0 0 0 1
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+================================================================
+Size of cost matrix:
+2
+Cost matrix:
+0 0
+0 0
+********************************
+Test 101 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 102 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 103 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 104 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 105 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 106 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 107 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 108 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 109 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 110 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 111 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 112 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 113 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 114 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 115 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 116 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 117 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 118 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 119 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 120 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 121 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 122 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 123 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 124 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 125 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 126 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 127 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 128 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 129 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 130 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 131 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 132 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 133 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 134 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 135 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 136 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 137 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 138 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 139 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 140 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 141 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 142 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 143 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 144 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 145 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 146 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 147 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 148 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 149 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 150 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 151 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 152 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 153 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 154 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 155 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 156 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 157 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 158 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 159 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 160 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 161 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 162 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 163 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 164 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 165 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 166 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 167 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 168 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 169 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 170 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 171 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 172 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 173 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 174 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 175 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 176 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 177 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 178 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 179 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 180 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 181 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 182 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 183 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 184 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 185 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 186 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 187 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 188 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 189 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 190 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 191 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 192 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 193 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 194 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 195 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 196 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 197 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 198 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 199 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 200 :
+Heuristic:
+0 0
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+================================================================
+Size of cost matrix:
+9
+Cost matrix:
+0 0 0 0 0 0 0 0 0
+0 0 5 -1 -1 -1 -1 -1 -1
+0 2 0 -1 -1 -1 8 4 -1
+0 3 1 0 -1 1 8 -1 -1
+0 -1 4 -1 0 -1 -1 5 4
+0 6 2 2 6 0 2 1 -1
+0 5 2 3 6 -1 0 -1 6
+0 8 -1 5 -1 -1 -1 0 6
+0 5 4 -1 -1 6 -1 -1 0
+********************************
+Test 201 :
+Heuristic:
+0 0 0 2 0 3 0 6 5
+Start point:
+4
+Goals:
+1 2 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 202 :
+Heuristic:
+0 9 4 0 1 4 1 3 7
+Start point:
+4
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 6 3,4 7 3,4 7 3,
+********************************
+Test 203 :
+Heuristic:
+0 0 2 0 3 5 0 6 0
+Start point:
+1
+Goals:
+8 1 3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 204 :
+Heuristic:
+0 0 4 0 2 0 0 0 5
+Start point:
+3
+Goals:
+1 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 205 :
+Heuristic:
+0 0 0 0 0 0 2 1 0
+Start point:
+6
+Goals:
+1 2 3 4 5 8
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 2,6 2,
+********************************
+Test 206 :
+Heuristic:
+0 0 0 0 0 6 0 4 1
+Start point:
+3
+Goals:
+1 2 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 207 :
+Heuristic:
+0 0 0 6 6 2 0 3 7
+Start point:
+5
+Goals:
+1 2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 2,5 2,
+********************************
+Test 208 :
+Heuristic:
+0 3 8 0 0 0 2 10 0
+Start point:
+4
+Goals:
+8 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 209 :
+Heuristic:
+0 9 0 1 0 0 7 0 0
+Start point:
+5
+Goals:
+2 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 210 :
+Heuristic:
+0 1 2 0 8 0 0 0 8
+Start point:
+6
+Goals:
+3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 211 :
+Heuristic:
+0 6 3 8 3 10 2 2 0
+Start point:
+1
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 6 3 5 4 7 8,1 2 7 8,1 2 7 8,
+********************************
+Test 212 :
+Heuristic:
+0 0 0 2 0 8 3 5 8
+Start point:
+6
+Goals:
+1 2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 2,6 2,
+********************************
+Test 213 :
+Heuristic:
+0 3 9 8 6 0 5 10 4
+Start point:
+7
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 2 6 3 5,7 3 5,7 8 5,
+********************************
+Test 214 :
+Heuristic:
+0 8 0 8 1 4 4 8 0
+Start point:
+1
+Goals:
+8 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 215 :
+Heuristic:
+0 9 4 3 0 8 0 4 7
+Start point:
+6
+Goals:
+4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 216 :
+Heuristic:
+0 0 0 0 0 7 9 0 7
+Start point:
+8
+Goals:
+1 2 3 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1,8 2,8 2,
+********************************
+Test 217 :
+Heuristic:
+0 0 9 10 3 0 0 5 9
+Start point:
+8
+Goals:
+1 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1,8 1,8 1,
+********************************
+Test 218 :
+Heuristic:
+0 0 0 0 0 4 0 3 9
+Start point:
+6
+Goals:
+1 2 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 219 :
+Heuristic:
+0 2 10 3 3 7 8 0 8
+Start point:
+2
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 6 3 5 4 7,2 7,2 7,
+********************************
+Test 220 :
+Heuristic:
+0 10 0 9 4 0 1 7 4
+Start point:
+3
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2,3 2,3 2,
+********************************
+Test 221 :
+Heuristic:
+0 0 2 0 0 0 0 0 3
+Start point:
+1
+Goals:
+1 3 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 222 :
+Heuristic:
+0 1 9 0 0 0 0 0 0
+Start point:
+3
+Goals:
+3 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 223 :
+Heuristic:
+0 0 4 2 1 1 5 10 1
+Start point:
+3
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 1,3 1,
+********************************
+Test 224 :
+Heuristic:
+0 0 0 0 0 0 8 2 0
+Start point:
+8
+Goals:
+1 2 3 4 5 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 225 :
+Heuristic:
+0 5 6 3 3 10 0 3 0
+Start point:
+2
+Goals:
+8 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 6,2 6,2 6,
+********************************
+Test 226 :
+Heuristic:
+0 0 0 0 8 2 2 4 0
+Start point:
+6
+Goals:
+8 1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 2,6 2,
+********************************
+Test 227 :
+Heuristic:
+0 0 4 0 4 0 4 0 0
+Start point:
+7
+Goals:
+1 3 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 228 :
+Heuristic:
+0 8 4 0 0 0 0 6 0
+Start point:
+4
+Goals:
+3 4 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 229 :
+Heuristic:
+0 0 3 1 0 0 2 9 0
+Start point:
+8
+Goals:
+8 1 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 230 :
+Heuristic:
+0 1 1 0 0 2 0 8 7
+Start point:
+8
+Goals:
+3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1 2 6,8 5 3,8 5 3,
+********************************
+Test 231 :
+Heuristic:
+0 0 1 8 4 0 7 0 0
+Start point:
+5
+Goals:
+8 1 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 232 :
+Heuristic:
+0 5 8 0 0 3 0 10 7
+Start point:
+5
+Goals:
+3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 2 6,5 3,5 3,
+********************************
+Test 233 :
+Heuristic:
+0 0 0 0 0 0 4 0 0
+Start point:
+2
+Goals:
+1 2 3 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 234 :
+Heuristic:
+0 1 0 8 0 10 4 0 0
+Start point:
+3
+Goals:
+8 2 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2,3 2,3 2,
+********************************
+Test 235 :
+Heuristic:
+0 4 3 4 0 8 0 8 0
+Start point:
+4
+Goals:
+8 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 236 :
+Heuristic:
+0 0 4 8 8 5 2 10 4
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 237 :
+Heuristic:
+0 0 6 0 6 0 0 0 4
+Start point:
+4
+Goals:
+1 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 1,4 7,4 7,
+********************************
+Test 238 :
+Heuristic:
+0 9 4 8 5 0 0 4 6
+Start point:
+4
+Goals:
+5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 6,4 8 5,4 8 5,
+********************************
+Test 239 :
+Heuristic:
+0 9 0 0 6 0 10 4 6
+Start point:
+4
+Goals:
+2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 240 :
+Heuristic:
+0 0 0 4 10 0 0 0 6
+Start point:
+6
+Goals:
+1 2 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 241 :
+Heuristic:
+0 0 5 9 0 8 0 0 3
+Start point:
+8
+Goals:
+1 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1,8 1,8 1,
+********************************
+Test 242 :
+Heuristic:
+0 2 0 0 5 3 5 0 3
+Start point:
+7
+Goals:
+2 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 243 :
+Heuristic:
+0 0 1 0 0 1 0 9 0
+Start point:
+1
+Goals:
+1 3 4 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 244 :
+Heuristic:
+0 0 0 0 10 2 3 8 3
+Start point:
+2
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 245 :
+Heuristic:
+0 7 5 2 1 10 10 0 8
+Start point:
+2
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 6 3 5 4 7,2 7,2 7,
+********************************
+Test 246 :
+Heuristic:
+0 4 6 0 0 5 0 10 0
+Start point:
+7
+Goals:
+8 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 2 6,7 3,7 3,
+********************************
+Test 247 :
+Heuristic:
+0 8 0 0 2 8 0 0 3
+Start point:
+8
+Goals:
+2 3 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1 2,8 2,8 2,
+********************************
+Test 248 :
+Heuristic:
+0 6 5 1 6 10 0 8 5
+Start point:
+8
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1 2 6,8 5 6,8 2 6,
+********************************
+Test 249 :
+Heuristic:
+0 8 0 3 10 8 0 0 0
+Start point:
+4
+Goals:
+8 2 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 250 :
+Heuristic:
+0 2 1 2 8 9 2 6 0
+Start point:
+6
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 2 7 3 5 4 8,6 8,6 8,
+********************************
+Test 251 :
+Heuristic:
+0 1 0 5 0 0 0 1 0
+Start point:
+1
+Goals:
+2 4 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 252 :
+Heuristic:
+0 0 0 0 10 1 6 6 4
+Start point:
+5
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 2,5 2,
+********************************
+Test 253 :
+Heuristic:
+0 0 0 0 0 0 2 3 4
+Start point:
+5
+Goals:
+1 2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 254 :
+Heuristic:
+0 0 6 0 10 0 6 8 0
+Start point:
+5
+Goals:
+8 1 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 255 :
+Heuristic:
+0 0 0 4 2 0 10 7 7
+Start point:
+8
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1,8 2,8 2,
+********************************
+Test 256 :
+Heuristic:
+0 0 0 0 1 6 2 6 3
+Start point:
+1
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 257 :
+Heuristic:
+0 6 0 0 0 0 10 0 0
+Start point:
+2
+Goals:
+2 3 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 258 :
+Heuristic:
+0 0 0 0 0 4 7 0 0
+Start point:
+3
+Goals:
+1 2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 259 :
+Heuristic:
+0 0 3 10 8 4 10 7 6
+Start point:
+7
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1,7 1,7 1,
+********************************
+Test 260 :
+Heuristic:
+0 5 0 0 9 5 0 0 5
+Start point:
+5
+Goals:
+2 3 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 2,5 7,5 7,
+********************************
+Test 261 :
+Heuristic:
+0 8 9 5 0 2 6 2 2
+Start point:
+5
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 2 6 4,5 4,5 4,
+********************************
+Test 262 :
+Heuristic:
+0 0 0 10 9 0 4 0 9
+Start point:
+4
+Goals:
+1 2 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 263 :
+Heuristic:
+0 0 4 0 8 0 0 0 0
+Start point:
+5
+Goals:
+1 3 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 264 :
+Heuristic:
+0 0 1 0 4 3 10 0 3
+Start point:
+4
+Goals:
+1 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 1,4 7,4 7,
+********************************
+Test 265 :
+Heuristic:
+0 4 0 0 0 0 0 6 5
+Start point:
+6
+Goals:
+2 3 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 266 :
+Heuristic:
+0 7 7 0 3 5 8 0 9
+Start point:
+5
+Goals:
+3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 2 6 3,5 7,5 7,
+********************************
+Test 267 :
+Heuristic:
+0 0 3 0 0 5 0 4 8
+Start point:
+3
+Goals:
+1 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 268 :
+Heuristic:
+0 0 0 7 0 0 7 9 10
+Start point:
+5
+Goals:
+1 2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 269 :
+Heuristic:
+0 0 0 7 0 8 0 0 8
+Start point:
+1
+Goals:
+1 2 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 270 :
+Heuristic:
+0 0 8 0 1 8 4 3 8
+Start point:
+2
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 271 :
+Heuristic:
+0 3 0 9 4 5 6 7 5
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 272 :
+Heuristic:
+0 6 9 4 1 4 1 0 0
+Start point:
+2
+Goals:
+8 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 6 3 5 4 7,2 7,2 7,
+********************************
+Test 273 :
+Heuristic:
+0 4 9 0 0 0 0 0 0
+Start point:
+5
+Goals:
+3 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 274 :
+Heuristic:
+0 9 0 0 1 7 8 0 0
+Start point:
+4
+Goals:
+8 2 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 275 :
+Heuristic:
+0 8 6 10 3 10 3 0 0
+Start point:
+3
+Goals:
+8 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2 6 4 7,3 5 7,3 2 7,
+********************************
+Test 276 :
+Heuristic:
+0 0 10 4 0 3 10 0 0
+Start point:
+2
+Goals:
+8 1 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 277 :
+Heuristic:
+0 7 0 0 5 0 0 0 0
+Start point:
+3
+Goals:
+2 3 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 278 :
+Heuristic:
+0 0 0 0 4 3 0 1 0
+Start point:
+6
+Goals:
+1 2 3 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 279 :
+Heuristic:
+0 2 9 5 0 0 0 2 5
+Start point:
+6
+Goals:
+4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 280 :
+Heuristic:
+0 0 0 0 0 6 4 1 0
+Start point:
+4
+Goals:
+1 2 3 4 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 281 :
+Heuristic:
+0 5 0 0 10 4 3 0 0
+Start point:
+4
+Goals:
+8 2 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 282 :
+Heuristic:
+0 6 0 8 0 7 0 0 3
+Start point:
+2
+Goals:
+2 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 283 :
+Heuristic:
+0 2 2 0 8 0 9 0 1
+Start point:
+2
+Goals:
+3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 6 3,2 7,2 7,
+********************************
+Test 284 :
+Heuristic:
+0 0 0 6 1 0 0 7 0
+Start point:
+5
+Goals:
+1 2 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 285 :
+Heuristic:
+0 5 2 0 0 0 0 0 0
+Start point:
+5
+Goals:
+3 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 286 :
+Heuristic:
+0 0 0 6 0 5 0 0 7
+Start point:
+3
+Goals:
+1 2 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 2,3 2,
+********************************
+Test 287 :
+Heuristic:
+0 4 0 7 0 3 3 9 9
+Start point:
+1
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 288 :
+Heuristic:
+0 4 0 10 0 0 10 10 6
+Start point:
+1
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 289 :
+Heuristic:
+0 0 2 0 0 2 7 0 0
+Start point:
+6
+Goals:
+1 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 3,6 3,
+********************************
+Test 290 :
+Heuristic:
+0 0 7 8 8 6 5 7 0
+Start point:
+1
+Goals:
+8 1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 291 :
+Heuristic:
+0 6 9 0 9 5 7 8 8
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 292 :
+Heuristic:
+0 3 4 0 3 8 7 6 0
+Start point:
+5
+Goals:
+8 3
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 2 6 3,5 3,5 3,
+********************************
+Test 293 :
+Heuristic:
+0 7 4 0 9 0 0 5 5
+Start point:
+3
+Goals:
+3 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 294 :
+Heuristic:
+0 5 7 7 7 0 10 8 10
+Start point:
+5
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 295 :
+Heuristic:
+0 10 6 0 0 0 10 0 10
+Start point:
+7
+Goals:
+3 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 296 :
+Heuristic:
+0 0 8 9 5 6 10 0 0
+Start point:
+2
+Goals:
+8 1 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 297 :
+Heuristic:
+0 0 2 3 2 0 3 5 0
+Start point:
+7
+Goals:
+8 1 5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1,7 3 5,7 8,
+********************************
+Test 298 :
+Heuristic:
+0 6 0 2 8 4 7 8 7
+Start point:
+4
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 299 :
+Heuristic:
+0 3 5 3 10 0 0 3 9
+Start point:
+4
+Goals:
+5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 6,4 8 5,4 2 6,
+********************************
+Test 300 :
+Heuristic:
+0 9 10 2 0 0 0 5 7
+Start point:
+2
+Goals:
+4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 6,2 6,2 6,
+================================================================
+Size of cost matrix:
+11
+Cost matrix:
+0 0 0 0 0 0 0 0 0 0 0
+0 0 8 10 2 -1 -1 -1 -1 -1 -1
+0 -1 0 5 -1 -1 7 9 1 5 -1
+0 10 6 0 -1 9 -1 1 3 4 -1
+0 -1 10 1 0 -1 -1 -1 7 8 -1
+0 -1 2 9 4 0 -1 4 -1 1 -1
+0 6 5 -1 4 -1 0 -1 7 7 -1
+0 6 -1 -1 -1 5 10 0 -1 9 5
+0 10 8 -1 3 -1 7 5 0 3 8
+0 -1 2 9 -1 5 7 -1 10 0 7
+0 -1 -1 7 5 -1 -1 -1 -1 8 0
+********************************
+Test 301 :
+Heuristic:
+0 4 5 1 0 0 0 4 10 0 3
+Start point:
+2
+Goals:
+9 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 1 4,2 8 4,2 9,
+********************************
+Test 302 :
+Heuristic:
+0 0 1 6 0 0 0 6 9 6 8
+Start point:
+4
+Goals:
+1 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 303 :
+Heuristic:
+0 2 0 0 0 7 2 0 0 5 2
+Start point:
+3
+Goals:
+2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 304 :
+Heuristic:
+0 7 0 0 0 0 1 5 0 9 0
+Start point:
+6
+Goals:
+2 3 4 5 8 10
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 2,6 4,6 4,
+********************************
+Test 305 :
+Heuristic:
+0 7 0 6 4 9 9 4 9 8 8
+Start point:
+10
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3 1 2,10 9 2,10 4 3 2,
+********************************
+Test 306 :
+Heuristic:
+0 5 5 10 6 6 0 4 3 10 0
+Start point:
+6
+Goals:
+10 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 307 :
+Heuristic:
+0 4 5 0 0 0 0 0 3 3 3
+Start point:
+7
+Goals:
+3 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 308 :
+Heuristic:
+0 9 3 0 0 7 0 0 2 4 0
+Start point:
+5
+Goals:
+3 4 6 7 10
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2 3,5 4,5 4,
+********************************
+Test 309 :
+Heuristic:
+0 0 0 5 10 0 2 6 10 1 0
+Start point:
+4
+Goals:
+1 10 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 3 2,4 3 2,
+********************************
+Test 310 :
+Heuristic:
+0 7 4 0 0 0 5 10 0 0 5
+Start point:
+5
+Goals:
+3 4 5 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 311 :
+Heuristic:
+0 3 10 10 0 9 0 10 0 8 10
+Start point:
+3
+Goals:
+8 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2 6,3 8,3 8,
+********************************
+Test 312 :
+Heuristic:
+0 5 3 1 4 8 6 0 0 0 0
+Start point:
+7
+Goals:
+8 9 10 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 313 :
+Heuristic:
+0 1 0 0 0 8 1 4 1 0 6
+Start point:
+5
+Goals:
+9 2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2,5 9,5 9,
+********************************
+Test 314 :
+Heuristic:
+0 8 0 0 4 1 9 0 3 2 0
+Start point:
+10
+Goals:
+3 2 10 7
+Correct Answer: (',' separates dfs, ucs and a*)
+10,10,10,
+********************************
+Test 315 :
+Heuristic:
+0 0 3 4 2 4 3 1 8 2 6
+Start point:
+5
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2 3 1,5 7 1,5 7 1,
+********************************
+Test 316 :
+Heuristic:
+0 3 7 7 8 5 10 0 4 2 7
+Start point:
+1
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 3 5 4 8 7,1 4 3 7,1 4 3 7,
+********************************
+Test 317 :
+Heuristic:
+0 0 0 8 6 4 9 0 0 0 7
+Start point:
+10
+Goals:
+1 2 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3 1,10 4 3 7,10 9,
+********************************
+Test 318 :
+Heuristic:
+0 0 0 0 10 8 4 10 8 0 7
+Start point:
+8
+Goals:
+9 2 3 1
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1,8 9,8 9,
+********************************
+Test 319 :
+Heuristic:
+0 8 1 9 0 0 8 6 2 0 0
+Start point:
+6
+Goals:
+9 10 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 2 3 5,6 4,6 4,
+********************************
+Test 320 :
+Heuristic:
+0 9 2 9 0 2 7 10 7 3 6
+Start point:
+6
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 2 3 5 4,6 4,6 4,
+********************************
+Test 321 :
+Heuristic:
+0 8 7 1 8 0 0 1 6 9 8
+Start point:
+10
+Goals:
+5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3 1 2 6,10 4 3 7 5,10 3 7 5,
+********************************
+Test 322 :
+Heuristic:
+0 9 7 0 6 0 3 0 0 0 9
+Start point:
+8
+Goals:
+3 5 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 323 :
+Heuristic:
+0 7 0 0 0 0 0 7 0 1 0
+Start point:
+8
+Goals:
+2 3 4 5 6 8 10
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 324 :
+Heuristic:
+0 0 0 0 0 3 9 0 0 5 5
+Start point:
+4
+Goals:
+1 2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 325 :
+Heuristic:
+0 7 1 2 3 1 4 9 8 3 0
+Start point:
+9
+Goals:
+10
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2 3 1 4 8 7 10,9 10,9 10,
+********************************
+Test 326 :
+Heuristic:
+0 7 8 9 9 0 3 0 1 7 3
+Start point:
+1
+Goals:
+5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 3 5,1 4 3 7,1 4 3 7,
+********************************
+Test 327 :
+Heuristic:
+0 1 8 8 1 0 5 3 10 0 8
+Start point:
+8
+Goals:
+9 5
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1 2 3 5,8 9,8 9,
+********************************
+Test 328 :
+Heuristic:
+0 0 9 4 2 2 0 0 0 6 4
+Start point:
+9
+Goals:
+8 1 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2 3 1,9 2 8,9 6,
+********************************
+Test 329 :
+Heuristic:
+0 0 5 7 8 2 0 0 4 5 8
+Start point:
+4
+Goals:
+1 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3 1,4 3 7,4 3 7,
+********************************
+Test 330 :
+Heuristic:
+0 0 0 1 0 5 0 0 8 0 6
+Start point:
+7
+Goals:
+1 2 4 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 331 :
+Heuristic:
+0 0 0 1 3 0 3 3 0 0 7
+Start point:
+3
+Goals:
+1 2 5 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 8,3 8,
+********************************
+Test 332 :
+Heuristic:
+0 0 0 0 2 4 4 3 2 2 4
+Start point:
+6
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 2,6 2,
+********************************
+Test 333 :
+Heuristic:
+0 9 9 2 0 0 9 5 0 0 0
+Start point:
+8
+Goals:
+4 5 8 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 334 :
+Heuristic:
+0 10 0 6 8 1 10 7 10 6 10
+Start point:
+9
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2,9 2,9 2,
+********************************
+Test 335 :
+Heuristic:
+0 1 0 4 3 2 1 0 1 5 0
+Start point:
+2
+Goals:
+10 2 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 336 :
+Heuristic:
+0 1 0 0 9 7 7 2 0 1 5
+Start point:
+6
+Goals:
+8 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 2,6 2,6 2,
+********************************
+Test 337 :
+Heuristic:
+0 0 4 0 2 0 2 0 0 1 10
+Start point:
+6
+Goals:
+1 3 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 4 3,6 1,
+********************************
+Test 338 :
+Heuristic:
+0 0 4 0 6 6 0 0 10 5 4
+Start point:
+4
+Goals:
+1 3 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 3,4 3,
+********************************
+Test 339 :
+Heuristic:
+0 0 0 4 2 0 0 0 7 5 0
+Start point:
+5
+Goals:
+1 2 5 6 7 10
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 340 :
+Heuristic:
+0 0 7 0 4 4 6 10 0 7 0
+Start point:
+4
+Goals:
+8 1 10 3
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 3,4 3,
+********************************
+Test 341 :
+Heuristic:
+0 5 0 0 0 4 6 5 0 0 4
+Start point:
+10
+Goals:
+2 3 4 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3,10 4,10 4,
+********************************
+Test 342 :
+Heuristic:
+0 0 0 0 7 0 3 8 6 0 0
+Start point:
+2
+Goals:
+1 2 3 5 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 343 :
+Heuristic:
+0 0 0 0 10 8 6 1 5 0 0
+Start point:
+5
+Goals:
+1 2 3 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2,5 9,5 9,
+********************************
+Test 344 :
+Heuristic:
+0 2 0 6 0 0 0 1 0 7 10
+Start point:
+9
+Goals:
+2 4 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2,9 2,9 2,
+********************************
+Test 345 :
+Heuristic:
+0 3 9 1 1 8 9 4 10 0 5
+Start point:
+10
+Goals:
+9
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3 1 2 6 4 8 7 5 9,10 9,10 9,
+********************************
+Test 346 :
+Heuristic:
+0 4 4 0 0 0 0 3 0 0 0
+Start point:
+9
+Goals:
+3 4 5 6 8 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 347 :
+Heuristic:
+0 5 0 9 9 5 1 6 4 0 3
+Start point:
+8
+Goals:
+9 2
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1 2,8 9,8 9,
+********************************
+Test 348 :
+Heuristic:
+0 1 0 3 0 0 1 3 5 0 9
+Start point:
+3
+Goals:
+9 2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2,3 9,3 9,
+********************************
+Test 349 :
+Heuristic:
+0 0 7 0 0 8 0 4 6 0 0
+Start point:
+5
+Goals:
+1 3 4 6 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2 3,5 9,5 9,
+********************************
+Test 350 :
+Heuristic:
+0 0 8 0 0 0 0 0 0 0 0
+Start point:
+9
+Goals:
+1 3 4 5 6 7 8 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 351 :
+Heuristic:
+0 0 0 6 1 0 0 0 0 2 4
+Start point:
+5
+Goals:
+1 2 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 352 :
+Heuristic:
+0 0 0 8 0 10 10 1 0 0 0
+Start point:
+10
+Goals:
+1 2 4 8 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+10,10,10,
+********************************
+Test 353 :
+Heuristic:
+0 0 6 0 0 9 1 2 0 5 0
+Start point:
+7
+Goals:
+1 3 4 8 10
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1,7 10,7 10,
+********************************
+Test 354 :
+Heuristic:
+0 8 10 9 0 2 10 1 4 0 0
+Start point:
+9
+Goals:
+9 10 4
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 355 :
+Heuristic:
+0 7 0 4 0 4 1 0 3 5 6
+Start point:
+4
+Goals:
+2 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 356 :
+Heuristic:
+0 6 9 0 0 0 0 0 6 0 6
+Start point:
+9
+Goals:
+3 4 5 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 357 :
+Heuristic:
+0 7 6 1 6 5 8 6 0 10 2
+Start point:
+4
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3 5 7 6 8,4 3 8,4 3 8,
+********************************
+Test 358 :
+Heuristic:
+0 7 6 9 8 2 0 1 4 3 0
+Start point:
+6
+Goals:
+10 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 359 :
+Heuristic:
+0 0 6 2 6 5 3 9 3 7 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 1,2 8 1,2 8 1,
+********************************
+Test 360 :
+Heuristic:
+0 0 0 10 4 0 8 0 6 0 0
+Start point:
+9
+Goals:
+1 2 5 7 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 361 :
+Heuristic:
+0 9 6 3 2 6 2 4 6 0 7
+Start point:
+7
+Goals:
+9
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 2 3 5 4 8 6 9,7 5 9,7 9,
+********************************
+Test 362 :
+Heuristic:
+0 0 7 9 7 8 4 2 10 4 0
+Start point:
+2
+Goals:
+1 10
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 1,2 8 10,2 8 10,
+********************************
+Test 363 :
+Heuristic:
+0 0 0 3 0 3 0 6 0 8 9
+Start point:
+3
+Goals:
+1 2 4 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 8,3 8,
+********************************
+Test 364 :
+Heuristic:
+0 1 10 3 0 0 0 10 0 2 0
+Start point:
+6
+Goals:
+4 5 6 8 10
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 365 :
+Heuristic:
+0 0 8 5 8 1 7 0 7 3 7
+Start point:
+5
+Goals:
+1 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2 3 1,5 7,5 7,
+********************************
+Test 366 :
+Heuristic:
+0 4 0 9 4 0 2 8 0 9 1
+Start point:
+7
+Goals:
+8 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 2,7 5,7 5,
+********************************
+Test 367 :
+Heuristic:
+0 3 10 0 0 8 0 7 0 7 0
+Start point:
+6
+Goals:
+3 4 6 8 10
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 368 :
+Heuristic:
+0 0 10 0 0 0 4 9 5 0 0
+Start point:
+5
+Goals:
+1 3 4 5 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 369 :
+Heuristic:
+0 0 0 1 7 6 5 5 4 4 6
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 2,3 2,
+********************************
+Test 370 :
+Heuristic:
+0 0 0 6 0 5 8 0 0 7 7
+Start point:
+9
+Goals:
+1 2 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2,9 2,9 2,
+********************************
+Test 371 :
+Heuristic:
+0 2 0 0 0 0 0 2 0 7 0
+Start point:
+9
+Goals:
+2 3 4 5 6 8 10
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2,9 2,9 2,
+********************************
+Test 372 :
+Heuristic:
+0 8 2 7 5 4 5 7 0 7 1
+Start point:
+5
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2 3 1 4 8,5 2 8,5 2 8,
+********************************
+Test 373 :
+Heuristic:
+0 6 0 7 7 9 0 2 0 0 10
+Start point:
+3
+Goals:
+8 9 2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2,3 8,3 8,
+********************************
+Test 374 :
+Heuristic:
+0 0 3 10 7 5 0 1 0 6 0
+Start point:
+2
+Goals:
+8 1 10 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 1,2 8,2 8,
+********************************
+Test 375 :
+Heuristic:
+0 0 0 0 6 0 0 6 0 3 3
+Start point:
+7
+Goals:
+1 2 3 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1,7 5,7 5,
+********************************
+Test 376 :
+Heuristic:
+0 8 1 8 0 10 0 0 0 3 4
+Start point:
+3
+Goals:
+8 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1 2 6,3 7,3 7,
+********************************
+Test 377 :
+Heuristic:
+0 6 0 5 8 8 8 3 0 0 8
+Start point:
+9
+Goals:
+8 9 2
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 378 :
+Heuristic:
+0 0 4 0 0 1 1 2 7 0 0
+Start point:
+10
+Goals:
+1 3 4 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+10,10,10,
+********************************
+Test 379 :
+Heuristic:
+0 0 6 2 3 6 0 10 4 0 5
+Start point:
+4
+Goals:
+1 6 9
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3 1,4 3 9,4 3 9,
+********************************
+Test 380 :
+Heuristic:
+0 4 0 0 9 6 0 0 0 0 0
+Start point:
+10
+Goals:
+2 3 6 7 8 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+10,10,10,
+********************************
+Test 381 :
+Heuristic:
+0 2 4 6 0 9 4 9 0 9 6
+Start point:
+9
+Goals:
+8 4
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2 3 1 4,9 2 8,9 2 8,
+********************************
+Test 382 :
+Heuristic:
+0 7 0 2 0 8 0 0 0 1 2
+Start point:
+8
+Goals:
+2 4 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 383 :
+Heuristic:
+0 8 1 0 0 6 0 5 0 7 3
+Start point:
+8
+Goals:
+8 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 384 :
+Heuristic:
+0 0 0 0 5 0 6 0 1 7 0
+Start point:
+2
+Goals:
+1 2 3 5 7 10
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 385 :
+Heuristic:
+0 6 7 1 5 1 0 0 0 0 0
+Start point:
+9
+Goals:
+6 7 8 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 386 :
+Heuristic:
+0 0 4 3 9 4 8 0 0 7 4
+Start point:
+6
+Goals:
+8 1 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 1,6 1,
+********************************
+Test 387 :
+Heuristic:
+0 9 9 0 6 5 3 0 0 8 0
+Start point:
+4
+Goals:
+8 10 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 3,4 3,
+********************************
+Test 388 :
+Heuristic:
+0 2 5 0 0 0 0 0 0 2 3
+Start point:
+10
+Goals:
+3 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3,10 4,10 4,
+********************************
+Test 389 :
+Heuristic:
+0 0 2 9 1 2 5 5 9 4 0
+Start point:
+9
+Goals:
+1 10
+Correct Answer: (',' separates dfs, ucs and a*)
+9 2 3 1,9 10,9 10,
+********************************
+Test 390 :
+Heuristic:
+0 2 0 3 0 0 0 3 0 0 2
+Start point:
+9
+Goals:
+2 4 5 6 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 391 :
+Heuristic:
+0 0 1 0 0 7 2 0 0 3 6
+Start point:
+4
+Goals:
+1 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 392 :
+Heuristic:
+0 7 9 8 0 0 4 10 1 0 0
+Start point:
+4
+Goals:
+9 10 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 393 :
+Heuristic:
+0 1 8 3 0 0 3 3 3 0 6
+Start point:
+2
+Goals:
+9 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 1 4,2 8 4,2 8 4,
+********************************
+Test 394 :
+Heuristic:
+0 0 8 1 6 7 9 5 9 0 0
+Start point:
+8
+Goals:
+9 10 1
+Correct Answer: (',' separates dfs, ucs and a*)
+8 1,8 9,8 9,
+********************************
+Test 395 :
+Heuristic:
+0 3 10 2 8 0 0 0 0 0 8
+Start point:
+10
+Goals:
+5 6 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+10 3 1 2 6,10 4 3 7,10 9,
+********************************
+Test 396 :
+Heuristic:
+0 10 5 0 3 6 9 5 0 0 6
+Start point:
+7
+Goals:
+8 9 3
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 2 3,7 5 9,7 9,
+********************************
+Test 397 :
+Heuristic:
+0 0 0 2 0 4 0 0 10 0 0
+Start point:
+5
+Goals:
+1 2 4 6 7 9 10
+Correct Answer: (',' separates dfs, ucs and a*)
+5 2,5 9,5 9,
+********************************
+Test 398 :
+Heuristic:
+0 7 0 0 0 4 0 10 0 7 6
+Start point:
+7
+Goals:
+2 3 4 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 2,7 5 2,7 5 2,
+********************************
+Test 399 :
+Heuristic:
+0 1 7 2 9 0 0 3 7 2 9
+Start point:
+6
+Goals:
+5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 400 :
+Heuristic:
+0 0 8 1 0 0 3 4 2 0 10
+Start point:
+1
+Goals:
+9 4 5 1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+================================================================
+Size of cost matrix:
+9
+Cost matrix:
+0 0 0 0 0 0 0 0 0
+0 0 6 -1 8 6 -1 8 -1
+0 -1 0 -1 6 -1 -1 6 7
+0 -1 6 0 3 5 2 8 3
+0 -1 -1 8 0 1 2 -1 -1
+0 -1 -1 7 -1 0 1 -1 -1
+0 -1 -1 -1 7 4 0 -1 4
+0 -1 -1 -1 -1 5 -1 0 -1
+0 -1 -1 5 -1 2 3 1 0
+********************************
+Test 401 :
+Heuristic:
+0 1 4 0 4 8 2 2 6
+Start point:
+8
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+8 3,8 3,8 3,
+********************************
+Test 402 :
+Heuristic:
+0 0 4 0 2 3 2 2 3
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 403 :
+Heuristic:
+0 0 0 6 8 4 4 6 8
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 404 :
+Heuristic:
+0 0 0 0 3 4 9 0 9
+Start point:
+1
+Goals:
+1 2 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 405 :
+Heuristic:
+0 5 0 1 0 0 10 9 0
+Start point:
+7
+Goals:
+8 2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5,7 5,7 5,
+********************************
+Test 406 :
+Heuristic:
+0 0 7 6 9 1 0 0 0
+Start point:
+3
+Goals:
+8 1 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 4 5 6,3 6,3 6,
+********************************
+Test 407 :
+Heuristic:
+0 8 0 9 0 8 3 0 0
+Start point:
+7
+Goals:
+8 2 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 408 :
+Heuristic:
+0 10 5 0 0 0 0 8 0
+Start point:
+8
+Goals:
+3 4 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 409 :
+Heuristic:
+0 2 0 0 3 1 4 6 5
+Start point:
+7
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5 3,7 5 3,7 5 3,
+********************************
+Test 410 :
+Heuristic:
+0 0 0 10 0 0 5 0 0
+Start point:
+7
+Goals:
+1 2 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 411 :
+Heuristic:
+0 0 0 6 3 0 1 0 0
+Start point:
+5
+Goals:
+1 2 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 412 :
+Heuristic:
+0 5 7 8 8 6 0 9 6
+Start point:
+3
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 4 5 6,3 6,3 6,
+********************************
+Test 413 :
+Heuristic:
+0 7 8 8 9 8 0 0 7
+Start point:
+1
+Goals:
+6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 4 3 5 6,1 5 6,1 7,
+********************************
+Test 414 :
+Heuristic:
+0 2 10 0 0 4 0 3 8
+Start point:
+7
+Goals:
+3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5 3,7 5 6,7 5 6,
+********************************
+Test 415 :
+Heuristic:
+0 1 3 9 0 7 7 9 2
+Start point:
+5
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 3 2 4,5 6 4,5 6 4,
+********************************
+Test 416 :
+Heuristic:
+0 0 0 6 7 9 6 7 10
+Start point:
+7
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5 3 2,7 5 3 2,7 5 3 2,
+********************************
+Test 417 :
+Heuristic:
+0 1 0 1 0 9 2 0 8
+Start point:
+3
+Goals:
+2 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 4,3 4,
+********************************
+Test 418 :
+Heuristic:
+0 5 5 0 0 7 8 10 0
+Start point:
+1
+Goals:
+8 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 4,1 4,1 4,
+********************************
+Test 419 :
+Heuristic:
+0 0 10 1 5 10 8 7 0
+Start point:
+2
+Goals:
+8 1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 4 3 5 6 8,2 8,2 8,
+********************************
+Test 420 :
+Heuristic:
+0 0 0 0 0 5 8 0 0
+Start point:
+7
+Goals:
+1 2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 421 :
+Heuristic:
+0 0 9 7 5 0 10 8 0
+Start point:
+5
+Goals:
+8 1 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 422 :
+Heuristic:
+0 0 9 10 0 0 10 0 5
+Start point:
+6
+Goals:
+1 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6 4,6 5,6 5,
+********************************
+Test 423 :
+Heuristic:
+0 8 9 0 5 0 7 0 0
+Start point:
+5
+Goals:
+8 3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 424 :
+Heuristic:
+0 9 0 9 0 9 5 8 0
+Start point:
+1
+Goals:
+8 2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 425 :
+Heuristic:
+0 10 3 10 10 0 6 2 1
+Start point:
+4
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3 2 7 5,4 5,4 5,
+********************************
+Test 426 :
+Heuristic:
+0 0 0 2 5 10 0 8 8
+Start point:
+1
+Goals:
+1 2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 427 :
+Heuristic:
+0 0 0 0 0 2 8 0 0
+Start point:
+7
+Goals:
+1 2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 428 :
+Heuristic:
+0 0 0 0 6 0 0 1 0
+Start point:
+8
+Goals:
+1 2 3 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 429 :
+Heuristic:
+0 10 5 5 0 3 8 2 10
+Start point:
+1
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 4,1 4,1 4,
+********************************
+Test 430 :
+Heuristic:
+0 7 10 0 0 7 8 1 0
+Start point:
+8
+Goals:
+8 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 431 :
+Heuristic:
+0 0 0 0 8 0 0 0 5
+Start point:
+7
+Goals:
+1 2 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 432 :
+Heuristic:
+0 0 0 0 8 0 0 0 6
+Start point:
+6
+Goals:
+1 2 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 433 :
+Heuristic:
+0 0 0 5 10 5 0 4 0
+Start point:
+4
+Goals:
+8 1 2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3 2,4 5 6,4 6,
+********************************
+Test 434 :
+Heuristic:
+0 7 0 10 6 0 1 7 0
+Start point:
+8
+Goals:
+8 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 435 :
+Heuristic:
+0 10 7 0 7 2 0 7 0
+Start point:
+5
+Goals:
+8 3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 3,5 6,5 6,
+********************************
+Test 436 :
+Heuristic:
+0 7 3 2 0 0 10 3 5
+Start point:
+1
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 4,1 5,1 5,
+********************************
+Test 437 :
+Heuristic:
+0 0 6 0 5 0 0 6 0
+Start point:
+6
+Goals:
+1 3 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 438 :
+Heuristic:
+0 0 0 5 4 0 0 0 0
+Start point:
+7
+Goals:
+1 2 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 439 :
+Heuristic:
+0 0 0 0 0 7 0 0 4
+Start point:
+2
+Goals:
+1 2 3 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 440 :
+Heuristic:
+0 0 0 8 1 6 0 0 10
+Start point:
+2
+Goals:
+1 2 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 441 :
+Heuristic:
+0 9 10 0 8 0 7 9 1
+Start point:
+4
+Goals:
+3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3,4 5,4 5,
+********************************
+Test 442 :
+Heuristic:
+0 0 8 7 0 0 0 6 5
+Start point:
+5
+Goals:
+1 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 443 :
+Heuristic:
+0 8 2 1 1 5 0 7 2
+Start point:
+1
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 4 3 5 6,1 5 6,1 4 6,
+********************************
+Test 444 :
+Heuristic:
+0 9 9 4 0 2 0 7 10
+Start point:
+5
+Goals:
+4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 3 2 4,5 6,5 6,
+********************************
+Test 445 :
+Heuristic:
+0 7 0 0 0 1 0 0 0
+Start point:
+4
+Goals:
+2 3 4 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 446 :
+Heuristic:
+0 0 7 0 0 0 5 0 0
+Start point:
+4
+Goals:
+1 3 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 447 :
+Heuristic:
+0 0 3 8 2 6 0 8 0
+Start point:
+1
+Goals:
+8 1 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 448 :
+Heuristic:
+0 0 7 1 4 0 0 0 0
+Start point:
+1
+Goals:
+1 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 449 :
+Heuristic:
+0 0 0 10 0 6 5 2 0
+Start point:
+4
+Goals:
+8 1 2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 450 :
+Heuristic:
+0 0 0 7 1 0 0 0 0
+Start point:
+7
+Goals:
+1 2 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 451 :
+Heuristic:
+0 5 4 9 5 1 0 9 0
+Start point:
+6
+Goals:
+8 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 452 :
+Heuristic:
+0 1 0 5 4 0 0 0 4
+Start point:
+7
+Goals:
+2 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 453 :
+Heuristic:
+0 9 0 9 2 7 6 1 0
+Start point:
+7
+Goals:
+8 2
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5 3 2,7 5 6 8,7 5 6 8,
+********************************
+Test 454 :
+Heuristic:
+0 0 0 7 3 0 0 4 3
+Start point:
+8
+Goals:
+1 2 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+8 3 2,8 5,8 5,
+********************************
+Test 455 :
+Heuristic:
+0 8 6 1 7 0 8 9 0
+Start point:
+7
+Goals:
+8 5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5,7 5,7 5,
+********************************
+Test 456 :
+Heuristic:
+0 5 0 7 2 0 0 9 5
+Start point:
+6
+Goals:
+2 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 457 :
+Heuristic:
+0 0 7 8 8 0 1 10 0
+Start point:
+1
+Goals:
+8 1 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 458 :
+Heuristic:
+0 6 0 0 3 5 0 1 6
+Start point:
+7
+Goals:
+2 3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5 3,7 5 6,7 5 6,
+********************************
+Test 459 :
+Heuristic:
+0 0 0 0 4 0 0 0 1
+Start point:
+5
+Goals:
+1 2 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 460 :
+Heuristic:
+0 0 9 0 0 0 10 0 0
+Start point:
+7
+Goals:
+1 3 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 461 :
+Heuristic:
+0 0 7 8 0 3 0 0 0
+Start point:
+4
+Goals:
+1 4 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 462 :
+Heuristic:
+0 0 2 2 0 0 0 0 0
+Start point:
+3
+Goals:
+1 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 4,3 6,3 6,
+********************************
+Test 463 :
+Heuristic:
+0 3 5 0 1 0 0 0 0
+Start point:
+2
+Goals:
+3 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+2 4 3,2 7,2 7,
+********************************
+Test 464 :
+Heuristic:
+0 6 0 10 4 8 4 4 10
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 465 :
+Heuristic:
+0 1 6 0 8 5 0 10 7
+Start point:
+7
+Goals:
+3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 5 3,7 5 6,7 5 6,
+********************************
+Test 466 :
+Heuristic:
+0 6 7 7 10 7 0 1 2
+Start point:
+6
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 467 :
+Heuristic:
+0 0 5 2 3 2 0 0 10
+Start point:
+4
+Goals:
+1 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3 2 7,4 5 6,4 6,
+********************************
+Test 468 :
+Heuristic:
+0 6 0 1 6 3 0 1 4
+Start point:
+4
+Goals:
+2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3 2,4 5 6,4 6,
+********************************
+Test 469 :
+Heuristic:
+0 4 2 0 8 8 6 4 4
+Start point:
+6
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+6 4 3,6 8 3,6 8 3,
+********************************
+Test 470 :
+Heuristic:
+0 0 0 9 2 0 0 10 0
+Start point:
+4
+Goals:
+1 2 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3 2,4 5,4 5,
+********************************
+Test 471 :
+Heuristic:
+0 0 0 1 0 0 1 0 0
+Start point:
+8
+Goals:
+1 2 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 472 :
+Heuristic:
+0 7 0 0 6 1 8 0 0
+Start point:
+6
+Goals:
+8 2 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6 4 3,6 8,6 8,
+********************************
+Test 473 :
+Heuristic:
+0 2 3 10 10 10 0 1 0
+Start point:
+3
+Goals:
+8 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 4 5 6,3 6,3 6,
+********************************
+Test 474 :
+Heuristic:
+0 4 0 6 0 9 0 0 3
+Start point:
+3
+Goals:
+2 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 6,3 6,
+********************************
+Test 475 :
+Heuristic:
+0 10 8 0 2 0 0 0 8
+Start point:
+7
+Goals:
+3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 476 :
+Heuristic:
+0 0 0 0 4 6 7 0 0
+Start point:
+2
+Goals:
+1 2 3 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 477 :
+Heuristic:
+0 0 4 2 9 8 5 2 6
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 478 :
+Heuristic:
+0 0 1 4 9 6 0 4 3
+Start point:
+1
+Goals:
+1 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 479 :
+Heuristic:
+0 10 0 3 4 8 9 0 0
+Start point:
+6
+Goals:
+8 2 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6 4 3 2,6 8,6 8,
+********************************
+Test 480 :
+Heuristic:
+0 4 0 0 10 0 7 0 2
+Start point:
+7
+Goals:
+2 3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 481 :
+Heuristic:
+0 1 9 1 0 8 0 0 0
+Start point:
+6
+Goals:
+8 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 482 :
+Heuristic:
+0 3 10 0 9 1 2 0 0
+Start point:
+4
+Goals:
+8 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3,4 5 6 8,4 5 6 8,
+********************************
+Test 483 :
+Heuristic:
+0 3 6 8 0 0 8 0 0
+Start point:
+3
+Goals:
+8 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 4,3 4,3 4,
+********************************
+Test 484 :
+Heuristic:
+0 0 0 0 9 5 7 9 0
+Start point:
+2
+Goals:
+8 1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 485 :
+Heuristic:
+0 0 1 0 10 2 0 7 0
+Start point:
+8
+Goals:
+8 1 3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 486 :
+Heuristic:
+0 7 0 7 3 0 0 3 0
+Start point:
+2
+Goals:
+8 2 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 487 :
+Heuristic:
+0 8 4 6 0 2 9 1 6
+Start point:
+1
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2 4,1 4,1 4,
+********************************
+Test 488 :
+Heuristic:
+0 8 0 5 0 0 0 0 9
+Start point:
+1
+Goals:
+2 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 2,1 2,1 2,
+********************************
+Test 489 :
+Heuristic:
+0 0 10 10 0 1 0 0 0
+Start point:
+7
+Goals:
+1 4 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 490 :
+Heuristic:
+0 10 0 3 0 0 0 0 0
+Start point:
+3
+Goals:
+2 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 6,3 6,
+********************************
+Test 491 :
+Heuristic:
+0 0 0 0 9 0 3 4 0
+Start point:
+8
+Goals:
+1 2 3 5 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 492 :
+Heuristic:
+0 4 2 1 2 0 2 2 2
+Start point:
+4
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 3 2 7 5,4 5,4 5,
+********************************
+Test 493 :
+Heuristic:
+0 0 4 0 3 0 2 5 9
+Start point:
+3
+Goals:
+1 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 494 :
+Heuristic:
+0 0 4 0 0 10 8 9 3
+Start point:
+5
+Goals:
+1 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 3,5 3,5 3,
+********************************
+Test 495 :
+Heuristic:
+0 2 1 8 0 6 1 0 0
+Start point:
+8
+Goals:
+8 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 496 :
+Heuristic:
+0 10 0 0 10 3 0 0 0
+Start point:
+8
+Goals:
+2 3 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 497 :
+Heuristic:
+0 0 4 0 0 0 3 0 0
+Start point:
+5
+Goals:
+1 3 4 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 498 :
+Heuristic:
+0 0 0 0 0 3 2 2 0
+Start point:
+5
+Goals:
+1 2 3 4 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5 3,5 6 8,5 6 8,
+********************************
+Test 499 :
+Heuristic:
+0 10 6 6 0 1 0 0 0
+Start point:
+4
+Goals:
+8 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 500 :
+Heuristic:
+0 10 0 0 0 0 0 10 0
+Start point:
+5
+Goals:
+2 3 4 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+================================================================
+Size of cost matrix:
+8
+Cost matrix:
+0 0 0 0 0 0 0 0
+0 0 -1 5 -1 -1 3 -1
+0 -1 0 -1 -1 5 -1 -1
+0 -1 3 0 -1 5 7 -1
+0 -1 -1 -1 0 -1 7 5
+0 1 1 -1 -1 0 6 2
+0 3 -1 3 -1 -1 0 4
+0 2 -1 5 -1 1 6 0
+********************************
+Test 501 :
+Heuristic:
+0 0 0 0 0 6 0 2
+Start point:
+4
+Goals:
+1 2 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 502 :
+Heuristic:
+0 0 0 8 1 0 0 0
+Start point:
+5
+Goals:
+1 2 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 503 :
+Heuristic:
+0 0 0 0 2 2 8 8
+Start point:
+5
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 504 :
+Heuristic:
+0 1 1 0 3 0 10 0
+Start point:
+2
+Goals:
+3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 5,2 5,2 5,
+********************************
+Test 505 :
+Heuristic:
+0 6 0 7 10 0 5 0
+Start point:
+1
+Goals:
+2 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2,1 6 7,1 6 7,
+********************************
+Test 506 :
+Heuristic:
+0 10 2 0 0 3 5 1
+Start point:
+4
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 507 :
+Heuristic:
+0 0 2 0 10 10 6 0
+Start point:
+4
+Goals:
+1 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6 1,4 7,4 7,
+********************************
+Test 508 :
+Heuristic:
+0 1 9 9 0 0 4 1
+Start point:
+4
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 509 :
+Heuristic:
+0 2 0 0 7 0 0 5
+Start point:
+4
+Goals:
+2 3 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6,4 7 5,4 6,
+********************************
+Test 510 :
+Heuristic:
+0 0 1 2 4 3 2 5
+Start point:
+3
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 5 1,3 5 1,3 5 1,
+********************************
+Test 511 :
+Heuristic:
+0 3 0 1 0 0 6 10
+Start point:
+3
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 2,3 2,
+********************************
+Test 512 :
+Heuristic:
+0 2 1 0 3 9 0 4
+Start point:
+1
+Goals:
+3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 6,1 6,
+********************************
+Test 513 :
+Heuristic:
+0 3 3 6 3 8 0 2
+Start point:
+3
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 5 1 6,3 6,3 6,
+********************************
+Test 514 :
+Heuristic:
+0 7 0 0 10 5 0 1
+Start point:
+4
+Goals:
+2 3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6,4 6,4 6,
+********************************
+Test 515 :
+Heuristic:
+0 8 0 0 7 0 7 3
+Start point:
+5
+Goals:
+2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 516 :
+Heuristic:
+0 5 1 6 0 0 7 1
+Start point:
+2
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2 5,2 5,2 5,
+********************************
+Test 517 :
+Heuristic:
+0 5 0 0 0 5 7 0
+Start point:
+4
+Goals:
+2 3 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 518 :
+Heuristic:
+0 0 8 2 9 8 2 2
+Start point:
+5
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 519 :
+Heuristic:
+0 5 10 1 0 7 0 7
+Start point:
+3
+Goals:
+4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 5 1 6,3 6,3 6,
+********************************
+Test 520 :
+Heuristic:
+0 0 10 0 0 0 0 0
+Start point:
+7
+Goals:
+1 3 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 521 :
+Heuristic:
+0 9 7 0 1 0 1 0
+Start point:
+1
+Goals:
+3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 522 :
+Heuristic:
+0 9 2 0 0 7 5 10
+Start point:
+1
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 523 :
+Heuristic:
+0 0 1 0 3 9 5 3
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 524 :
+Heuristic:
+0 10 8 2 9 6 9 0
+Start point:
+3
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 5 1 6 7,3 5 7,3 5 7,
+********************************
+Test 525 :
+Heuristic:
+0 0 0 0 4 5 10 5
+Start point:
+6
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 1,6 1,
+********************************
+Test 526 :
+Heuristic:
+0 0 0 0 9 0 7 0
+Start point:
+1
+Goals:
+1 2 3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 527 :
+Heuristic:
+0 7 0 7 4 8 3 8
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 528 :
+Heuristic:
+0 0 0 4 8 1 0 0
+Start point:
+3
+Goals:
+1 2 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 2,3 2,
+********************************
+Test 529 :
+Heuristic:
+0 0 0 0 1 0 0 4
+Start point:
+2
+Goals:
+1 2 3 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 530 :
+Heuristic:
+0 4 3 10 0 7 8 3
+Start point:
+7
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 531 :
+Heuristic:
+0 0 1 4 0 7 0 1
+Start point:
+2
+Goals:
+1 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 5 1,2 5 1,2 5 1,
+********************************
+Test 532 :
+Heuristic:
+0 0 0 1 0 4 0 8
+Start point:
+6
+Goals:
+1 2 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 533 :
+Heuristic:
+0 3 3 0 0 0 0 0
+Start point:
+6
+Goals:
+3 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 534 :
+Heuristic:
+0 3 0 4 0 9 0 1
+Start point:
+1
+Goals:
+2 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2,1 6,1 6,
+********************************
+Test 535 :
+Heuristic:
+0 0 2 0 1 4 10 0
+Start point:
+3
+Goals:
+1 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 536 :
+Heuristic:
+0 1 0 4 10 0 6 5
+Start point:
+3
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 2,3 2,
+********************************
+Test 537 :
+Heuristic:
+0 4 0 0 0 0 2 6
+Start point:
+6
+Goals:
+2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 3,6 3,6 3,
+********************************
+Test 538 :
+Heuristic:
+0 4 0 1 0 0 1 3
+Start point:
+4
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 539 :
+Heuristic:
+0 0 3 0 5 8 0 2
+Start point:
+5
+Goals:
+1 3 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 540 :
+Heuristic:
+0 8 2 0 0 0 0 0
+Start point:
+4
+Goals:
+3 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 541 :
+Heuristic:
+0 8 8 6 0 4 0 10
+Start point:
+5
+Goals:
+4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 6,5 1 6,5 6,
+********************************
+Test 542 :
+Heuristic:
+0 6 1 6 1 0 1 1
+Start point:
+3
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 5,3 5,3 5,
+********************************
+Test 543 :
+Heuristic:
+0 0 0 10 10 0 0 10
+Start point:
+5
+Goals:
+1 2 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 544 :
+Heuristic:
+0 4 3 10 3 0 2 4
+Start point:
+1
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2 5,1 6 7 5,1 6 7 5,
+********************************
+Test 545 :
+Heuristic:
+0 0 9 4 7 6 10 7
+Start point:
+6
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 1,6 1,
+********************************
+Test 546 :
+Heuristic:
+0 1 0 1 4 2 0 2
+Start point:
+7
+Goals:
+2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 3 2,7 5 2,7 5 2,
+********************************
+Test 547 :
+Heuristic:
+0 9 1 7 0 0 9 1
+Start point:
+3
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 5,3 5,3 5,
+********************************
+Test 548 :
+Heuristic:
+0 2 0 0 0 0 8 0
+Start point:
+7
+Goals:
+2 3 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 549 :
+Heuristic:
+0 0 0 8 10 6 8 0
+Start point:
+1
+Goals:
+1 2 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 550 :
+Heuristic:
+0 3 9 6 1 4 4 0
+Start point:
+2
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 5 1 3 6 7,2 5 7,2 5 7,
+********************************
+Test 551 :
+Heuristic:
+0 9 0 7 0 10 0 9
+Start point:
+1
+Goals:
+2 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2,1 6,1 6,
+********************************
+Test 552 :
+Heuristic:
+0 0 0 10 1 0 0 6
+Start point:
+2
+Goals:
+1 2 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 553 :
+Heuristic:
+0 0 9 0 5 5 5 0
+Start point:
+4
+Goals:
+1 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6 1,4 7,4 7,
+********************************
+Test 554 :
+Heuristic:
+0 0 2 4 4 10 4 10
+Start point:
+4
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6 1,4 7 1,4 6 1,
+********************************
+Test 555 :
+Heuristic:
+0 2 4 4 8 3 7 0
+Start point:
+1
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2 5 6 7,1 6 7,1 6 7,
+********************************
+Test 556 :
+Heuristic:
+0 0 0 0 0 0 4 0
+Start point:
+2
+Goals:
+1 2 3 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 557 :
+Heuristic:
+0 0 5 0 2 0 0 0
+Start point:
+1
+Goals:
+1 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 558 :
+Heuristic:
+0 0 8 0 8 0 0 2
+Start point:
+1
+Goals:
+1 3 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 559 :
+Heuristic:
+0 0 3 10 9 6 0 1
+Start point:
+2
+Goals:
+1 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 5 1,2 5 1,2 5 1,
+********************************
+Test 560 :
+Heuristic:
+0 9 2 10 0 9 0 9
+Start point:
+7
+Goals:
+4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 3 2 5 6,7 1 6,7 6,
+********************************
+Test 561 :
+Heuristic:
+0 9 0 10 2 4 0 0
+Start point:
+6
+Goals:
+2 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 562 :
+Heuristic:
+0 6 0 1 0 3 0 5
+Start point:
+1
+Goals:
+2 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2,1 6,1 6,
+********************************
+Test 563 :
+Heuristic:
+0 3 0 9 0 5 0 7
+Start point:
+1
+Goals:
+2 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2,1 6,1 6,
+********************************
+Test 564 :
+Heuristic:
+0 0 0 0 0 0 2 0
+Start point:
+4
+Goals:
+1 2 3 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 565 :
+Heuristic:
+0 0 0 6 3 0 9 10
+Start point:
+2
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 566 :
+Heuristic:
+0 0 6 8 0 7 0 0
+Start point:
+6
+Goals:
+1 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 567 :
+Heuristic:
+0 0 0 5 0 0 10 0
+Start point:
+4
+Goals:
+1 2 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 568 :
+Heuristic:
+0 0 4 0 7 0 0 5
+Start point:
+7
+Goals:
+1 3 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1,7 5,7 5,
+********************************
+Test 569 :
+Heuristic:
+0 5 0 0 1 0 6 8
+Start point:
+3
+Goals:
+2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 570 :
+Heuristic:
+0 4 0 4 0 9 9 8
+Start point:
+2
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 571 :
+Heuristic:
+0 7 0 0 8 0 0 0
+Start point:
+1
+Goals:
+2 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 6,1 6,
+********************************
+Test 572 :
+Heuristic:
+0 9 10 8 0 5 1 9
+Start point:
+7
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 573 :
+Heuristic:
+0 2 0 0 0 10 10 9
+Start point:
+1
+Goals:
+2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 574 :
+Heuristic:
+0 0 0 0 0 3 0 0
+Start point:
+4
+Goals:
+1 2 3 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 575 :
+Heuristic:
+0 4 0 7 10 6 0 9
+Start point:
+7
+Goals:
+2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 3 2,7 5 2,7 1 6,
+********************************
+Test 576 :
+Heuristic:
+0 8 10 9 10 0 1 8
+Start point:
+5
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 577 :
+Heuristic:
+0 7 0 6 0 0 9 9
+Start point:
+6
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 3 2,6 7 5,6 3 2,
+********************************
+Test 578 :
+Heuristic:
+0 0 0 2 1 5 4 2
+Start point:
+5
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 579 :
+Heuristic:
+0 9 0 1 8 9 2 6
+Start point:
+7
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 3 2,7 5 2,7 3 2,
+********************************
+Test 580 :
+Heuristic:
+0 1 1 0 10 0 9 0
+Start point:
+4
+Goals:
+3 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6 1 3,4 7,4 7,
+********************************
+Test 581 :
+Heuristic:
+0 0 0 0 0 6 0 0
+Start point:
+2
+Goals:
+1 2 3 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 582 :
+Heuristic:
+0 2 6 5 7 4 0 0
+Start point:
+6
+Goals:
+6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 583 :
+Heuristic:
+0 3 10 5 4 0 1 0
+Start point:
+4
+Goals:
+5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6 1 3 2 5,4 7,4 7,
+********************************
+Test 584 :
+Heuristic:
+0 8 0 9 10 9 4 7
+Start point:
+6
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 3 2,6 3 2,6 3 2,
+********************************
+Test 585 :
+Heuristic:
+0 0 0 5 9 0 6 0
+Start point:
+5
+Goals:
+1 2 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 586 :
+Heuristic:
+0 0 10 5 0 2 0 0
+Start point:
+1
+Goals:
+1 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 587 :
+Heuristic:
+0 0 0 0 7 0 2 10
+Start point:
+5
+Goals:
+1 2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 588 :
+Heuristic:
+0 0 0 6 0 0 0 0
+Start point:
+5
+Goals:
+1 2 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 589 :
+Heuristic:
+0 1 0 8 0 0 0 0
+Start point:
+6
+Goals:
+2 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 590 :
+Heuristic:
+0 9 0 5 7 0 0 6
+Start point:
+4
+Goals:
+2 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6,4 7 5,4 6,
+********************************
+Test 591 :
+Heuristic:
+0 0 0 0 0 0 3 0
+Start point:
+7
+Goals:
+1 2 3 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 592 :
+Heuristic:
+0 3 5 0 0 7 6 0
+Start point:
+5
+Goals:
+3 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3,5 7,5 7,
+********************************
+Test 593 :
+Heuristic:
+0 3 0 0 0 0 7 7
+Start point:
+2
+Goals:
+2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 594 :
+Heuristic:
+0 9 7 9 1 2 2 0
+Start point:
+5
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 6 7,5 7,5 7,
+********************************
+Test 595 :
+Heuristic:
+0 0 0 10 2 0 8 9
+Start point:
+4
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 6 1,4 7 5,4 7 5,
+********************************
+Test 596 :
+Heuristic:
+0 0 0 0 0 0 8 0
+Start point:
+7
+Goals:
+1 2 3 4 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 597 :
+Heuristic:
+0 10 0 4 0 4 0 0
+Start point:
+6
+Goals:
+2 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 598 :
+Heuristic:
+0 3 0 0 0 0 0 1
+Start point:
+7
+Goals:
+2 3 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1 3,7 5,7 5,
+********************************
+Test 599 :
+Heuristic:
+0 0 5 0 0 5 0 3
+Start point:
+7
+Goals:
+1 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 1,7 1,7 1,
+********************************
+Test 600 :
+Heuristic:
+0 10 8 0 0 2 0 0
+Start point:
+5
+Goals:
+3 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3,5 7,5 7,
+================================================================
+Size of cost matrix:
+10
+Cost matrix:
+0 0 0 0 0 0 0 0 0 0
+0 0 -1 1 9 -1 -1 -1 -1 4
+0 6 0 -1 2 -1 -1 -1 5 -1
+0 -1 1 0 4 9 4 -1 7 -1
+0 2 -1 -1 0 2 -1 -1 -1 -1
+0 4 -1 -1 -1 0 5 -1 -1 7
+0 7 -1 8 -1 -1 0 7 -1 -1
+0 -1 -1 7 4 -1 -1 0 -1 1
+0 -1 2 -1 3 2 -1 7 0 -1
+0 6 -1 -1 -1 -1 7 9 -1 0
+********************************
+Test 601 :
+Heuristic:
+0 8 6 0 0 7 9 8 4 0
+Start point:
+3
+Goals:
+9 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 602 :
+Heuristic:
+0 3 1 2 8 4 3 0 5 1
+Start point:
+9
+Goals:
+7
+Correct Answer: (',' separates dfs, ucs and a*)
+9 1 3 2 4 5 6 7,9 7,9 7,
+********************************
+Test 603 :
+Heuristic:
+0 1 0 0 1 0 0 0 0 5
+Start point:
+4
+Goals:
+2 3 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4 1 3,4 5,4 5,
+********************************
+Test 604 :
+Heuristic:
+0 0 0 3 0 2 0 0 8 3
+Start point:
+4
+Goals:
+1 2 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 605 :
+Heuristic:
+0 0 9 0 0 5 8 0 3 1
+Start point:
+5
+Goals:
+1 3 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 606 :
+Heuristic:
+0 2 0 9 3 4 0 7 4 5
+Start point:
+6
+Goals:
+2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 607 :
+Heuristic:
+0 6 4 8 7 0 0 0 0 10
+Start point:
+7
+Goals:
+8 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 608 :
+Heuristic:
+0 4 5 4 8 3 8 0 4 0
+Start point:
+7
+Goals:
+9 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 609 :
+Heuristic:
+0 0 0 10 6 9 0 6 0 8
+Start point:
+2
+Goals:
+8 1 2 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 610 :
+Heuristic:
+0 0 5 0 8 9 2 4 4 7
+Start point:
+7
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3,7 4 1,7 3,
+********************************
+Test 611 :
+Heuristic:
+0 4 8 0 5 0 10 2 2 0
+Start point:
+1
+Goals:
+9 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 612 :
+Heuristic:
+0 1 6 0 9 0 4 6 4 0
+Start point:
+9
+Goals:
+9 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 613 :
+Heuristic:
+0 0 0 9 4 0 5 9 0 0
+Start point:
+1
+Goals:
+1 2 5 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 614 :
+Heuristic:
+0 2 6 1 7 4 0 0 1 1
+Start point:
+9
+Goals:
+6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+9 1 3 2 4 5 6,9 6,9 6,
+********************************
+Test 615 :
+Heuristic:
+0 5 0 0 2 4 3 5 0 0
+Start point:
+7
+Goals:
+8 9 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3,7 9,7 9,
+********************************
+Test 616 :
+Heuristic:
+0 0 3 0 6 0 0 0 10 0
+Start point:
+7
+Goals:
+1 3 5 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 617 :
+Heuristic:
+0 5 0 4 0 3 9 8 7 3
+Start point:
+6
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 3 2,6 1 3 2,6 1 3 2,
+********************************
+Test 618 :
+Heuristic:
+0 0 6 5 2 0 6 6 0 0
+Start point:
+1
+Goals:
+8 1 5 9
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 619 :
+Heuristic:
+0 6 0 0 0 1 0 4 0 0
+Start point:
+5
+Goals:
+2 3 4 6 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3,5 1 3,5 6,
+********************************
+Test 620 :
+Heuristic:
+0 5 1 4 0 0 4 5 3 3
+Start point:
+7
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3 2 1 4,7 4,7 4,
+********************************
+Test 621 :
+Heuristic:
+0 1 0 10 0 0 0 0 10 4
+Start point:
+3
+Goals:
+2 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2,3 2,3 2,
+********************************
+Test 622 :
+Heuristic:
+0 0 0 0 0 4 8 0 6 5
+Start point:
+5
+Goals:
+1 2 3 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 623 :
+Heuristic:
+0 3 0 6 5 0 0 0 8 0
+Start point:
+4
+Goals:
+2 5 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+4 1 3 2,4 5,4 5,
+********************************
+Test 624 :
+Heuristic:
+0 0 3 0 8 5 5 4 6 5
+Start point:
+1
+Goals:
+1 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 625 :
+Heuristic:
+0 3 0 0 5 0 5 0 0 0
+Start point:
+6
+Goals:
+2 3 5 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 3,6 7,6 7,
+********************************
+Test 626 :
+Heuristic:
+0 8 2 3 9 7 5 6 2 0
+Start point:
+4
+Goals:
+9
+Correct Answer: (',' separates dfs, ucs and a*)
+4 1 3 2 8 5 6 7 9,4 1 9,4 5 9,
+********************************
+Test 627 :
+Heuristic:
+0 2 9 0 0 9 0 0 8 10
+Start point:
+4
+Goals:
+3 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 628 :
+Heuristic:
+0 0 4 2 0 6 10 0 2 0
+Start point:
+5
+Goals:
+9 4 1 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 629 :
+Heuristic:
+0 7 5 0 0 0 3 1 5 3
+Start point:
+7
+Goals:
+3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3,7 4,7 4,
+********************************
+Test 630 :
+Heuristic:
+0 10 10 5 4 1 3 0 0 0
+Start point:
+4
+Goals:
+8 9 7
+Correct Answer: (',' separates dfs, ucs and a*)
+4 1 3 2 8,4 1 9,4 5 9,
+********************************
+Test 631 :
+Heuristic:
+0 5 6 0 9 3 9 2 0 5
+Start point:
+1
+Goals:
+8 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 632 :
+Heuristic:
+0 0 2 3 0 9 0 4 3 8
+Start point:
+5
+Goals:
+1 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 633 :
+Heuristic:
+0 9 7 0 1 0 2 7 0 1
+Start point:
+5
+Goals:
+8 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 634 :
+Heuristic:
+0 4 0 8 0 6 3 5 1 0
+Start point:
+2
+Goals:
+9 2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 635 :
+Heuristic:
+0 4 0 0 0 0 6 0 6 0
+Start point:
+2
+Goals:
+2 3 4 5 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 636 :
+Heuristic:
+0 0 6 0 0 0 0 0 6 2
+Start point:
+7
+Goals:
+1 3 4 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 637 :
+Heuristic:
+0 2 6 0 0 8 0 2 7 0
+Start point:
+8
+Goals:
+9 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+8 2 1 3,8 4,8 4,
+********************************
+Test 638 :
+Heuristic:
+0 0 1 0 0 5 8 0 9 0
+Start point:
+3
+Goals:
+1 3 4 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 639 :
+Heuristic:
+0 5 7 7 1 3 1 7 0 8
+Start point:
+3
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 8,3 2 8,3 8,
+********************************
+Test 640 :
+Heuristic:
+0 3 5 7 0 8 0 0 0 1
+Start point:
+9
+Goals:
+8 4 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+9 1 3 2 4,9 6,9 6,
+********************************
+Test 641 :
+Heuristic:
+0 8 9 0 2 10 5 8 0 0
+Start point:
+8
+Goals:
+8 9 3
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 642 :
+Heuristic:
+0 3 8 0 9 0 9 8 5 0
+Start point:
+8
+Goals:
+9 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+8 2 1 3,8 5,8 5,
+********************************
+Test 643 :
+Heuristic:
+0 2 10 0 0 0 2 2 0 0
+Start point:
+1
+Goals:
+3 4 5 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 644 :
+Heuristic:
+0 8 8 6 10 10 4 0 0 9
+Start point:
+3
+Goals:
+8 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 1 4 5 6 7,3 2 8,3 8,
+********************************
+Test 645 :
+Heuristic:
+0 7 0 0 0 4 3 0 0 8
+Start point:
+2
+Goals:
+2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 646 :
+Heuristic:
+0 1 0 0 9 10 7 5 0 0
+Start point:
+1
+Goals:
+8 9 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 647 :
+Heuristic:
+0 4 6 0 0 0 0 7 9 9
+Start point:
+1
+Goals:
+3 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 648 :
+Heuristic:
+0 6 9 6 10 0 7 4 1 6
+Start point:
+9
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+9 1 3 2 4 5,9 1 3 2 4 5,9 1 3 5,
+********************************
+Test 649 :
+Heuristic:
+0 0 7 0 0 0 0 9 0 1
+Start point:
+4
+Goals:
+1 3 4 5 6 8
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 650 :
+Heuristic:
+0 0 1 0 7 0 1 0 0 0
+Start point:
+1
+Goals:
+1 3 5 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 651 :
+Heuristic:
+0 0 4 3 10 0 2 0 6 4
+Start point:
+9
+Goals:
+1 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+9 1,9 1,9 1,
+********************************
+Test 652 :
+Heuristic:
+0 0 9 10 7 8 7 4 9 10
+Start point:
+5
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 653 :
+Heuristic:
+0 0 0 0 0 8 7 0 0 0
+Start point:
+4
+Goals:
+1 2 3 4 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 654 :
+Heuristic:
+0 2 0 0 0 3 9 0 10 0
+Start point:
+8
+Goals:
+2 3 4 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+8 2,8 2,8 2,
+********************************
+Test 655 :
+Heuristic:
+0 0 0 0 8 7 0 0 0 0
+Start point:
+1
+Goals:
+1 2 3 6 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 656 :
+Heuristic:
+0 0 3 0 3 0 0 0 1 9
+Start point:
+7
+Goals:
+1 3 5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 657 :
+Heuristic:
+0 0 3 1 0 6 0 0 7 0
+Start point:
+6
+Goals:
+1 4 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 658 :
+Heuristic:
+0 9 6 0 0 3 9 7 0 0
+Start point:
+2
+Goals:
+8 9 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 4,2 4,
+********************************
+Test 659 :
+Heuristic:
+0 0 5 6 2 2 1 0 8 7
+Start point:
+1
+Goals:
+1 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 660 :
+Heuristic:
+0 7 1 8 8 5 0 9 6 5
+Start point:
+3
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 1 4 5 6,3 6,3 6,
+********************************
+Test 661 :
+Heuristic:
+0 10 4 9 6 10 2 10 0 1
+Start point:
+2
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3 8,2 8,2 8,
+********************************
+Test 662 :
+Heuristic:
+0 0 0 5 0 0 10 0 0 0
+Start point:
+6
+Goals:
+1 2 4 5 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 1,6 1,
+********************************
+Test 663 :
+Heuristic:
+0 9 1 0 10 0 4 6 6 0
+Start point:
+4
+Goals:
+9 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 1 3,4 5,4 5,
+********************************
+Test 664 :
+Heuristic:
+0 8 7 8 2 5 0 3 0 10
+Start point:
+3
+Goals:
+8 6
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 1 4 5 6,3 6,3 6,
+********************************
+Test 665 :
+Heuristic:
+0 10 10 0 4 4 8 0 0 1
+Start point:
+5
+Goals:
+8 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3,5 1 3,5 6 7,
+********************************
+Test 666 :
+Heuristic:
+0 6 10 8 5 0 0 0 4 8
+Start point:
+1
+Goals:
+5 6 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 2 4 5,1 3 6,1 3 6,
+********************************
+Test 667 :
+Heuristic:
+0 3 4 8 1 0 9 0 0 0
+Start point:
+3
+Goals:
+8 9 5 7
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 1 4 5,3 2 4 5,3 2 4 5,
+********************************
+Test 668 :
+Heuristic:
+0 2 2 0 3 8 7 0 0 0
+Start point:
+1
+Goals:
+8 9 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 669 :
+Heuristic:
+0 3 1 1 8 9 7 2 0 10
+Start point:
+7
+Goals:
+8
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3 2 8,7 3 2 8,7 3 2 8,
+********************************
+Test 670 :
+Heuristic:
+0 2 3 0 0 8 3 6 5 9
+Start point:
+7
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3,7 4,7 4,
+********************************
+Test 671 :
+Heuristic:
+0 0 6 5 0 9 8 2 8 7
+Start point:
+5
+Goals:
+1 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 672 :
+Heuristic:
+0 7 1 1 8 0 0 10 10 6
+Start point:
+2
+Goals:
+5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3 4 5,2 4 5,2 4 5,
+********************************
+Test 673 :
+Heuristic:
+0 0 8 0 0 4 0 9 9 0
+Start point:
+7
+Goals:
+1 3 4 6 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3,7 9,7 9,
+********************************
+Test 674 :
+Heuristic:
+0 0 8 8 3 6 0 2 0 0
+Start point:
+5
+Goals:
+8 9 1 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 675 :
+Heuristic:
+0 3 0 8 0 3 10 0 0 0
+Start point:
+8
+Goals:
+2 4 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+8,8,8,
+********************************
+Test 676 :
+Heuristic:
+0 0 10 0 0 10 0 4 0 0
+Start point:
+5
+Goals:
+1 3 4 6 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 677 :
+Heuristic:
+0 5 0 0 9 1 3 9 9 0
+Start point:
+1
+Goals:
+9 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 678 :
+Heuristic:
+0 10 5 0 0 10 9 4 3 0
+Start point:
+1
+Goals:
+9 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 679 :
+Heuristic:
+0 6 4 2 0 7 0 3 0 0
+Start point:
+6
+Goals:
+8 9 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+6,6,6,
+********************************
+Test 680 :
+Heuristic:
+0 3 10 0 0 10 2 3 3 9
+Start point:
+2
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1 3,2 4,2 4,
+********************************
+Test 681 :
+Heuristic:
+0 0 7 3 0 6 0 5 2 10
+Start point:
+5
+Goals:
+1 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 682 :
+Heuristic:
+0 1 0 0 0 7 0 8 4 6
+Start point:
+7
+Goals:
+2 3 4 6
+Correct Answer: (',' separates dfs, ucs and a*)
+7 3,7 4,7 4,
+********************************
+Test 683 :
+Heuristic:
+0 10 9 1 0 0 0 0 7 0
+Start point:
+7
+Goals:
+4 5 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 684 :
+Heuristic:
+0 0 0 0 4 7 10 9 10 5
+Start point:
+2
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 685 :
+Heuristic:
+0 3 0 0 0 4 2 0 0 8
+Start point:
+1
+Goals:
+2 3 4 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 686 :
+Heuristic:
+0 1 0 0 4 0 3 0 3 0
+Start point:
+8
+Goals:
+2 3 5 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+8 2,8 2,8 2,
+********************************
+Test 687 :
+Heuristic:
+0 10 3 4 6 2 0 9 1 3
+Start point:
+8
+Goals:
+6
+Correct Answer: (',' separates dfs, ucs and a*)
+8 2 1 3 4 5 6,8 5 6,8 5 6,
+********************************
+Test 688 :
+Heuristic:
+0 0 0 8 3 0 0 0 5 0
+Start point:
+7
+Goals:
+1 2 5 6 7 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 689 :
+Heuristic:
+0 1 8 6 0 2 0 0 0 0
+Start point:
+3
+Goals:
+4 6 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+3 2 1 4,3 2 4,3 4,
+********************************
+Test 690 :
+Heuristic:
+0 5 0 1 0 0 4 2 4 0
+Start point:
+9
+Goals:
+9 2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+9,9,9,
+********************************
+Test 691 :
+Heuristic:
+0 0 10 0 6 9 9 0 0 10
+Start point:
+2
+Goals:
+8 1 3 7
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 4 1,2 8,
+********************************
+Test 692 :
+Heuristic:
+0 6 0 0 0 0 0 9 10 6
+Start point:
+5
+Goals:
+2 3 4 5 6
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 693 :
+Heuristic:
+0 0 2 1 1 0 0 0 0 0
+Start point:
+7
+Goals:
+1 5 6 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 694 :
+Heuristic:
+0 4 3 5 8 0 0 0 0 0
+Start point:
+7
+Goals:
+5 6 7 8 9
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 695 :
+Heuristic:
+0 0 0 0 6 0 6 0 0 10
+Start point:
+6
+Goals:
+1 2 3 5 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 1,6 1,
+********************************
+Test 696 :
+Heuristic:
+0 0 7 9 2 7 6 1 0 0
+Start point:
+6
+Goals:
+8 9 1
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1,6 1,6 1,
+********************************
+Test 697 :
+Heuristic:
+0 9 2 0 0 0 0 0 0 10
+Start point:
+7
+Goals:
+3 4 5 6 7 8
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 698 :
+Heuristic:
+0 10 1 0 0 4 4 0 1 0
+Start point:
+7
+Goals:
+9 3 4 7
+Correct Answer: (',' separates dfs, ucs and a*)
+7,7,7,
+********************************
+Test 699 :
+Heuristic:
+0 1 10 2 3 8 10 8 2 0
+Start point:
+6
+Goals:
+9
+Correct Answer: (',' separates dfs, ucs and a*)
+6 1 3 2 4 5 9,6 7 9,6 1 9,
+********************************
+Test 700 :
+Heuristic:
+0 9 0 0 0 0 1 7 10 3
+Start point:
+5
+Goals:
+2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+================================================================
+Size of cost matrix:
+3
+Cost matrix:
+0 0 0
+0 0 -1
+0 -1 0
+********************************
+Test 701 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 702 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 703 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 704 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 705 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 706 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 707 :
+Heuristic:
+0 4 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 708 :
+Heuristic:
+0 9 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 709 :
+Heuristic:
+0 0 3
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 710 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 711 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 712 :
+Heuristic:
+0 0 6
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 713 :
+Heuristic:
+0 0 9
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 714 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 715 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 716 :
+Heuristic:
+0 8 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 717 :
+Heuristic:
+0 0 6
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 718 :
+Heuristic:
+0 0 4
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 719 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 720 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 721 :
+Heuristic:
+0 0 9
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 722 :
+Heuristic:
+0 0 2
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 723 :
+Heuristic:
+0 4 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 724 :
+Heuristic:
+0 8 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 725 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 726 :
+Heuristic:
+0 2 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 727 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 728 :
+Heuristic:
+0 0 2
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 729 :
+Heuristic:
+0 0 7
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 730 :
+Heuristic:
+0 2 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 731 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 732 :
+Heuristic:
+0 0 9
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 733 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 734 :
+Heuristic:
+0 10 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 735 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 736 :
+Heuristic:
+0 7 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 737 :
+Heuristic:
+0 7 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 738 :
+Heuristic:
+0 0 5
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 739 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 740 :
+Heuristic:
+0 3 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 741 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 742 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 743 :
+Heuristic:
+0 0 1
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 744 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 745 :
+Heuristic:
+0 0 2
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 746 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 747 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 748 :
+Heuristic:
+0 0 5
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 749 :
+Heuristic:
+0 2 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 750 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 751 :
+Heuristic:
+0 0 2
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 752 :
+Heuristic:
+0 0 6
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 753 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 754 :
+Heuristic:
+0 6 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 755 :
+Heuristic:
+0 3 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 756 :
+Heuristic:
+0 0 3
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 757 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 758 :
+Heuristic:
+0 0 3
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 759 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 760 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 761 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 762 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 763 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 764 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 765 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 766 :
+Heuristic:
+0 6 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 767 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 768 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 769 :
+Heuristic:
+0 8 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 770 :
+Heuristic:
+0 0 9
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 771 :
+Heuristic:
+0 0 6
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 772 :
+Heuristic:
+0 0 7
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 773 :
+Heuristic:
+0 0 6
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 774 :
+Heuristic:
+0 10 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 775 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 776 :
+Heuristic:
+0 7 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 777 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 778 :
+Heuristic:
+0 7 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 779 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 780 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 781 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 782 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 783 :
+Heuristic:
+0 0 5
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 784 :
+Heuristic:
+0 0 4
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 785 :
+Heuristic:
+0 0 3
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 786 :
+Heuristic:
+0 0 2
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 787 :
+Heuristic:
+0 0 5
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 788 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 789 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 790 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 791 :
+Heuristic:
+0 0 5
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 792 :
+Heuristic:
+0 0 8
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 793 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 794 :
+Heuristic:
+0 9 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 795 :
+Heuristic:
+0 10 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 796 :
+Heuristic:
+0 4 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 797 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 798 :
+Heuristic:
+0 0 2
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 799 :
+Heuristic:
+0 9 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 800 :
+Heuristic:
+0 0 8
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+================================================================
+Size of cost matrix:
+3
+Cost matrix:
+0 0 0
+0 0 -1
+0 1 0
+********************************
+Test 801 :
+Heuristic:
+0 0 8
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 802 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 803 :
+Heuristic:
+0 9 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 804 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 805 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 806 :
+Heuristic:
+0 0 10
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 807 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 808 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 809 :
+Heuristic:
+0 8 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 810 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 811 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 812 :
+Heuristic:
+0 10 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 813 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 814 :
+Heuristic:
+0 7 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 815 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 816 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 817 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 818 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 819 :
+Heuristic:
+0 0 5
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 820 :
+Heuristic:
+0 0 3
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 821 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 822 :
+Heuristic:
+0 0 2
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 823 :
+Heuristic:
+0 8 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 824 :
+Heuristic:
+0 3 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 825 :
+Heuristic:
+0 8 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 826 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 827 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 828 :
+Heuristic:
+0 0 2
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 829 :
+Heuristic:
+0 6 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 830 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 831 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 832 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 833 :
+Heuristic:
+0 2 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 834 :
+Heuristic:
+0 0 3
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 835 :
+Heuristic:
+0 0 3
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 836 :
+Heuristic:
+0 0 4
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 837 :
+Heuristic:
+0 6 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 838 :
+Heuristic:
+0 0 1
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 839 :
+Heuristic:
+0 10 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 840 :
+Heuristic:
+0 6 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 841 :
+Heuristic:
+0 0 8
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 842 :
+Heuristic:
+0 4 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 843 :
+Heuristic:
+0 0 7
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 844 :
+Heuristic:
+0 0 4
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 845 :
+Heuristic:
+0 8 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 846 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 847 :
+Heuristic:
+0 7 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 848 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 849 :
+Heuristic:
+0 9 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 850 :
+Heuristic:
+0 0 1
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 851 :
+Heuristic:
+0 0 9
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 852 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 853 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 854 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 855 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 856 :
+Heuristic:
+0 1 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 857 :
+Heuristic:
+0 10 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 858 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 859 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 860 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 861 :
+Heuristic:
+0 10 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 862 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 863 :
+Heuristic:
+0 0 3
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 864 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 865 :
+Heuristic:
+0 0 10
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 866 :
+Heuristic:
+0 0 10
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 867 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 868 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 869 :
+Heuristic:
+0 0 10
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 870 :
+Heuristic:
+0 0 4
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 871 :
+Heuristic:
+0 0 4
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 872 :
+Heuristic:
+0 0 8
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 873 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 874 :
+Heuristic:
+0 6 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 875 :
+Heuristic:
+0 0 7
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 876 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 877 :
+Heuristic:
+0 0 3
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 878 :
+Heuristic:
+0 0 9
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 879 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 880 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 881 :
+Heuristic:
+0 0 0
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 882 :
+Heuristic:
+0 0 3
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 883 :
+Heuristic:
+0 9 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 884 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 885 :
+Heuristic:
+0 0 8
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 886 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 887 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 888 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 889 :
+Heuristic:
+0 4 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 890 :
+Heuristic:
+0 1 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 891 :
+Heuristic:
+0 10 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 892 :
+Heuristic:
+0 0 7
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 893 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 894 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 895 :
+Heuristic:
+0 5 0
+Start point:
+2
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 896 :
+Heuristic:
+0 6 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+********************************
+Test 897 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 898 :
+Heuristic:
+0 0 0
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 899 :
+Heuristic:
+0 0 2
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 1,2 1,2 1,
+********************************
+Test 900 :
+Heuristic:
+0 3 0
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+,,,
+================================================================
+Size of cost matrix:
+6
+Cost matrix:
+0 0 0 0 0 0
+0 0 -1 4 -1 -1
+0 -1 0 5 -1 5
+0 1 -1 0 4 -1
+0 -1 2 -1 0 -1
+0 2 3 1 -1 0
+********************************
+Test 901 :
+Heuristic:
+0 0 0 0 4 0
+Start point:
+5
+Goals:
+1 2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 902 :
+Heuristic:
+0 7 0 3 2 2
+Start point:
+5
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 4 2,5 2,5 2,
+********************************
+Test 903 :
+Heuristic:
+0 9 0 7 0 1
+Start point:
+3
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4,3 4,3 4,
+********************************
+Test 904 :
+Heuristic:
+0 9 6 0 0 3
+Start point:
+4
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 905 :
+Heuristic:
+0 0 0 3 7 1
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 906 :
+Heuristic:
+0 7 0 10 0 7
+Start point:
+5
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 4,5 2,5 2,
+********************************
+Test 907 :
+Heuristic:
+0 9 0 1 0 3
+Start point:
+2
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 908 :
+Heuristic:
+0 0 9 0 0 0
+Start point:
+5
+Goals:
+1 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 909 :
+Heuristic:
+0 3 7 0 1 10
+Start point:
+4
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 2 3,4 2 3,
+********************************
+Test 910 :
+Heuristic:
+0 3 0 3 9 0
+Start point:
+4
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 911 :
+Heuristic:
+0 0 1 7 0 5
+Start point:
+5
+Goals:
+1 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 912 :
+Heuristic:
+0 0 0 0 6 0
+Start point:
+2
+Goals:
+1 2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 913 :
+Heuristic:
+0 5 0 0 0 3
+Start point:
+1
+Goals:
+2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 914 :
+Heuristic:
+0 4 10 6 0 1
+Start point:
+1
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 4,1 3 4,1 3 4,
+********************************
+Test 915 :
+Heuristic:
+0 0 0 7 2 3
+Start point:
+4
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 916 :
+Heuristic:
+0 7 7 9 1 0
+Start point:
+3
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4 2 5,3 4 2 5,3 4 2 5,
+********************************
+Test 917 :
+Heuristic:
+0 3 5 9 0 4
+Start point:
+4
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 918 :
+Heuristic:
+0 3 6 0 0 4
+Start point:
+3
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 919 :
+Heuristic:
+0 0 0 10 3 10
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 1,3 1,
+********************************
+Test 920 :
+Heuristic:
+0 5 3 0 9 0
+Start point:
+4
+Goals:
+3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 2 3,4 2 3,
+********************************
+Test 921 :
+Heuristic:
+0 5 0 0 2 5
+Start point:
+2
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 922 :
+Heuristic:
+0 1 2 0 0 7
+Start point:
+1
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 923 :
+Heuristic:
+0 0 0 4 0 0
+Start point:
+5
+Goals:
+1 2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 924 :
+Heuristic:
+0 6 0 6 0 3
+Start point:
+3
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4,3 4,3 4,
+********************************
+Test 925 :
+Heuristic:
+0 0 0 1 4 0
+Start point:
+5
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 926 :
+Heuristic:
+0 2 0 6 7 0
+Start point:
+3
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4 2,3 4 2,3 4 2,
+********************************
+Test 927 :
+Heuristic:
+0 0 0 6 2 2
+Start point:
+1
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 928 :
+Heuristic:
+0 0 8 7 8 3
+Start point:
+5
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 929 :
+Heuristic:
+0 6 0 1 4 2
+Start point:
+3
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4 2,3 4 2,3 4 2,
+********************************
+Test 930 :
+Heuristic:
+0 2 7 10 0 3
+Start point:
+5
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 4,5 3 4,5 3 4,
+********************************
+Test 931 :
+Heuristic:
+0 10 0 0 0 1
+Start point:
+3
+Goals:
+2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 932 :
+Heuristic:
+0 1 8 0 0 0
+Start point:
+1
+Goals:
+3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 933 :
+Heuristic:
+0 9 8 10 0 1
+Start point:
+5
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 4,5 3 4,5 3 4,
+********************************
+Test 934 :
+Heuristic:
+0 0 0 0 2 8
+Start point:
+2
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 935 :
+Heuristic:
+0 10 8 0 0 1
+Start point:
+2
+Goals:
+3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3,2 3,2 3,
+********************************
+Test 936 :
+Heuristic:
+0 0 5 0 0 5
+Start point:
+3
+Goals:
+1 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 937 :
+Heuristic:
+0 4 0 0 5 9
+Start point:
+1
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3,1 3,1 3,
+********************************
+Test 938 :
+Heuristic:
+0 1 6 0 2 1
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 939 :
+Heuristic:
+0 0 0 5 0 4
+Start point:
+2
+Goals:
+1 2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 940 :
+Heuristic:
+0 9 0 2 0 0
+Start point:
+4
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 941 :
+Heuristic:
+0 8 0 0 0 2
+Start point:
+2
+Goals:
+2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 942 :
+Heuristic:
+0 0 2 0 0 0
+Start point:
+2
+Goals:
+1 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3,2 3,2 3,
+********************************
+Test 943 :
+Heuristic:
+0 2 2 8 0 9
+Start point:
+4
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 944 :
+Heuristic:
+0 0 0 0 5 9
+Start point:
+1
+Goals:
+1 2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 945 :
+Heuristic:
+0 4 0 8 9 0
+Start point:
+2
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 946 :
+Heuristic:
+0 4 6 0 0 0
+Start point:
+3
+Goals:
+3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 947 :
+Heuristic:
+0 0 0 1 7 0
+Start point:
+4
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 948 :
+Heuristic:
+0 9 6 0 1 3
+Start point:
+4
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 2 3,4 2 3,
+********************************
+Test 949 :
+Heuristic:
+0 0 9 8 0 0
+Start point:
+3
+Goals:
+1 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 1,3 1,
+********************************
+Test 950 :
+Heuristic:
+0 2 7 0 1 1
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 951 :
+Heuristic:
+0 6 5 3 0 0
+Start point:
+1
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 4,1 3 4,1 3 4,
+********************************
+Test 952 :
+Heuristic:
+0 3 0 7 0 0
+Start point:
+4
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 953 :
+Heuristic:
+0 10 9 5 0 5
+Start point:
+1
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 4,1 3 4,1 3 4,
+********************************
+Test 954 :
+Heuristic:
+0 6 5 0 5 4
+Start point:
+3
+Goals:
+3
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 955 :
+Heuristic:
+0 0 7 0 0 10
+Start point:
+1
+Goals:
+1 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 956 :
+Heuristic:
+0 0 0 3 4 1
+Start point:
+2
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 957 :
+Heuristic:
+0 3 8 1 7 0
+Start point:
+1
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 4 2 5,1 3 4 2 5,1 3 4 2 5,
+********************************
+Test 958 :
+Heuristic:
+0 4 0 10 0 9
+Start point:
+5
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 4,5 2,5 2,
+********************************
+Test 959 :
+Heuristic:
+0 0 1 0 0 0
+Start point:
+5
+Goals:
+1 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 960 :
+Heuristic:
+0 1 0 0 3 0
+Start point:
+2
+Goals:
+2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 961 :
+Heuristic:
+0 0 7 2 8 8
+Start point:
+2
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 1,2 3 1,2 3 1,
+********************************
+Test 962 :
+Heuristic:
+0 0 2 10 8 4
+Start point:
+4
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3 1,4 2 3 1,4 2 5 1,
+********************************
+Test 963 :
+Heuristic:
+0 0 7 4 0 0
+Start point:
+3
+Goals:
+1 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 1,3 1,
+********************************
+Test 964 :
+Heuristic:
+0 0 8 0 0 0
+Start point:
+4
+Goals:
+1 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 965 :
+Heuristic:
+0 6 0 3 2 5
+Start point:
+1
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 4 2,1 3 4 2,1 3 4 2,
+********************************
+Test 966 :
+Heuristic:
+0 5 10 3 0 0
+Start point:
+2
+Goals:
+4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3 4,2 5,2 5,
+********************************
+Test 967 :
+Heuristic:
+0 2 2 0 8 0
+Start point:
+2
+Goals:
+3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2 3,2 3,2 3,
+********************************
+Test 968 :
+Heuristic:
+0 0 0 1 0 4
+Start point:
+4
+Goals:
+1 2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 969 :
+Heuristic:
+0 0 0 0 0 7
+Start point:
+5
+Goals:
+1 2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 3,5 3,
+********************************
+Test 970 :
+Heuristic:
+0 9 0 1 0 0
+Start point:
+4
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 971 :
+Heuristic:
+0 6 2 0 0 0
+Start point:
+4
+Goals:
+3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 972 :
+Heuristic:
+0 6 10 7 10 0
+Start point:
+5
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 973 :
+Heuristic:
+0 2 9 0 6 0
+Start point:
+4
+Goals:
+3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3,4 2 3,4 2 3,
+********************************
+Test 974 :
+Heuristic:
+0 8 0 6 5 0
+Start point:
+3
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4 2,3 4 2,3 4 2,
+********************************
+Test 975 :
+Heuristic:
+0 0 4 5 0 9
+Start point:
+4
+Goals:
+1 4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 976 :
+Heuristic:
+0 0 0 8 6 0
+Start point:
+3
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 1,3 1,
+********************************
+Test 977 :
+Heuristic:
+0 0 6 3 10 0
+Start point:
+5
+Goals:
+1 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 978 :
+Heuristic:
+0 2 0 0 0 0
+Start point:
+5
+Goals:
+2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 979 :
+Heuristic:
+0 0 0 0 0 0
+Start point:
+5
+Goals:
+1 2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 980 :
+Heuristic:
+0 0 10 8 2 0
+Start point:
+4
+Goals:
+1 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2 3 1,4 2 5,4 2 5,
+********************************
+Test 981 :
+Heuristic:
+0 5 0 7 10 0
+Start point:
+2
+Goals:
+2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 982 :
+Heuristic:
+0 0 0 0 0 1
+Start point:
+3
+Goals:
+1 2 3 4
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 983 :
+Heuristic:
+0 3 0 0 9 5
+Start point:
+4
+Goals:
+2 3
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 984 :
+Heuristic:
+0 0 0 0 0 0
+Start point:
+3
+Goals:
+1 2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+3,3,3,
+********************************
+Test 985 :
+Heuristic:
+0 0 0 0 2 0
+Start point:
+1
+Goals:
+1 2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 986 :
+Heuristic:
+0 3 0 9 3 3
+Start point:
+5
+Goals:
+2
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1 3 4 2,5 2,5 2,
+********************************
+Test 987 :
+Heuristic:
+0 0 0 9 2 0
+Start point:
+4
+Goals:
+1 2 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 988 :
+Heuristic:
+0 6 0 0 4 0
+Start point:
+4
+Goals:
+2 3 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4 2,4 2,4 2,
+********************************
+Test 989 :
+Heuristic:
+0 6 8 1 0 4
+Start point:
+1
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+1 3 4,1 3 4,1 3 4,
+********************************
+Test 990 :
+Heuristic:
+0 6 0 4 0 0
+Start point:
+2
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+2,2,2,
+********************************
+Test 991 :
+Heuristic:
+0 5 8 8 0 6
+Start point:
+4
+Goals:
+4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 992 :
+Heuristic:
+0 8 0 1 0 7
+Start point:
+4
+Goals:
+2 4
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 993 :
+Heuristic:
+0 0 5 2 2 7
+Start point:
+1
+Goals:
+1
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+********************************
+Test 994 :
+Heuristic:
+0 1 1 6 3 0
+Start point:
+3
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4 2 5,3 4 2 5,3 4 2 5,
+********************************
+Test 995 :
+Heuristic:
+0 1 0 3 0 0
+Start point:
+4
+Goals:
+2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+4,4,4,
+********************************
+Test 996 :
+Heuristic:
+0 0 0 2 8 7
+Start point:
+5
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+5 1,5 1,5 1,
+********************************
+Test 997 :
+Heuristic:
+0 0 0 6 1 2
+Start point:
+3
+Goals:
+1 2
+Correct Answer: (',' separates dfs, ucs and a*)
+3 1,3 1,3 1,
+********************************
+Test 998 :
+Heuristic:
+0 5 8 4 10 0
+Start point:
+3
+Goals:
+5
+Correct Answer: (',' separates dfs, ucs and a*)
+3 4 2 5,3 4 2 5,3 4 2 5,
+********************************
+Test 999 :
+Heuristic:
+0 5 0 0 0 0
+Start point:
+5
+Goals:
+2 3 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+5,5,5,
+********************************
+Test 1000 :
+Heuristic:
+0 0 0 2 0 0
+Start point:
+1
+Goals:
+1 2 4 5
+Correct Answer: (',' separates dfs, ucs and a*)
+1,1,1,
+================================================================
