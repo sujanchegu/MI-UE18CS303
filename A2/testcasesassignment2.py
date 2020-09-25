@@ -1,4 +1,13 @@
-from src.MI_0316_1286_2057 import *
+# from src.MI_0316_1286_2057 import *
+import importlib
+
+
+temp = importlib.import_module('src.PESU-MI_0316_1286_2057')
+locals()['UCS_Traversal'] = temp.UCS_Traversal
+locals()['DFS_Traversal'] = temp.DFS_Traversal
+locals()['A_star_Traversal'] = temp.A_star_Traversal
+locals()['tri_traversal'] = temp.tri_traversal
+
 
 cost1 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
             [0, 0, 5, 9, -1, 6, -1, -1, -1, -1, -1],
@@ -153,9 +162,35 @@ def astartest():
 
 	# print("Test 30: ", astar(cost2, heuristic2, 4, [3]))
 	print("Test 31: ", astar(cost3, heuristic3, 1, [5]))
-	
+
+
+def a_start_ucs_combo():
+    """
+    This function test both UCS and A* and makes sure that their results are the same
+    """
+    print("Test 1: ", ucs(cost1,1, [1]) == astar(cost1, heuristic1, 1, [1]))
+    print("Test 2: ", ucs(cost1,1, [2]) == astar(cost1, heuristic1, 1, [2]))
+    print("Test 3: ", ucs(cost1,1, [3]) == astar(cost1, heuristic1, 1, [3]))
+    print("Test 4: ", ucs(cost1,1, [4]) == astar(cost1, heuristic1, 1, [4]))
+    print("Test 5: ", ucs(cost1,1, [5]) == astar(cost1, heuristic1, 1, [5]))
+    print("Test 6: ", ucs(cost1,1, [6]) == astar(cost1, heuristic1, 1, [6]))
+    print("Test 7: ", ucs(cost1,1, [7]) == astar(cost1, heuristic1, 1, [7]))
+    print("Test 8: ", ucs(cost1,1, [8]) == astar(cost1, heuristic1, 1, [8]))
+    print("Test 9: ", ucs(cost1,1, [9]) == astar(cost1, heuristic1, 1, [9]))
+    print("Test 10: ", ucs(cost1,1, [10]) == astar(cost1, heuristic1, 1, [10]))
+    print("Test 11: ", ucs(cost1,1, [6,7,10]) == astar(cost1, heuristic1, 1, [6,7,10]))
+    print("Test 12: ", ucs(cost1,1, [3,4,7,10]) == astar(cost1, heuristic1, 1, [3,4,7,10]))
+    print("Test 13: ", ucs(cost1,1, [5,9,4]) == astar(cost1, heuristic1, 1, [5,9,4]))
+    print("Test 14: ", ucs(cost1,1, [4,8,10]) == astar(cost1, heuristic1, 1, [4,8,10]))
+    print("Test 15: ", ucs(cost1,1, [2,8,5]) == astar(cost1, heuristic1, 1, [2,8,5]))
+    print("Test 16: ", ucs(cost1,1, [7,9,10]) == astar(cost1, heuristic1, 1, [7,9,10]))
+    print("Test 17: ", ucs(cost1,1, [10,6,8,4]) == astar(cost1, heuristic1, 1, [10,6,8,4]))
+    print("Test 18: ", ucs(cost1,1, [9,7,5,10]) == astar(cost1, heuristic1, 1, [9,7,5,10]))
+
 #dfstestcheck() #uncomment if you want to check what ur code prints
 dfstest()	
 astartest()	
 ucstest()
-
+print()
+print("Now, for the final test...")
+a_start_ucs_combo()
