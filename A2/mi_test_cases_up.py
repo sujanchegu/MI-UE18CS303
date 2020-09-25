@@ -5,6 +5,9 @@ import importlib
 import os
 
 
+# deprecated code fails a lot of test cases
+# temp = importlib.import_module('src.deprecated code.PESU-MI_0316_1286_2057_deprecated')
+
 temp = importlib.import_module('src.PESU-MI_0316_1286_2057')
 locals()['UCS_Traversal'] = temp.UCS_Traversal
 locals()['DFS_Traversal'] = temp.DFS_Traversal
