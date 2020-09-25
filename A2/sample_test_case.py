@@ -1,4 +1,12 @@
-from src.MI_0316_1286_2057 import *
+# from src.MI_0316_1286_2057 import *
+import importlib
+
+
+temp = importlib.import_module('src.PESU-MI_0316_1286_2057')
+locals()['UCS_Traversal'] = temp.UCS_Traversal
+locals()['DFS_Traversal'] = temp.DFS_Traversal
+locals()['A_star_Traversal'] = temp.A_star_Traversal
+locals()['tri_traversal'] = temp.tri_traversal
 
 
 def test_case():
