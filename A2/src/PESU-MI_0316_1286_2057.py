@@ -12,7 +12,8 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
     # The cost to reach the node from the start_point, i.e. path cost
     # The node value
     # The path considered
-    node = [heuristic[start_point], 0, start_point, [start_point]]
+    # node = [heuristic[start_point], 0, start_point, [start_point]]
+    node = [heuristic[start_point], start_point, 0, [start_point]]
 
     # The frontier is a min heap that will store the nodes
     frontier = []
@@ -30,11 +31,11 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
         popped_node = heapq.heappop(frontier)
 
         # If the popped node is a goal, return
-        if (popped_node[2] in goals):
+        if (popped_node[1] in goals):
             return popped_node[3]
 
         # Add the node to the explored set
-        explored.add(popped_node[2])
+        explored.add(popped_node[1])
 
         # Here, we are logically going through all the neighbour nodes only
 
@@ -49,12 +50,12 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
 
             # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
             # If there's an edge from popped node to i
-            if (cost[popped_node[2]][i] != -1):
+            if (cost[popped_node[1]][i] != -1):
 
                 # Check if the node is in the frontier
                 boo = False  # Assume the node is not in the frontier
                 for j in frontier:
-                    if(j[2] == i):  # If the node is in the frontier
+                    if(j[1] == i):  # If the node is in the frontier
                         boo = True  # then set boo to be true
                         break
 
@@ -63,24 +64,24 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                 if ((boo is False) and (i not in explored)):
                     temp = popped_node[3] + list((i,))
                     heapq.heappush(frontier, list(
-                        (popped_node[1] + cost[popped_node[2]][i] + heuristic[i], popped_node[1] + cost[popped_node[2]][i], i, temp)))
+                        (popped_node[2] + cost[popped_node[1]][i] + heuristic[i], popped_node[2] + cost[popped_node[1]][i], i, temp)))
 
                 # If the new node is already in the frontier
                 elif (boo is True):
 
                     # Finding the node with same value in the frontier
                     for j in frontier:
-                        if j[2] == i:
+                        if j[1] == i:
 
                             # If the current cost is lesser than or equal to
                             # the cost of the node currently in the frontier,
                             # then we may have to update
-                            if (j[1] >= popped_node[1] + cost[popped_node[2]][i]):
+                            if (j[2] >= popped_node[2] + cost[popped_node[1]][i]):
                                 # If the path cost is the same then the path
                                 # choosen must be lexicographically smaller,
                                 # to maintain lexicographical order
                                 # which is enforced here
-                                if (j[1] == popped_node[1] + cost[popped_node[2]][i]) \
+                                if (j[2] == popped_node[2] + cost[popped_node[1]][i]) \
                                    and (j[3] <= popped_node[3] + list((i,))):
                                     # If the new path is lexicographically
                                     # greater or equal than the path in the
@@ -96,9 +97,9 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                 # Actual path cost from the initial node to the popped_node
                                 # + Step cost from the popped_node to the neighbour node
                                 # + Heuristic of the neighbour node
-                                j[0] = popped_node[1] + cost[popped_node[2]][i] + heuristic[i]
+                                j[0] = popped_node[2] + cost[popped_node[1]][i] + heuristic[i]
                                 # Update the cost in the frontier
-                                j[1] = popped_node[1] + cost[popped_node[2]][i]
+                                j[1] = popped_node[2] + cost[popped_node[1]][i]
                                 # Update the path in the frontier
                                 j[3] = popped_node[3] + list((i,))
                                 heapq.heapify(frontier)
