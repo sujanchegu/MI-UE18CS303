@@ -86,7 +86,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                     # greater or equal than the path in the
                                     # frontier then break out of the for loop
                                     break
-                                
+
                                 # If we reach here that means that either the new path
                                 # cost found is lesser than the one in the frontier or the
                                 # new path cost found has equal cost but it is lexicographically
