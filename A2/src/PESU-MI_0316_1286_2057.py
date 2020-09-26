@@ -64,7 +64,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                 if ((boo is False) and (i not in explored)):
                     temp = popped_node[3] + list((i,))
                     heapq.heappush(frontier, list(
-                        (popped_node[2] + cost[popped_node[1]][i] + heuristic[i], popped_node[2] + cost[popped_node[1]][i], i, temp)))
+                        (popped_node[2] + cost[popped_node[1]][i] + heuristic[i], i, popped_node[2] + cost[popped_node[1]][i], temp)))
 
                 # If the new node is already in the frontier
                 elif (boo is True):
@@ -92,14 +92,14 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                 # cost found is lesser than the one in the frontier or the
                                 # new path cost found has equal cost but it is lexicographically
                                 # smaller
-                                # Update the evaluation function at index 0, i.e f(n)
+                                # Update the evaluation function at index 0, i.e. f(n)
                                 # Formula used:
                                 # Actual path cost from the initial node to the popped_node
                                 # + Step cost from the popped_node to the neighbour node
                                 # + Heuristic of the neighbour node
                                 j[0] = popped_node[2] + cost[popped_node[1]][i] + heuristic[i]
                                 # Update the cost in the frontier
-                                j[1] = popped_node[2] + cost[popped_node[1]][i]
+                                j[2] = popped_node[2] + cost[popped_node[1]][i]
                                 # Update the path in the frontier
                                 j[3] = popped_node[3] + list((i,))
                                 heapq.heapify(frontier)
