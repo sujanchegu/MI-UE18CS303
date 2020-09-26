@@ -160,7 +160,7 @@ def astartest():
 	print("Test 28: ", astar(cost2, heuristic2, 1, [4,6]))
 	print("Test 29: ", astar(cost2, heuristic2, 1, [2,3,7]))
 
-	# print("Test 30: ", astar(cost2, heuristic2, 4, [3]))
+	print("Test 30: ", astar(cost2, heuristic2, 4, [3]))
 	print("Test 31: ", astar(cost3, heuristic3, 1, [5]))
 
 
