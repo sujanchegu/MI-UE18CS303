@@ -148,7 +148,7 @@ def astartest():
 	print("Test 17: ", astar(cost1, heuristic1, 1, [10,6,8,4]))
 	print("Test 18: ", astar(cost1, heuristic1, 1, [9,7,5,10]))
 
-	# print("Test 19: ", astar(cost2, heuristic2, 1, [1]))
+	print("Test 19: ", astar(cost2, heuristic2, 1, [1]))
 	print("Test 20: ", astar(cost2, heuristic2, 1, [2]))
 	print("Test 21: ", astar(cost2, heuristic2, 1, [3]))
 	print("Test 22: ", astar(cost2, heuristic2, 1, [4]))
