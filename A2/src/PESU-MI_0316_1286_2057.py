@@ -49,8 +49,8 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
             # any further processing on that node
 
             # cost[popped_node[2]][i] -> Cost to travel to the neighbour node i
-            # If there's an edge from popped node to i
-            if (cost[popped_node[2]][i] != -1):
+            # If there's an edge from popped node to i and it is not a self loop
+            if ((cost[popped_node[2]][i] != -1) and (cost[popped_node[2]][i] != 0)):
 
                 # Check if the node is in the frontier
                 boo = False  # Assume the node is not in the frontier
@@ -160,8 +160,8 @@ def UCS_Traversal(cost, start_point, goals):
             # any further processing on that node
 
             # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
-            # If there's an edge from popped node to i
-            if (cost[popped_node[2]][i] != -1):
+            # If there's an edge from popped node to i and it is not a self loop
+            if ((cost[popped_node[2]][i] != -1) and (cost[popped_node[2]][i] != 0)):
 
                 # Check if the node is in the frontier
                 boo = False
