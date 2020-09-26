@@ -123,7 +123,7 @@ def UCS_Traversal(cost, start_point, goals):
     # The cost to reach the node from the start_point, i.e. path cost
     # The node value
     # The path considered
-    node = [0, start_point, [start_point]]
+    node = [0, [start_point], start_point]
 
     # The frontier is a min heap that will store the nodes
     frontier = []
@@ -137,15 +137,16 @@ def UCS_Traversal(cost, start_point, goals):
         if (len(frontier) == 0):
             return []
 
+        # print(frontier)
         # Pop the node from the heap having the least cost
         popped_node = heapq.heappop(frontier)
 
         # If the popped node is a goal, return
-        if (popped_node[1] in goals):
-            return popped_node[2]
+        if (popped_node[2] in goals):
+            return popped_node[1]
 
         # Add the node to the explored set
-        explored.add(popped_node[1])
+        explored.add(popped_node[2])
 
         # Here, we are logically going through all the neighbour nodes only
 
@@ -160,48 +161,48 @@ def UCS_Traversal(cost, start_point, goals):
 
             # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
             # If there's an edge from popped node to i
-            if (cost[popped_node[1]][i] != -1):
+            if (cost[popped_node[2]][i] != -1):
 
                 # Check if the node is in the frontier
                 boo = False
                 for j in frontier:
-                    if(j[1] == i):
+                    if(j[2] == i):
                         boo = True
                         break
 
                 # If the new node is neither in the frontier nor in
                 # the explored set, add it to the heap
                 if ((boo is False) and (i not in explored)):
-                    temp = popped_node[2] + list((i,))
+                    temp = popped_node[1] + list((i,))
                     heapq.heappush(frontier, list(
-                        (popped_node[0] + cost[popped_node[1]][i], i, temp)))
+                        (popped_node[0] + cost[popped_node[2]][i], temp, i)))
 
                 # If the new node is already in the frontier
                 elif (boo is True):
 
                     # Finding the node with same value in the frontier
                     for j in frontier:
-                        if j[1] == i:
+                        if j[2] == i:
 
                             # If the current cost is lesser than or equal to
                             # the cost of the node currently in the frontier,
                             # then we may have to update
-                            if (j[0] >= popped_node[0] + cost[popped_node[1]][i]):
+                            if (j[0] >= popped_node[0] + cost[popped_node[2]][i]):
                                 # If the path cost is the same then the path
                                 # choosen must be lexicographically smaller,
                                 # to maintain lexicographical order
                                 # which is enforced here
-                                if (j[0] == popped_node[0] + cost[popped_node[1]][i]) \
-                                   and (j[2] <= popped_node[2] + list((i,))):
+                                if (j[0] == popped_node[0] + cost[popped_node[2]][i]) \
+                                   and (j[1] <= popped_node[1] + list((i,))):
                                     # If the new path is lexicographically
                                     # greater or equal than the current path
                                     # then break out of the for loop
                                     break
 
                                 # Update the cost in the frontier
-                                j[0] = popped_node[0] + cost[popped_node[1]][i]
+                                j[0] = popped_node[0] + cost[popped_node[2]][i]
                                 # Update the path in the frontier
-                                j[2] = popped_node[2] + list((i,))
+                                j[1] = popped_node[1] + list((i,))
                                 heapq.heapify(frontier)
 
                             # Once we have modified/handled the node, in the
