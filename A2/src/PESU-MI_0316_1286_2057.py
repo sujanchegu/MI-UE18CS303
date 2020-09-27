@@ -9,10 +9,11 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
     n = len(cost[0])
 
     # We define our node structure to be a list containing
-    # The cost to reach the node from the start_point, i.e. path cost
-    # The node value
-    # The path considered
-    node = [heuristic[start_point], 0, start_point, [start_point]]
+    # 0 index: Evaluation function f(n) = g(n) + h(n)
+    # 1 index: The path considered
+    # 2 index: The node itself, i.e. its ID (here it is called start_point)
+    # 3 index: Path cost from initial node to start_point, i.e. g(n)
+    node = [heuristic[start_point], [start_point], start_point, 0]
 
     # The frontier is a min heap that will store the nodes
     frontier = []
@@ -31,7 +32,118 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
 
         # If the popped node is a goal, return
         if (popped_node[2] in goals):
-            return popped_node[3]
+            return popped_node[1]
+
+        # Add the node to the explored set
+        explored.add(popped_node[2])
+
+        # Here, we are logically going through all the neighbour nodes only
+
+        # We iterate through all the nodes mentioned in the cost matrix row
+        # whether there is a direct path to them or not
+        for i in range(1, n):
+
+            # Only if there is a direct path from the current popped node
+            # to a node mentioned in the cost matrix row
+            # i.e. when it is a neighbour node, do we proceed with
+            # any further processing on that node
+
+            # cost[popped_node[2]][i] -> Cost to travel to the neighbour node i
+            # If there's an edge from popped node to i and it is not a self loop
+            if ((cost[popped_node[2]][i] != -1) and (cost[popped_node[2]][i] != 0)):
+
+                # Check if the node is in the frontier
+                boo = False  # Assume the node is not in the frontier
+                for j in frontier:
+                    if(j[2] == i):  # If the node is in the frontier
+                        boo = True  # then set boo to be true
+                        break
+
+                # If the new node is neither in the frontier nor in
+                # the explored set, add it to the heap
+                if ((boo is False) and (i not in explored)):
+                    temp = popped_node[1] + list((i,))
+                    heapq.heappush(frontier, list(
+                        (popped_node[3] + cost[popped_node[2]][i] + heuristic[i], temp, i, popped_node[3] + cost[popped_node[2]][i])))
+
+                # If the new node is already in the frontier
+                elif (boo is True):
+
+                    # Finding the node with same value in the frontier
+                    for j in frontier:
+                        if j[2] == i:
+
+                            # If the current cost is lesser than or equal to
+                            # the cost of the node currently in the frontier,
+                            # then we may have to update
+                            if (j[3] >= popped_node[3] + cost[popped_node[2]][i]):
+                                # If the path cost is the same then the path
+                                # choosen must be lexicographically smaller,
+                                # to maintain lexicographical order
+                                # which is enforced here
+                                if (j[3] == popped_node[3] + cost[popped_node[2]][i]) \
+                                   and (j[1] <= popped_node[1] + list((i,))):
+                                    # If the new path is lexicographically
+                                    # greater or equal than the path in the
+                                    # frontier then break out of the for loop
+                                    break
+
+                                # If we reach here that means that either the new path
+                                # cost found is lesser than the one in the frontier or the
+                                # new path cost found has equal cost but it is lexicographically
+                                # smaller
+                                # Update the evaluation function at index 0, i.e. f(n)
+                                # Formula used:
+                                # Actual path cost from the initial node to the popped_node
+                                # + Step cost from the popped_node to the neighbour node
+                                # + Heuristic of the neighbour node
+                                j[0] = popped_node[3] + cost[popped_node[2]][i] + heuristic[i]
+                                # Update the path cost (from initial to neighbour node) in the frontier
+                                j[3] = popped_node[3] + cost[popped_node[2]][i]
+                                # Update the path in the frontier
+                                j[1] = popped_node[1] + list((i,))
+                                heapq.heapify(frontier)
+
+                            # Once we have modified/handled the node, in the
+                            # frontier we can exit the loop
+                            # There will be at most one node of a certain
+                            # number or ID in the frontier always
+                            break
+
+    return l
+
+
+def UCS_Traversal(cost, start_point, goals):
+    l = []
+
+    # n = total number of nodes + 1
+    n = len(cost[0])
+
+    # We define our node structure to be a list containing
+    # The cost to reach the node from the start_point, i.e. path cost
+    # The path considered
+    # The node value
+    node = [0, [start_point], start_point]
+
+    # The frontier is a min heap that will store the nodes
+    frontier = []
+    frontier.append(node)
+
+    # Explored will store all the nodes already explored.
+    explored = set()
+
+    while (True):
+        # If the frontier is empty, our search algorithm has failed
+        if (len(frontier) == 0):
+            return []
+
+        # print(frontier)
+        # Pop the node from the heap having the least cost
+        popped_node = heapq.heappop(frontier)
+
+        # If the popped node is a goal, return
+        if (popped_node[2] in goals):
+            return popped_node[1]
 
         # Add the node to the explored set
         explored.add(popped_node[2])
@@ -48,22 +160,22 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
             # any further processing on that node
 
             # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
-            # If there's an edge from popped node to i
-            if (cost[popped_node[2]][i] != -1):
+            # If there's an edge from popped node to i and it is not a self loop
+            if ((cost[popped_node[2]][i] != -1) and (cost[popped_node[2]][i] != 0)):
 
                 # Check if the node is in the frontier
-                boo = False  # Assume the node is not in the frontier
+                boo = False
                 for j in frontier:
-                    if(j[2] == i):  # If the node is in the frontier
-                        boo = True  # then set boo to be true
+                    if(j[2] == i):
+                        boo = True
                         break
 
                 # If the new node is neither in the frontier nor in
                 # the explored set, add it to the heap
                 if ((boo is False) and (i not in explored)):
-                    temp = popped_node[3] + list((i,))
+                    temp = popped_node[1] + list((i,))
                     heapq.heappush(frontier, list(
-                        (popped_node[1] + cost[popped_node[2]][i] + heuristic[i], popped_node[1] + cost[popped_node[2]][i], i, temp)))
+                        (popped_node[0] + cost[popped_node[2]][i], temp, i)))
 
                 # If the new node is already in the frontier
                 elif (boo is True):
@@ -75,132 +187,22 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                             # If the current cost is lesser than or equal to
                             # the cost of the node currently in the frontier,
                             # then we may have to update
-                            if (j[1] >= popped_node[1] + cost[popped_node[2]][i]):
+                            if (j[0] >= popped_node[0] + cost[popped_node[2]][i]):
                                 # If the path cost is the same then the path
                                 # choosen must be lexicographically smaller,
                                 # to maintain lexicographical order
                                 # which is enforced here
-                                if (j[1] == popped_node[1] + cost[popped_node[2]][i]) \
-                                   and (j[3] <= popped_node[3] + list((i,))):
-                                    # If the new path is lexicographically
-                                    # greater or equal than the path in the
-                                    # frontier then break out of the for loop
-                                    break
-
-                                # If we reach here that means that either the new path
-                                # cost found is lesser than the one in the frontier or the
-                                # new path cost found has equal cost but it is lexicographically
-                                # smaller
-                                # Update the evaluation function at index 0, i.e f(n)
-                                # Formula used:
-                                # Actual path cost from the initial node to the popped_node
-                                # + Step cost from the popped_node to the neighbour node
-                                # + Heuristic of the neighbour node
-                                j[0] = popped_node[1] + cost[popped_node[2]][i] + heuristic[i]
-                                # Update the cost in the frontier
-                                j[1] = popped_node[1] + cost[popped_node[2]][i]
-                                # Update the path in the frontier
-                                j[3] = popped_node[3] + list((i,))
-                                heapq.heapify(frontier)
-
-                            # Once we have modified/handled the node, in the
-                            # frontier we can exit the loop
-                            # There will be only one node of a certain
-                            # number or ID in the frontier always
-                            break
-
-    return l
-
-
-def UCS_Traversal(cost, start_point, goals):
-    l = []
-
-    # n = total number of nodes + 1
-    n = len(cost[0])
-
-    # We define our node structure to be a list containing
-    # The cost to reach the node from the start_point, i.e. path cost
-    # The node value
-    # The path considered
-    node = [0, start_point, [start_point]]
-
-    # The frontier is a min heap that will store the nodes
-    frontier = []
-    frontier.append(node)
-
-    # Explored will store all the nodes already explored.
-    explored = set()
-
-    while (True):
-        # If the frontier is empty, our search algorithm has failed
-        if (len(frontier) == 0):
-            return []
-
-        # Pop the node from the heap having the least cost
-        popped_node = heapq.heappop(frontier)
-
-        # If the popped node is a goal, return
-        if (popped_node[1] in goals):
-            return popped_node[2]
-
-        # Add the node to the explored set
-        explored.add(popped_node[1])
-
-        # Here, we are logically going through all the neighbour nodes only
-
-        # We iterate through all the nodes mentioned in the cost matrix row
-        # whether there is a direct path to them or not
-        for i in range(1, n):
-
-            # Only if there is a direct path from the current popped node
-            # to a node mentioned in the cost matrix row
-            # i.e. when it is a neighbour node, do we proceed with
-            # any further processing on that node
-
-            # cost[popped_node[1]][i] -> Cost to travel to the neighbour node i
-            # If there's an edge from popped node to i
-            if (cost[popped_node[1]][i] != -1):
-
-                # Check if the node is in the frontier
-                boo = False
-                for j in frontier:
-                    if(j[1] == i):
-                        boo = True
-                        break
-
-                # If the new node is neither in the frontier nor in
-                # the explored set, add it to the heap
-                if ((boo is False) and (i not in explored)):
-                    temp = popped_node[2] + list((i,))
-                    heapq.heappush(frontier, list(
-                        (popped_node[0] + cost[popped_node[1]][i], i, temp)))
-
-                # If the new node is already in the frontier
-                elif (boo is True):
-
-                    # Finding the node with same value in the frontier
-                    for j in frontier:
-                        if j[1] == i:
-
-                            # If the current cost is lesser than or equal to
-                            # the cost of the node currently in the frontier,
-                            # then we may have to update
-                            if (j[0] >= popped_node[0] + cost[popped_node[1]][i]):
-                                # If the path cost is the same then the path
-                                # choosen must be lexicographically smaller,
-                                # to maintain lexicographical order
-                                # which is enforced here
-                                if (j[0] == popped_node[0] + cost[popped_node[1]][i]) \
-                                   and (j[2] <= popped_node[2] + list((i,))):
+                                if (j[0] == popped_node[0] + cost[popped_node[2]][i]) \
+                                   and (j[1] <= popped_node[1] + list((i,))):
                                     # If the new path is lexicographically
                                     # greater or equal than the current path
                                     # then break out of the for loop
                                     break
 
                                 # Update the cost in the frontier
-                                j[0] = popped_node[0] + cost[popped_node[1]][i]
+                                j[0] = popped_node[0] + cost[popped_node[2]][i]
                                 # Update the path in the frontier
-                                j[2] = popped_node[2] + list((i,))
+                                j[1] = popped_node[1] + list((i,))
                                 heapq.heapify(frontier)
 
                             # Once we have modified/handled the node, in the

@@ -1,4 +1,5 @@
 # from A2 import *
+# from A2.sample_test_case import test_case
 import importlib
 temp = importlib.import_module('src.PESU-MI_0316_1286_2057')
 locals()['UCS_Traversal'] = temp.UCS_Traversal
@@ -55,3 +56,39 @@ def test_case3():
 
 
 test_case3()
+print('-'*80)
+
+
+def test_case4():
+    cost = [
+            #    A   B  C   D
+            [0,  0,  0, 0,  0],  # #
+            [0,  0, -1, 10, 2],  # A
+            [0, -1,  0, 5, -1],  # B
+            [0, -1, -1, 0, -1],  # C
+            [0, -1, -1, 5,  0]   # D
+           ]
+
+    print("DFS", DFS_Traversal(cost,1,[3, 4]))
+    print("UCS", UCS_Traversal(cost,1,[3, 4]))
+    # print(A_star_Traversal(cost,1,[3]))
+
+test_case4()
+print('-'*80)
+
+
+def test_case5():
+    cost = [
+            #    A   B  C   D
+            [0,  0,  0, 0,  0],  # #
+            [0,  0, -1, 10, 2],  # A
+            [0, -1,  0, 5, -1],  # B
+            [0, -1, -1, 0, -1],  # C
+            [0, -1, -1, 5,  0]   # D
+           ]
+
+    print("DFS", DFS_Traversal(cost,1,[4]))
+    print("UCS", UCS_Traversal(cost,1,[4]))
+    # print(A_star_Traversal(cost,1,[3]))
+
+test_case5()
