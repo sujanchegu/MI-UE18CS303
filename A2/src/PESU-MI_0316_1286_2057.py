@@ -25,7 +25,13 @@ class Node:
         return (self.getFValue(), self.node_id, self)
 
     def getPath(self):
-        pass
+        curr_obj = self
+        path_to_node = []
+        while(curr_obj is not None):
+            path_to_node.insert(0, curr_obj.node_id)
+            curr_obj = curr_obj.parent
+
+        return path_to_node
 
 
 def A_star_Traversal(cost, heuristic, start_point, goals):
