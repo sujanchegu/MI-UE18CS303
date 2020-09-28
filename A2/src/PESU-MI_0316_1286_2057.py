@@ -265,9 +265,10 @@ def getNeighbours(adjList):
 
     # NOTE: We ignore the first node (as 1 based indexing for nodes has
     # been used)
-    for index, node in enumerate(adjList[1::], start=1):
+    START_ADJUSTED_LIST = adjList[1::]
+    for index, node in enumerate(START_ADJUSTED_LIST, start=1):
         # If the value is greater than 0, then there is a path/edge from the
-        # popped node to the node
+        # popped node to the node and it is not a self loop
         if node > 0:
             neighbourList.append(index)
 
@@ -312,13 +313,14 @@ def DFS_Traversal(cost, start_point, goals):
             # Return the path found
             return popped_node_record["Node Object"].getPath()
 
+        NODE_ID = popped_node_record["Node Object"].getNode_ID()
         # Add the node to the explored set
-        exploredSet.add(popped_node_record["Node Object"].getNode_ID())
+        exploredSet.add(NODE_ID)
 
         # If the popped node is not one of the goal states
 
         # Expand the node, and get the list of neighbours' indices
-        poppedNodeNeighbours = getNeighbours(cost[popped_node_record["Node Object"].getNode_ID()])
+        poppedNodeNeighbours = getNeighbours(cost[NODE_ID])
 
         # Explored set
         # print("exploredSet:", exploredSet)
@@ -333,10 +335,10 @@ def DFS_Traversal(cost, start_point, goals):
 
         # Add the resulting nodes (child nodes) into the frontier,
         # if they aren't already in the frontier or the explored set
-        for poppedNodeNeighbour in poppedNodeNeighbours:
-            if poppedNodeNeighbour not in exploredSet:
+        for neighbour in poppedNodeNeighbours:
+            if neighbour not in exploredSet:
                 poppedNodeNeighbourRecord = {
-                    "Node Object": Node(popped_node_record["Node Object"], poppedNodeNeighbour),
+                    "Node Object": Node(popped_node_record["Node Object"], neighbour),
                 }
                 stack.append(poppedNodeNeighbourRecord)
         # print("Stack:", stack)
