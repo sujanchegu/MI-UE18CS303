@@ -340,7 +340,7 @@ def DFS_Traversal(cost, start_point, goals):
         for poppedNodeNeighbour in poppedNodeNeighbours:
             if poppedNodeNeighbour not in exploredSet:
                 poppedNodeNeighbourRecord = {
-                    "Node Object": poppedNodeNeighbour,
+                    "Node Object": Node(popped_node_record["Node Object"], poppedNodeNeighbour),
                 }
                 stack.append(poppedNodeNeighbourRecord)
         # print("Stack:", stack)
