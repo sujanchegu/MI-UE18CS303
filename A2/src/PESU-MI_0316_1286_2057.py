@@ -257,10 +257,6 @@ def UCS_Traversal(cost, start_point, goals):
 
     return l
 
-# Defining the Goal Test Function
-def goalTest(state, goals):
-    return state in goals
-
 
 # Get a list of the neighbours of the popped node.
 # We return a list of the indices of the neighbours
@@ -309,7 +305,7 @@ def DFS_Traversal(cost, start_point, goals):
         #     continue
 
         # Check if the popped node is one of the goal states
-        if goalTest(popped_node_record["Node Object"], goals) is True:
+        if popped_node_record["Node Object"].getNode_ID() in goals:
             # Printing the path found for Diagnostics
             # print("Path from DFS is:", popped_node_record["path"])
 
