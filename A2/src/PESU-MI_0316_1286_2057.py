@@ -228,7 +228,7 @@ def UCS_Traversal(cost, start_point, goals):
                             # Formula used:
                             # Actual path cost from the initial node to the popped_node
                             # + Step cost from the popped_node to the neighbour node
-                            # + Heuristic of the neighbour node
+                            # + Heuristic of the neighbour node (which is 0 for UCS)
                             g_value_of_node_i = popped_node_record[NODE_OBJ_INDEX].getGValue() + \
                                                 cost[popped_node_record[NODE_ID_INDEX]][i]
                             h_value_of_node_i = 0
