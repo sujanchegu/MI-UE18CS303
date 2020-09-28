@@ -308,9 +308,6 @@ def DFS_Traversal(cost, start_point, goals):
         # if popped_node_record["Node Object"].getNode_ID() in exploredSet:
         #     continue
 
-        # Add the node to the explored set
-        exploredSet.add(popped_node_record["Node Object"].getNode_ID())
-
         # Check if the popped node is one of the goal states
         if goalTest(popped_node_record["Node Object"], goals) is True:
             # Printing the path found for Diagnostics
@@ -318,6 +315,9 @@ def DFS_Traversal(cost, start_point, goals):
 
             # Return the path found
             return popped_node_record["Node Object"].getPath()
+
+        # Add the node to the explored set
+        exploredSet.add(popped_node_record["Node Object"].getNode_ID())
 
         # If the popped node is not one of the goal states
 
