@@ -124,8 +124,8 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                             # + Heuristic of the neighbour node
                             g_value_of_node_i = popped_node_record[NODE_OBJ_INDEX].getGValue() + \
                                                 cost[popped_node_record[NODE_ID_INDEX]][i]
-
-                            f_value_of_node_i = g_value_of_node_i + heuristic[i]
+                            h_value_of_node_i = heuristic[i]
+                            f_value_of_node_i = g_value_of_node_i + h_value_of_node_i
 
                             # If the current cost is lesser than
                             # the cost of the node currently in the frontier,
@@ -133,22 +133,19 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                             if j[NODE_EVAL_FUNC_VALUE_INDEX] > f_value_of_node_i:
                                 # (self.getFValue(), self.node_id, self)
 
-                                # If we reach here that means that either the new path
-                                # cost found is lesser than the one in the frontier or the
-                                # new path cost found has equal cost but it is lexicographically
-                                # smaller
+                                # If we reach here that means that either the
+                                # new path cost found is lesser than the one
+                                # in the frontier
                                 # Update the evaluation function at index 0, i.e. f(n)
                                 j[NODE_EVAL_FUNC_VALUE_INDEX] = f_value_of_node_i
                                 # Update the path cost (from initial to neighbour node) in the frontier
                                 j[NODE_OBJ_INDEX].setParent(popped_node_record[NODE_OBJ_INDEX])
                                 # Update the path in the frontier
                                 j[NODE_OBJ_INDEX].setGValue(g_value_of_node_i)
+
+                                # Heapify the frontier, again
                                 heapq.heapify(frontier)
 
-                            # Once we have modified/handled the node, in the
-                            # frontier we can exit the loop
-                            # There will be at most one node of a certain
-                            # number or ID in the frontier always
                             break
 
     return l
