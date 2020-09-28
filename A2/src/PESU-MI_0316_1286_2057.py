@@ -103,16 +103,8 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                     # path_to_node_i = popped_node_record[1] + list((i,))
                     g_value = popped_node_record[NODE_OBJ_INDEX].getGValue() + cost[popped_node_record[NODE_ID_INDEX]][i]
                     h_value = heuristic[i]
-                    f_value = g_value + h_value
-                    heapq.heappush(frontier,
-                                   list(
-                                        (
-                                            f_value,
-                                            i,
-                                            Node(popped_node_record[NODE_OBJ_INDEX], i, g_value, h_value)
-                                        )
-                                       )
-                                   )
+                    node = Node(popped_node_record[NODE_OBJ_INDEX], i, g_value, h_value)
+                    heapq.heappush(frontier, node.createFrontierRecord())
 
                 # If the new node is already in the frontier
                 elif inFrontier is True:
@@ -135,7 +127,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                             if j[NODE_EVAL_FUNC_VALUE_INDEX] > f_value_of_node_i:
                                 # (self.getFValue(), self.node_id, self)
 
-                                # If we reach here that means that either the
+                                # If we reach here that means that the
                                 # new path cost found is lesser than the one
                                 # in the frontier
                                 # Update the evaluation function at index 0, i.e. f(n)
@@ -221,17 +213,8 @@ def UCS_Traversal(cost, start_point, goals):
                 if (inFrontier is False) and (i not in explored):
                     # path_to_node_i = popped_node_record[1] + list((i,))
                     g_value = popped_node_record[NODE_OBJ_INDEX].getGValue() + cost[popped_node_record[NODE_ID_INDEX]][i]
-                    h_value = 0
-                    f_value = g_value + h_value
-                    heapq.heappush(frontier,
-                                   list(
-                                        (
-                                            f_value,
-                                            i,
-                                            Node(popped_node_record[NODE_OBJ_INDEX], i, g_value)
-                                        )
-                                       )
-                                   )
+                    node = Node(popped_node_record[NODE_OBJ_INDEX], i, g_value)
+                    heapq.heappush(frontier, node.createFrontierRecord())
 
                 # If the new node is already in the frontier
                 elif inFrontier is True:
@@ -254,7 +237,7 @@ def UCS_Traversal(cost, start_point, goals):
                             if j[NODE_EVAL_FUNC_VALUE_INDEX] > f_value_of_node_i:
                                 # (self.getFValue(), self.node_id, self)
 
-                                # If we reach here that means that either the
+                                # If we reach here that means that the
                                 # new path cost found is lesser than the one
                                 # in the frontier
                                 # Update the evaluation function at index 0, i.e. f(n)
