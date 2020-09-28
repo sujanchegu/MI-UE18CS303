@@ -15,6 +15,9 @@ class Node:
     def getGValue(self):
         return self.g_value
 
+    def getNode_ID(self):
+        return self.node_id
+
     def setParent(self, parent):
         self.parent = parent
 
@@ -280,14 +283,13 @@ def getNeighbours(adjList):
 
 
 def DFS_Traversal(cost, start_point, goals):
-    # return [1]
+
     # Frontier for DFS, i.e. the stack
     stack = deque()
 
     # Push the inital node into the frontier/stack
     stack.append({
-        "node": start_point,
-        "path": [start_point]
+        "Node Object": Node(None, start_point)
     })
 
     # Set to hold the list of nodes explored
@@ -296,31 +298,31 @@ def DFS_Traversal(cost, start_point, goals):
     # While the frontier/stack is not empty
     while (stack):
         # Pop a node from the frontier/stack
-        poppedNode = stack.pop()
+        popped_node_record = stack.pop()
 
         # Print the popped node
-        # print("Popped node:", poppedNode)
+        # print("Popped node:", popped_node_record)
 
         # If the popped node has already been explored
         # then do not do any further processing for it
-        if poppedNode["node"] in exploredSet:
+        if popped_node_record["Node Object"].getNode_ID() in exploredSet:
             continue
 
         # Add the node to the explored set
-        exploredSet.add(poppedNode["node"])
+        exploredSet.add(popped_node_record["Node Object"].getNode_ID())
 
         # Check if the popped node is one of the goal states
-        if goalTest(poppedNode["node"], goals) is True:
+        if goalTest(popped_node_record["Node Object"], goals) is True:
             # Printing the path found for Diagnostics
-            # print("Path from DFS is:", poppedNode["path"])
+            # print("Path from DFS is:", popped_node_record["path"])
 
             # Return the path found
-            return poppedNode["path"]
+            return popped_node_record["Node Object"].getPath()
 
         # If the popped node is not one of the goal states
 
         # Expand the node, and get the list of neighbours' indices
-        poppedNodeNeighbours = getNeighbours(cost[poppedNode["node"]])
+        poppedNodeNeighbours = getNeighbours(cost[popped_node_record["Node Object"].getNode_ID()])
 
         # Explored set
         # print("exploredSet:", exploredSet)
@@ -338,8 +340,7 @@ def DFS_Traversal(cost, start_point, goals):
         for poppedNodeNeighbour in poppedNodeNeighbours:
             if poppedNodeNeighbour not in exploredSet:
                 poppedNodeNeighbourRecord = {
-                    "node": poppedNodeNeighbour,
-                    "path": poppedNode["path"] + [poppedNodeNeighbour]
+                    "Node Object": poppedNodeNeighbour,
                 }
                 stack.append(poppedNodeNeighbourRecord)
         # print("Stack:", stack)
