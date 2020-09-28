@@ -6250,7 +6250,7 @@ Start point:
 Goals:
 2 4
 Correct Answer: (',' separates dfs, ucs and a*)
-6 1 3 2,6 1 3 2,6 1 3 2,
+6 1 3 2,6 3 2,6 3 2,
 ********************************
 Test 618 :
 Heuristic:
