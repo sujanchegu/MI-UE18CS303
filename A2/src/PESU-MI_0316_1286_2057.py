@@ -305,8 +305,8 @@ def DFS_Traversal(cost, start_point, goals):
 
         # If the popped node has already been explored
         # then do not do any further processing for it
-        if popped_node_record["Node Object"].getNode_ID() in exploredSet:
-            continue
+        # if popped_node_record["Node Object"].getNode_ID() in exploredSet:
+        #     continue
 
         # Add the node to the explored set
         exploredSet.add(popped_node_record["Node Object"].getNode_ID())
@@ -344,6 +344,7 @@ def DFS_Traversal(cost, start_point, goals):
                 }
                 stack.append(poppedNodeNeighbourRecord)
         # print("Stack:", stack)
+
     # If we reached here, then that means that the frontier was empty
     # before we reached a goal state, and hence there is no solution so
     # we return an empty list
