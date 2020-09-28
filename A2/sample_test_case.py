@@ -69,7 +69,7 @@ heuristic = [0, 5, 7, 3]
 goals = [3]
 try:
     answer = tri_traversal(cost, heuristic, 1, goals)[1]
-    if answer == [1, 2, 3]:
+    if answer == [1, 3]:
         print("SAMPLE TEST CASE 4 FOR THE  UCS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 4 FOR THE  UCS_TRAVERSAL FAILED")
@@ -132,13 +132,13 @@ heuristic = [0, 0, 0, 0]
 goals = [3]
 try:
     answerDFS, answerUCS, answerA = tri_traversal(cost, heuristic, 1, goals)
-    if answerA == [1, 2, 3]:
+    if answerA == [1, 3]:
         print("SAMPLE TEST CASE 7 FOR THE  A_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 7 FOR THE  A_TRAVERSAL FAILED")
     # print(f"Answer: {answerA=}")  # Caution this is a feature of Python 3.8
 
-    if answerUCS == [1, 2, 3]:
+    if answerUCS == [1, 3]:
         print("SAMPLE TEST CASE 8 FOR THE  UCS_TRAVERSAL PASSED")
     else:
         print("SAMPLE TEST CASE 8 FOR THE  UCS_TRAVERSAL FAILED")
