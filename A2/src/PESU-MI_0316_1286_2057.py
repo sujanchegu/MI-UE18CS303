@@ -15,6 +15,12 @@ class Node:
     def getGValue(self):
         return self.g_value
 
+    def setParent(self, parent):
+        self.parent = parent
+
+    def setGValue(self, g_value):
+        self.g_value = g_value
+
     def createFrontierRecord(self):
         return (self.getFValue(), self.node_id, self)
 
@@ -105,37 +111,32 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
 
                     # Finding the node with same value in the frontier
                     for j in frontier:
-                        if j[2] == i:
+                        if j[NODE_ID_INDEX] == i:
+                            # Formula used:
+                            # Actual path cost from the initial node to the popped_node
+                            # + Step cost from the popped_node to the neighbour node
+                            # + Heuristic of the neighbour node
+                            g_value_of_node_i = popped_node_record[NODE_OBJ_INDEX].getGValue() + \
+                                                cost[popped_node_record[NODE_ID_INDEX]][i]
+
+                            f_value_of_node_i = g_value_of_node_i + heuristic[i]
 
                             # If the current cost is lesser than
                             # the cost of the node currently in the frontier,
                             # then we have to update
-                            if (j[3] > popped_node[3] + cost[popped_node[2]][i]):
-                                # If the path cost is the same then the path
-                                # choosen must be lexicographically smaller,
-                                # to maintain lexicographical order
-                                # which is enforced here
-                                if (j[3] == popped_node[3] + cost[popped_node[2]][i]) \
-                                   and (j[1] <= popped_node[1] + list((i,))):
-                                    # If the new path is lexicographically
-                                    # greater or equal than the path in the
-                                    # frontier then break out of the for loop
-                                    break
+                            if j[EVAL_FUNC_INDEX] > f_value_of_node_i:
+                                # (self.getFValue(), self.node_id, self)
 
                                 # If we reach here that means that either the new path
                                 # cost found is lesser than the one in the frontier or the
                                 # new path cost found has equal cost but it is lexicographically
                                 # smaller
                                 # Update the evaluation function at index 0, i.e. f(n)
-                                # Formula used:
-                                # Actual path cost from the initial node to the popped_node
-                                # + Step cost from the popped_node to the neighbour node
-                                # + Heuristic of the neighbour node
-                                j[0] = popped_node[3] + cost[popped_node[2]][i] + heuristic[i]
+                                j[EVAL_FUNC_INDEX] = f_value_of_node_i
                                 # Update the path cost (from initial to neighbour node) in the frontier
-                                j[3] = popped_node[3] + cost[popped_node[2]][i]
+                                j[NODE_OBJ_INDEX].setParent(popped_node_record[NODE_OBJ_INDEX])
                                 # Update the path in the frontier
-                                j[1] = popped_node[1] + list((i,))
+                                j[NODE_OBJ_INDEX].setGValue(g_value_of_node_i)
                                 heapq.heapify(frontier)
 
                             # Once we have modified/handled the node, in the
