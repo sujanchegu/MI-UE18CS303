@@ -115,16 +115,24 @@ cost[2][4]=5
 cost[2][5]=12
 cost[3][4]=2
 cost[4][5]=3
+
+# for row in cost:
+#     for c in row:
+#         print(f"{c:^4}", end="")
+#     print()
+
+
 heuristic=[0,7,6,2,1,0]
 ele=tri_traversal(cost, heuristic, 1, goals)
 if ele[0]==[1,2,3,4,5]:
     print("DFS testcase 6 passed")
 else:
     print("DFS testcase 6 FAILED")
-if ele[2]==[1,2,4,5]:
+if ele[2]==[1,3,4,5]:
     print("A* passed testcase 6")
 else:
     print("A* FAILED testcase 6")
+    print("You got:", ele[2])
 if ele[1]==[1,2,3,4,5]:
     print("UCS testcase 6 passed")
 else:
@@ -166,13 +174,20 @@ cost[4][1]=7
 cost[4][6]=3
 cost[4][5]=2
 cost[5][6]=1
+
+# for row in cost:
+#     for c in row:
+#         print(f"{c:^4}", end="")
+#     print()
+
 goals=[6]
 heuristic=[0,2,1,8,9,5,3]
 ele=tri_traversal(cost, heuristic, 1, goals)
-if ele[1]==[1,2,3,4,5,6]:
+if ele[1]==[1,2,3,4,6]:
     print("passed testcase 8 UCS")
 else:
     print("FAILED testcase 8 UCS")
+    print("You got:", ele[1])
 if ele[0]==[1,2,3,4,5,6]:
     print("passed testcase 8 DFS")
 else:

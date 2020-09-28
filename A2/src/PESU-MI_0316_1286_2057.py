@@ -172,6 +172,7 @@ def UCS_Traversal(cost, start_point, goals):
     explored = set()
 
     while (True):
+        # print("the forntier now is :", frontier)
         # If the frontier is empty, our search algorithm has failed
         if len(frontier) == 0:
             return []
@@ -231,8 +232,7 @@ def UCS_Traversal(cost, start_point, goals):
                             # + Heuristic of the neighbour node (which is 0 for UCS)
                             g_value_of_node_i = popped_node_record[NODE_OBJ_INDEX].getGValue() + \
                                                 cost[popped_node_record[NODE_ID_INDEX]][i]
-                            h_value_of_node_i = 0
-                            f_value_of_node_i = g_value_of_node_i + h_value_of_node_i
+                            f_value_of_node_i = g_value_of_node_i
 
                             # If the current cost is lesser than
                             # the cost of the node currently in the frontier,
