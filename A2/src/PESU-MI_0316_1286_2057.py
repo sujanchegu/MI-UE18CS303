@@ -59,14 +59,15 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
 
     while (True):
         # If the frontier is empty, our search algorithm has failed
-        if (len(frontier) == 0):
+        if len(frontier) == 0:
             return []
 
         # Pop the node from the heap having the least cost
         popped_node_record = heapq.heappop(frontier)
 
-        # If the popped node is a goal, return
-        if (popped_node_record[NODE_ID_INDEX] in goals):
+        # If the popped node is a goal, return the path to the goal
+        # node
+        if popped_node_record[NODE_ID_INDEX] in goals:
             return popped_node_record[NODE_OBJ_INDEX].getPath()
 
         # Add the node to the explored set
@@ -85,8 +86,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
 
             # cost[popped_node[2]][i] -> Cost to travel to the neighbour node i
             # If there's an edge from popped node to i and it is not a self loop
-            if (cost[popped_node_record[NODE_ID_INDEX]][i] != -1) and \
-               (cost[popped_node_record[NODE_ID_INDEX]][i] != 0):
+            if cost[popped_node_record[NODE_ID_INDEX]][i] > 0:
 
                 # Check if the node is in the frontier
                 inFrontier = False  # Assume the node is not in the frontier
@@ -108,7 +108,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                    tuple(
                                             f_value,
                                             i,
-                                            Node(popped_node_record[NODE_ID_INDEX], i, g_value, h_value)
+                                            Node(popped_node_record[NODE_OBJ_INDEX], i, g_value, h_value)
                                         )
                                    )
 
