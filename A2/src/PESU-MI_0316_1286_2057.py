@@ -3,7 +3,7 @@ from collections import deque
 
 
 class Node:
-    def __init__(self, parent, node_id, g_value, h_value):
+    def __init__(self, parent, node_id, g_value, h_value=0):
         self.parent = parent
         self.node_id = node_id
         self.g_value = g_value
@@ -12,24 +12,32 @@ class Node:
     def getFValue(self):
         return self.g_value + self.h_value
 
+    def createFrontierRecord(self):
+        return (self.getFValue(), self.node_id, self)
+
+    def getPath(self):
+        pass
+
 
 def A_star_Traversal(cost, heuristic, start_point, goals):
+    # these values are given according to the function
+    # createFrontierRecord() in Node class
+    NODE_INDEX = 1
+    EVAL_FUNC_INDEX = 0
+
     l = []
 
     # n = total number of nodes + 1
     n = len(cost[0])
 
-    # We define our node structure to be a list containing
-    # 0 index: Evaluation function f(n) = g(n) + h(n)
-    # 1 index: The path considered
-    # 2 index: The node itself, i.e. its ID (here it is called start_point)
-    # 3 index: Path cost from initial node to start_point, i.e. g(n)
-    node = Node(None, start_point, )
-    node = [heuristic[start_point], [start_point], start_point, 0]
+    initial_node = Node(None, start_point, 0, heuristic[start_point])
+    # node = [heuristic[start_point], [start_point], start_point, 0]
 
     # The frontier is a min heap that will store the nodes
     frontier = []
-    frontier.append(node)
+
+    # Push the inital node into the frontier
+    heapq.heappush(frontier, initial_node.createFrontierRecord())
 
     # Explored will store all the nodes already explored.
     explored = set()
@@ -43,8 +51,8 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
         popped_node = heapq.heappop(frontier)
 
         # If the popped node is a goal, return
-        if (popped_node[2] in goals):
-            return popped_node[1]
+        if (popped_node[NODE_INDEX] in goals):
+            return popped_node[2].getPath()
 
         # Add the node to the explored set
         explored.add(popped_node[2])
