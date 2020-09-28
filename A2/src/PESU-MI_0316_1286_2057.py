@@ -165,7 +165,7 @@ def UCS_Traversal(cost, start_point, goals):
     # n = total number of nodes + 1
     n = len(cost[0])
 
-    initial_node = Node(None, start_point, 0, heuristic[start_point])
+    initial_node = Node(None, start_point)
 
     # The frontier is a min heap that will store the nodes
     frontier = []
@@ -221,14 +221,14 @@ def UCS_Traversal(cost, start_point, goals):
                 if (inFrontier is False) and (i not in explored):
                     # path_to_node_i = popped_node_record[1] + list((i,))
                     g_value = popped_node_record[NODE_OBJ_INDEX].getGValue() + cost[popped_node_record[NODE_ID_INDEX]][i]
-                    h_value = heuristic[i]
+                    h_value = 0
                     f_value = g_value + h_value
                     heapq.heappush(frontier,
                                    list(
                                         (
                                             f_value,
                                             i,
-                                            Node(popped_node_record[NODE_OBJ_INDEX], i, g_value, h_value)
+                                            Node(popped_node_record[NODE_OBJ_INDEX], i, g_value)
                                         )
                                        )
                                    )
@@ -245,7 +245,7 @@ def UCS_Traversal(cost, start_point, goals):
                             # + Heuristic of the neighbour node
                             g_value_of_node_i = popped_node_record[NODE_OBJ_INDEX].getGValue() + \
                                                 cost[popped_node_record[NODE_ID_INDEX]][i]
-                            h_value_of_node_i = heuristic[i]
+                            h_value_of_node_i = 0
                             f_value_of_node_i = g_value_of_node_i + h_value_of_node_i
 
                             # If the current cost is lesser than
