@@ -4874,7 +4874,7 @@ Start point:
 Goals:
 8 3 7
 Correct Answer: (',' separates dfs, ucs and a*)
-4 3,4 5 6 8,4 5 6 8,
+4 3,4 6 8,4 6 8,
 ********************************
 Test 483 :
 Heuristic:
