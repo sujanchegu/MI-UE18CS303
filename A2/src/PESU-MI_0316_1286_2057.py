@@ -2,6 +2,17 @@ import heapq
 from collections import deque
 
 
+class Node:
+    def __init__(self, parent, node_id, g_value, h_value):
+        self.parent = parent
+        self.node_id = node_id
+        self.g_value = g_value
+        self.h_value = h_value
+
+    def getFValue(self):
+        return self.g_value + self.h_value
+
+
 def A_star_Traversal(cost, heuristic, start_point, goals):
     l = []
 
@@ -13,6 +24,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
     # 1 index: The path considered
     # 2 index: The node itself, i.e. its ID (here it is called start_point)
     # 3 index: Path cost from initial node to start_point, i.e. g(n)
+    node = Node(None, start_point, )
     node = [heuristic[start_point], [start_point], start_point, 0]
 
     # The frontier is a min heap that will store the nodes
