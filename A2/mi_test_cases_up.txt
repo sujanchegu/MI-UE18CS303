@@ -5206,7 +5206,7 @@ Start point:
 Goals:
 2 3 6
 Correct Answer: (',' separates dfs, ucs and a*)
-4 6,4 6,4 6,
+4 6,4 7 5 2,4 6,
 ********************************
 Test 515 :
 Heuristic:
