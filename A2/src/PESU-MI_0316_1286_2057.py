@@ -279,6 +279,20 @@ def getNeighbours(adjList):
     return neighbourList[::-1]
 
 
+# Check if the node is in the frontier
+def isInFrontier(node_id, frontier):
+    inFrontier = False  # Assume the node is not in the frontier
+
+    for frontier_record in frontier:
+        # If the node is in the frontier
+        if frontier_record["Node Object"].getNode_ID() == node_id:
+            # then set inFrontier to be true
+            inFrontier = True
+            break
+
+    return inFrontier
+
+
 def DFS_Traversal(cost, start_point, goals):
 
     # Frontier for DFS, i.e. the stack
@@ -336,7 +350,7 @@ def DFS_Traversal(cost, start_point, goals):
         # Add the resulting nodes (child nodes) into the frontier,
         # if they aren't already in the frontier or the explored set
         for neighbour in poppedNodeNeighbours:
-            if neighbour not in exploredSet:
+            if (isInFrontier(neighbour, stack) is False) and (neighbour not in exploredSet):
                 poppedNodeNeighbourRecord = {
                     "Node Object": Node(popped_node_record["Node Object"], neighbour),
                 }
