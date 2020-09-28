@@ -3,7 +3,7 @@ from collections import deque
 
 
 class Node:
-    def __init__(self, parent, node_id, g_value, h_value=0):
+    def __init__(self, parent, node_id, g_value=0, h_value=0):
         self.parent = parent
         self.node_id = node_id
         self.g_value = g_value
@@ -37,7 +37,7 @@ class Node:
 def A_star_Traversal(cost, heuristic, start_point, goals):
     # these values are given according to the function
     # createFrontierRecord() in Node class
-    EVAL_FUNC_INDEX = 0
+    NODE_EVAL_FUNC_VALUE_INDEX = 0
     NODE_ID_INDEX = 1
     NODE_OBJ_INDEX = 2
 
@@ -130,7 +130,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                             # If the current cost is lesser than
                             # the cost of the node currently in the frontier,
                             # then we have to update
-                            if j[EVAL_FUNC_INDEX] > f_value_of_node_i:
+                            if j[NODE_EVAL_FUNC_VALUE_INDEX] > f_value_of_node_i:
                                 # (self.getFValue(), self.node_id, self)
 
                                 # If we reach here that means that either the new path
@@ -138,7 +138,7 @@ def A_star_Traversal(cost, heuristic, start_point, goals):
                                 # new path cost found has equal cost but it is lexicographically
                                 # smaller
                                 # Update the evaluation function at index 0, i.e. f(n)
-                                j[EVAL_FUNC_INDEX] = f_value_of_node_i
+                                j[NODE_EVAL_FUNC_VALUE_INDEX] = f_value_of_node_i
                                 # Update the path cost (from initial to neighbour node) in the frontier
                                 j[NODE_OBJ_INDEX].setParent(popped_node_record[NODE_OBJ_INDEX])
                                 # Update the path in the frontier
