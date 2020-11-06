@@ -72,6 +72,8 @@ df["BP"].unique()
 
 df.isnull().sum(axis = 0)
 
+df
+
 def get_entropy_of_dataset(df):
     # gets the target column
     target = df.loc[:, df.columns[-1]]
@@ -184,7 +186,13 @@ information_gains = dict()
 for i in df.columns.tolist():
   information_gains[i] = get_information_gain(df, i)
 
+get_entropy_of_dataset(df)
+
 information_gains
+
+assert information_gains['Result'] == get_entropy_of_dataset(df), "Information Gain of the 'Result' Column must be equal to the entropy of the 'Result' Column"
+
+assert information_gains['Education'] == 0.0, "Information Gain of the 'Education' Column must be equal to 0 as it has only one type of value (i.e. 5.0) in the entire dataset"
 
 max_IG = max(information_gains.values())
 for i in df.columns.tolist():
