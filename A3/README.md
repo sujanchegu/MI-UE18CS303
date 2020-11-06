@@ -6,13 +6,24 @@
 2. bias matrix
 ### Methods:
 0. init: [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) init with seed=42
-1. Eval funtion : (forward prop): prop(0.9, activation(w.x + b), 0.1, 0)
-2. backward function: math equations for; updtae the weights and bias -> Loss derivative
+1. Eval funtion (forward prop): 
+  a. Call the random function and check if the output is in the range [0, 10)
+    - If so then output 0
+  b. If it is in the range (10, 100]
+    - Then return activation(w.x + b)
+2. Backward function: math equations for; updtae the weights and bias -> Loss derivative
 
-Layer Class:
-init: List of neurons
-forward: take the inputs from the prev layer as a matrix and pass it to every neuron
-backward: take the loss from the next layer, pass it to the neurons in the current layer and then pass the current neurons loss to the prev layer
+## Layer Class:
+### Attributes:
+- TBD
+### Methods:
+0. init: Create a list of neurons with the correct configuration of activation function
+1. Forward function:
+  a. Take the output of the prev. layer as input
+  b. Pass the input to every neuron in the current layer
+  c. Collect the outputs from the neurons in the current layer
+  d. Randomly select a few neurons
+2. Backward function: Take the loss from the next layer, pass it to the neurons in the current layer and then pass the current neurons loss to the prev layer
 
 NN Class
 init: hard code neuros per layer, create the list of layers objects
