@@ -49,8 +49,10 @@
 
 functon for binary_crossentropy (pred_y_train, true_y_train)
 
-Links:
--------
+## Note
+**TBD**: *To Be Decided*, which means we can proceed and add items to this *while coding* or *after discussion*. The spec. sheet has not yet defined any requirements on this topic.
+
+## Links:
 Adam Optimizer:
 https://mlfromscratch.com/optimizers-explained/
 https://github.com/jiexunsee/Adam-Optimizer-from-scratch/blob/master/adamoptimizer.py
