@@ -34,10 +34,19 @@
 1. **Backward function**: Take the loss from the next layer, calculate the adjustment to the neurons in the current layer and then pass the current neurons' loss to the prev. layer
     1. [How dropouts work with forward and backward propagation](https://stats.stackexchange.com/questions/219236/dropout-forward-prop-vs-back-prop-in-machine-learning-neural-network)
 1. **ReLU function (Class function)**: This will apply the ReLU activation function to the vector passed to it
-    1. [Great resource for learning about ReLU and its implementation](https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/)
+    1. [Great resource for learning about ReLU and its Implementation](https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/)
 1. **SoftMax function (Class Function)**: This will apply the SoftMax activation function to its input
-    - This function needs the outputs of the other neurons in the layer before acitvation function output, i.e. **W<sup>T</sup>X + B** for the denominator term which is common to all neurons in the layer using SoftMax
-    - So first the sum of the **W<sup>T</sup>X + B** values should be taken and then the formula can be applied to each **W<sup>T</sup>X + B** value in the layer. Note again that the sum of the **W<sup>T</sup>X + B** value is needed for the denominator of the softmax function
+    - This function is only applied to the last layer of the Neural Network which has 2 neurons
+    - [Great resource for learning about Softmax and its Implementation](https://machinelearningmastery.com/softmax-activation-function-with-python/)
+    - [This resourcer does go a bit mathematical but there is a numpy implementation description here](https://www.python-course.eu/softmax.php)
+    - [This resource has no code, and is only meant for *verification of formulas* and the *meaning of the variables* in them as well as for looking at example of *how the formula works for testing*](https://deepai.org/machine-learning-glossary-and-terms/softmax-layer)
+    - So first the sum of all the elements in the modified Z vector should be taken and then the formula can be applied to each element in the layer. Note again that the sum of the **W<sup>T</sup>X + B** value is needed for calculating the denominator of the softmax function
+    - Quick reference for the softmax function formula and usage:
+    <p align="center">
+      <img width="750" height="300" src="https://i.imgur.com/lZKb266.png"><br>
+      <img width="750" height="300" src="https://i.imgur.com/3bYFrju.jpg"><br>
+      <b>Diagram showing the softmax function formula and usage</b>
+    </p>
 
 ## NN Class
 ### Attributes:
