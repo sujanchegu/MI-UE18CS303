@@ -66,7 +66,7 @@
             - They will be used for backpropagation and displaying progress of training to the user
         - The input to the first layer will be **X<sub>Matrix</sub>** created from the rows of the entire dataset, as we are performing Batch Gradient Descent, which is always done over the entire dataset
         - [RECOMMENDATION] This complete forward propagation can be implemented as a loop over the list of layer objects, with a common variable possibly called ```carry_forward``` which is initialised to the **X<sub>Matrix</sub>** created from the rows of the entire dataset
-            *  In in **X<sub>Matrix</sub>**, each row of out input dataset is a column vector called **X<sub>Vector</sub>**
+            *  In **X<sub>Matrix</sub>**, each row of out input dataset is a column vector called **X<sub>Vector</sub>**
     1. Batches of input data is fed in to the model as a matrix called **X<sub>Matrix</sub>**
         1. This matrix **X<sub>Matrix</sub>** is got by stacking column vectors **X<sub>Vector</sub>** one next to the other
         1. The column vector **X<sub>Vector</sub>** contains each input row from the dataset as a column vector
@@ -79,7 +79,8 @@
             1. [The different batching techniques and describing what Batch Gradient Descent is](https://machinelearningmastery.com/how-to-control-the-speed-and-stability-of-training-neural-networks-with-gradient-descent-batch-size/)
             1. [This resource describes how Batch Gradient Descent is implemented in words](https://machinelearningmastery.com/gentle-introduction-mini-batch-gradient-descent-configure-batch-size/)
             1. As batches of input data is fed into the model, the output of the model as well as each layer of it will be **Z<sub>Matrix</sub>** which is composed of multiple column vectors, each called **Z<sub>Vector</sub>** stacked once next to the other.
-                - Each **Z<sub>Vector</sub>** is basically the output vector of the layer for a particular input **X<sub>Vector</sub>** which could come from either the previous layer or the input **X<sub>Matrix</sub>** itself if it is the first layer of the model
+                - Each **Z<sub>Vector</sub>** is basically the output vector of the layer for a particular input **X<sub>Vector</sub>** which comes from **X<sub>Matrix</sub>** 
+                - **X<sub>Matrix</sub>** is either the previous layer ouput or the input to the model itself, if we are talking about the first layer of the model
                 - *Simple example:* The output of the first layer (i.e. the 8 Neuron Layer in our model) will have *8* Rows (1 for each neuron) and *no.of data-objects/rows in the dataset* number of Cols, where each column of **Z<sub>Matrix</sub>** is the output for the corresponding **X<sub>Vector</sub>** in the input **X<sub>Matrix</sub>**
                 - In this case the dimensions of the **Z<sub>Matrix</sub>** are:
                     * Number of rows = Number of neurons in the layer whose output is **Z<sub>Matrix</sub>**, the *Simple Example* above it is 8
@@ -88,8 +89,17 @@
         1. Store the list of the weight-bias matrices
         1. Compare the loss values after every epoch
         1. Count timer sort of technique
-        
-    2. **SGD**
+    1. **Loss Function**
+        1. The loss function used in our model is the Binary crossentropy
+        1. This loss function is essentially similar to entorpy which we learnt from decision trees (except we are now restricted to only 2 possible outputs), so some code sharing is possible with the Decision Trees Assignment
+        1. Piazza post: @75, which is all about Binary crossentropy
+        1. [This resource has the complete formula for Binary crossentropy](https://peltarion.com/knowledge-center/documentation/modeling-view/build-an-ai-model/loss-functions/binary-crossentropy)
+        1. [Code resource for implementing Binary crossentropy, but it is missing the averaging step which is present in the immediate previous resource](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#cross-entropy)
+        1. [Another code resouce for implementation but with better integration with the foward and backward propagation](https://gombru.github.io/2018/05/23/cross_entropy_loss/)
+            - This resource includes forward and backward propagation steps
+            - You may have to scroll down a bit to get to the code
+        1. [This resource is purely theoretical and is only verification of the formula](https://www.machinecurve.com/index.php/2019/10/22/how-to-use-binary-categorical-crossentropy-with-keras/#binary-crossentropy-for-binary-classification)
+    1. **SGD**
         1. [Code for Stochastic Gradient Descent](https://adventuresinmachinelearning.com/stochastic-gradient-descent/)
             1. This will be modified for Adam
 
@@ -105,6 +115,6 @@ https://github.com/jiexunsee/Adam-Optimizer-from-scratch/blob/master/adamoptimiz
 
 
 Binary_crossentropy
-Link for the same is in Piazza Post: @75:
+
 
 Neural Networks from Scratch: https://www.youtube.com/playlist?list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3
