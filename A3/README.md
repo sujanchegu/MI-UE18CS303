@@ -23,8 +23,8 @@
   - [Condensed Resouce containing the formulas for the GlorotNormal Initliaization and its variants which are just different by the presence few constant factors](https://mmuratarat.github.io/2019-02-25/xavier-glorot-he-weight-init)
   - [Math only resource, which is for confirming the formula used, *skip the derivations if needed, only focus on the final formula and variables' description*](https://towardsdatascience.com/hyper-parameters-in-action-part-ii-weight-initializers-35aee1a28404)
 1. **Forward function**:
-    1. Take the output of the prev. layer as input, this is called as ***X** vector in the image above*
-    1. Perform the matrix vector calculation: **W<sup>T</sup>X + B** to produce the *Z vector*
+    1. Take the output of the prev. layer as input, this is called as ***X<sub>Vector</sub>** vector in the image above*
+    1. Perform the matrix vector calculation: **W<sup>T</sup>X<sub>Vector</sub> + B** to produce the *Z vector*
     1. Randomly convert elements of the Z vector to 0 with a probability of the variable *rate* (for our implementation, rate is set to 0.1) at each step during training time, (to implement dropouts in our neural network)
     - In every pass save the list/index of neurons' whose output in the z-vector set to 0 due to dropout
         * This may be important during the dropout stage for that forward propagation
@@ -44,7 +44,7 @@
     - [Great resource for learning about Softmax and its Implementation](https://machinelearningmastery.com/softmax-activation-function-with-python/)
     - [This resourcer does go a bit mathematical but there is a numpy implementation description here](https://www.python-course.eu/softmax.php)
     - [This resource has no code, and is only meant for *verification of formulas* and the *meaning of the variables* in them as well as for looking at example of *how the formula works for testing*](https://deepai.org/machine-learning-glossary-and-terms/softmax-layer)
-    - So first the sum of all the elements in the modified Z vector should be taken and then the formula can be applied to each element in the layer. Note again that the sum of the **W<sup>T</sup>X + B** value is needed for calculating the denominator of the softmax function
+    - So first the sum of all the elements in the modified Z vector should be taken and then the formula can be applied to each element in the layer. Note again that the sum of the **W<sup>T</sup>X<sub>Vector</sub> + B** value is needed for calculating the denominator of the softmax function
     - Quick reference for the softmax function formula and usage:
     <p align="center">
       <img width="750" height="300" src="https://i.imgur.com/lZKb266.png"><br>
@@ -56,11 +56,22 @@
 ### Attributes:
   - TBD
 ### Methods:
-1. **init**: hard code neurons per layer, create the list of layers objects
-1. NN implement batches and 
-1. early stopping -> Store the list of the weight-bias matrices
-1. Compare the loss values after every epoch
-1. Count timer sort of technique
+1. **init:** 
+    1. This will contain a list of layer objects
+    1. The layer objects will be initialized here along setting with the activation function for each one
+        
+1. **Fit Function**
+    1. Batches of input data is fed in to the model as a matrix called **X<sub>Matrix</sub>**
+        1. This matrix **X<sub>Matrix</sub>** is got by stacking column vectors **X<sub>Vector</sub>** one next to the other
+        1. The column vector **X<sub>Vector</sub>** contains each input row from the dataset as a column vector
+        1. The dimensions of the **X<sub>Matrix</sub>** are:
+            - Number of rows = Number of features in the input dataset
+            - Number of cols = Number of input rows to consider per batch (*for us the batch size is 48*)
+            - *Simple example:* The output of the model will have *2 Rows* and *48 Cols*, where each column is the output for the corresponding input row from the dataset, which was selected in the batch which was used as input to the model
+    1. **Early Stopping**
+        1. Store the list of the weight-bias matrices
+        1. Compare the loss values after every epoch
+        1. Count timer sort of technique
 
 functon for binary_crossentropy (pred_y_train, true_y_train)
 
