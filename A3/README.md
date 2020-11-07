@@ -23,6 +23,11 @@
   - [Resouce with code describing how GlorotNormal initilization can be implemented](https://visualstudiomagazine.com/articles/2019/09/05/neural-network-glorot.aspx)
   - [Condensed Resouce containing the formulas for the GlorotNormal Initliaization and its variants *(the variations mainly have different constant factors)*](https://mmuratarat.github.io/2019-02-25/xavier-glorot-he-weight-init)
   - [Math only resource, which is for confirming the formula used, *(skip the derivations if needed, only focus on the **final formula and variables' description**)*](https://towardsdatascience.com/hyper-parameters-in-action-part-ii-weight-initializers-35aee1a28404)
+1. **Set Function**:
+    1. Sets the the values of the weight matrix and bias vector of the layer, to the values which are input to this function
+    1. Should return the old values of the weight matrix and bias vector, before updation
+1. **Get Function**
+    1. Returns the values of the weight matrix and bias vector of the layer
 1. **Forward function**:
     1. Take the output of the prev. layer as input, this is called as ***X<sub>Vector</sub>** vector in the image above*
     1. Perform the matrix vector calculation: **W<sup>T</sup>X<sub>Vector</sub> + B** to produce the *Z vector*
@@ -58,6 +63,9 @@
 ## NN Class
 ### Attributes:
   - List of layer objects
+  - ```MAX_PATIENCE_VAL```: This is the value for the maximum patience value. This is a constant and should be treated as such
+  - ```BEST_LAYER_CONFIG```: This holds a list of the weights and biases matrices of each layer of the best performing model during training
+    * For us this value is ```100```
 ### Methods:
 1. **init:** 
     1. This will create the list of layer objects
@@ -92,14 +100,29 @@
                     * Number of rows = Number of neurons in the layer whose output is **Z<sub>Matrix</sub>**, the *Simple Example* above it is 8
                     * Number of cols = Number of data objects in the batch (in our case it is the number of rows in the entire dataset itself)
     1. **Early Stopping**
-        1. Perform calculate the loss value of the validation set by passing it for forward propagation only
-            - No backward propagation needs to be done for this
-        1. Compare the loss values after every epoch
+        1. The **Get Function** and **Set Function** would be especially useful here
+        1. This needs to be checked after every epoch
+        1. Initialize the value of the counter to ```MAX_PATIENCE_VAL```
+        1. Calculate the loss value of the model on the *validation set* by passing it through forward propagation
+            - No backward propagation needs to be done for early stopping
+        1. Compare the new loss value obtained to the lowest loss value recorded so far 
+            - Initially the *lowest loss value recorded can be* ```float('inf')```
+        1. If the new loss value obtained is lesser than the lowest loss value recorded so far, by a margin greater than the set threshold of ```0.001``` then
+            - Reset the counter to the ```MAX_PATIENCE_VAL```
+            - Save the weight and bias configuration of each layer of the current model, to the variable ```BEST_LAYER_CONFIG``` *(The previous contents of this variable can be overwritten)*
+                - We'll need the variable ```BEST_LAYER_CONFIG``` in the end to extract the best model
+        1. Else
+            - Decrement the value of the counter variable
+            - Check if the value of the counter variable is 0
+                - If so then stop training immediately and reset the weights and biases matricesof the model to the best ones obtained so far
+                - These best values of the weights and biases matrices would be stored in the variable ```BEST_LAYER_CONFIG```
+            - Else
+                - Continue another epoch of training
         1. Store the complete list of the weight-bias matrices form each layer, of the least loss NN model so far
     1. **Loss Function**
         1. This will be called on the train, validation and test sets
         1. It will take the *train set features values* (**Weight**, **HB**, **BP**) and the corresponding *true outputs* (**Result_0.0**, **Result_1.0**) as input to the function
-        1. The loss function used in our model is the Binary crossentropy
+        1. The loss function used in our model is the Binary crossentropy ( i.e. binary_crossentropy (pred_(train|valid|test), true_(train|valid|test)) )
         1. This loss function is essentially similar to entropy which we learnt from decision trees *(except we are now restricted to only 2 possible outputs, i.e. 1 and 0)*, so some code sharing is possible with the Decision Trees Assignment
         1. Piazza post: @75, which is all about Binary crossentropy, is also a very handy resource
         1. [This resource has the complete formula for Binary crossentropy](https://peltarion.com/knowledge-center/documentation/modeling-view/build-an-ai-model/loss-functions/binary-crossentropy)
@@ -122,8 +145,11 @@
     1. **SGD**
         1. [Code for Stochastic Gradient Descent](https://adventuresinmachinelearning.com/stochastic-gradient-descent/)
             1. This will be modified later for Adam, but this stub code is fine for now, for sanity checks to see if backprop. works in the first place or not
-
-functon for binary_crossentropy (pred_y_train, true_y_train)
+    1. **Monte Carlo Dropouts**
+        - https://towardsdatascience.com/monte-carlo-dropout-7fd52f8b6571
+            - This resouce uses numpy to implement the Monte Carlo dropout section of the model
+            - This could be adapted for out model as well, because at the moment the dropouts in our model continue to happen even when testing
+            - This is exactly the primary requirements of *Monte Carlo dropout* so implementing this should be easy
 
 ## Note
 **TBD**: *To Be Decided*, which means we can proceed and add items to this *while coding* or *after discussion*. The spec. sheet has not yet defined any requirements on this topic.
