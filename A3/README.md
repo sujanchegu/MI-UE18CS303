@@ -18,6 +18,10 @@
 ### Methods:
 1. **init:** 
   - Create the W and B matrices with the [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) initialization technique with seed=42
+  - [Tensorflow Documentation's description of GlorotNormal](https://www.tensorflow.org/api_docs/python/tf/keras/initializers/GlorotNormal)
+  - [Resouce with code describing how GlorotNormal initilization can be implemented](https://visualstudiomagazine.com/articles/2019/09/05/neural-network-glorot.aspx)
+  - [Condensed Resouce containing the formulas for the GlorotNormal Initliaization and its variants which are just different by the presence few constant factors](https://mmuratarat.github.io/2019-02-25/xavier-glorot-he-weight-init)
+  - [Math only resource, which is for confirming the formula used, *skip the derivations if needed, only focus on the final formula and variables' description*](https://towardsdatascience.com/hyper-parameters-in-action-part-ii-weight-initializers-35aee1a28404)
 1. **Forward function**:
     1. Take the output of the prev. layer as input, this is called as ***X** vector in the image above*
     1. Perform the matrix vector calculation: **W<sup>T</sup>X + B** to produce the *Z vector*
@@ -52,7 +56,7 @@
 ### Attributes:
   - TBD
 ### Methods:
-1. **init**: hard code neuros per layer, create the list of layers objects
+1. **init**: hard code neurons per layer, create the list of layers objects
 1. NN implement batches and 
 1. early stopping -> Store the list of the weight-bias matrices
 1. Compare the loss values after every epoch
