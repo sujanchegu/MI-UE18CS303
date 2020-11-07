@@ -3,7 +3,7 @@
 ## Layer Class
 <p align="center">
   <img width="1600" height="400" src="https://i.imgur.com/RG5dstB.png"><br>
-  <b>Diagram how a layer interacts with the other layers in the Neural Netwok</b>
+  <b>Diagram showing how a layer interacts with the other layers in the Neural Netwok</b>
 </p>
 
 ### Attributes:
@@ -17,17 +17,20 @@
     - Number of cols = 1
 ### Methods:
 0. **init:** 
-  - Create the weights and bias matrices with the [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) initialization with seed=42
+  - Create the weights and bias matrices with the [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) initialization technique with seed=42
 1. **Forward function**:
-  a. Take the output of the prev. layer as input
-  b. Perform the matrix vector calculation: w<sup>T</sup>x + b to produce the z vector
-  c. Randomly convert elements of the z vector to 0 with a probability of rate (for our implementation, rate is set to 0.1) at each step during training time, (to implement dropouts)
-    - Save the list/index of neurons' whose output in the z-vector set to 0 due to dropout, so that only the required neurons are updated in backprop.
-    - This parameter has to **optional** as the final layer does not have any dropouts
+  a. Take the output of the prev. layer as input, this is called as ***X** vector in the image above*
+  b. Perform the matrix vector calculation: **W<sup>T</sup>X + B** to produce the *Z vector*
+  c. Randomly convert elements of the z vector to 0 with a probability of the variable *rate* (for our implementation, rate is set to 0.1) at each step during training time, (to implement dropouts in our neural network)
+    - In every pass save the list/index of neurons' whose output in the z-vector set to 0 due to dropout
+      * This may be important during the dropout stage for that forward propagation
+      * This data is only needed per forward propagation
+      * [Resouce describing the relationship between batch and epoch as well as when model updations occur](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/]
+    - Dropouts needs to be an **optional** parameter as the final layer does not have any dropouts
     - Inputs not set to 0 are scaled up by **1/(1 - rate)** such that the sum over all inputs is unchanged.
-    * [Description of dropouts as per Keras](https://keras.io/api/layers/regularization_layers/dropout/)
-  f. Apply the activation function to the elements in the *z vector* for each of the neurons in the layer
-    - Activation will be implement as a callback function to make coding easier and increase modularity of the code
+      * [Description of dropouts as per Keras](https://keras.io/api/layers/regularization_layers/dropout/)
+  f. Apply the activation function to the elements in the modified *z vector* (i.e. after dropouts)
+    - Activation will be implement as a callback function for ease of coding as well as code modularity
 2. **Backward function**: Take the loss from the next layer, calculate the adjustment to the neurons in the current layer and then pass the current neurons' loss to the prev. layer
   - [How dropouts work with forward and backward propagation](https://stats.stackexchange.com/questions/219236/dropout-forward-prop-vs-back-prop-in-machine-learning-neural-network)
 3. **ReLU function (Class function)**: This will apply the ReLU activation function to its input
