@@ -17,7 +17,7 @@
     - Number of cols = 1
 ### Methods:
 1. **init:** 
-  - Create the W and B matrices with the [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) initialization technique with seed=42
+  - Create the W and B matrices with the [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) (this is the link to the original paper. Not all of it is important to use, we mainly need to focus on pages 251 and 253) initialization technique with seed=42
   - [Tensorflow Documentation's description of GlorotNormal](https://www.tensorflow.org/api_docs/python/tf/keras/initializers/GlorotNormal)
   - [Resouce with code describing how GlorotNormal initilization can be implemented](https://visualstudiomagazine.com/articles/2019/09/05/neural-network-glorot.aspx)
   - [Condensed Resouce containing the formulas for the GlorotNormal Initliaization and its variants which are just different by the presence few constant factors](https://mmuratarat.github.io/2019-02-25/xavier-glorot-he-weight-init)
@@ -99,9 +99,18 @@
             - This resource includes forward and backward propagation steps
             - You may have to scroll down a bit to get to the code
         1. [This resource is purely theoretical and is only verification of the formula](https://www.machinecurve.com/index.php/2019/10/22/how-to-use-binary-categorical-crossentropy-with-keras/#binary-crossentropy-for-binary-classification)
+    1. **Accuracy Function**
+        1. The binary accuracy function is essentially the accuracy which is calculated from a 2x2 confusion matrix
+            - The only difference is that the output of our model will be **continuous probabilities* and **not discrete values** so we need a threshold to say whether a probability should be converted to the *discrete value* of 1 or a *discrete value* of 0
+            - This very threshold is what makes *binary accuracy* work, the default threshold of *binary accuracy* is **0.5**, which we have used as well
+        1. The most detailed resource for accuracy and confusion matrices alike is [the description on Wikipedia itself](https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers)
+        1. [This is a very important resource for the implementation of Binary Accuracy](https://towardsdatascience.com/keras-accuracy-metrics-8572eb479ec7)
+            - This resource actually talks about the threshold, which is needed to when converting each output value of the model in the **Z<sub>Matrix</sub>** to a 1 or a 0
+                - By each output value of the model I mean each and every element in the **Z<sub>Matrix</sub>**
+        1. [This resource is more Keras' implementation Related](https://neptune.ai/blog/keras-metrics)
     1. **SGD**
         1. [Code for Stochastic Gradient Descent](https://adventuresinmachinelearning.com/stochastic-gradient-descent/)
-            1. This will be modified for Adam
+            1. This will be modified later for Adam, but this stud code is fine for now, for sanity checks to see if backprop. works in the first place or not
 
 functon for binary_crossentropy (pred_y_train, true_y_train)
 
