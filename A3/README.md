@@ -54,24 +54,36 @@
 
 ## NN Class
 ### Attributes:
-  - TBD
+  - List of layer objects
 ### Methods:
 1. **init:** 
-    1. This will contain a list of layer objects
+    1. This will create the list of layer objects
     1. The layer objects will be initialized here along setting with the activation function for each one
         
 1. **Fit Function**
+    1. The output of a layer will be passed to the **Forward function** of the next layer as we iterate thought the list of layers
+        - The output of the final layer along with the true values will be passed to the loss function and the accuracy functions
+            - They will be used for backpropagation and displaying progress of training to the user
+        - The input to the first layer will be **X<sub>Matrix</sub>** created from the rows of the entire dataset, as we are performing Batch Gradient Descent, which is always done over the entire dataset
+        - [RECOMMENDATION] This complete forward propagation can be implemented as a loop over the list of layer objects, with a common variable possibly called ```carry_forward``` which is initialised to the **X<sub>Matrix</sub>** created from the rows of the entire dataset
+            *  In in **X<sub>Matrix</sub>**, each row of out input dataset is a column vector called **X<sub>Vector</sub>**
     1. Batches of input data is fed in to the model as a matrix called **X<sub>Matrix</sub>**
         1. This matrix **X<sub>Matrix</sub>** is got by stacking column vectors **X<sub>Vector</sub>** one next to the other
         1. The column vector **X<sub>Vector</sub>** contains each input row from the dataset as a column vector
         1. The dimensions of the **X<sub>Matrix</sub>** are:
             - Number of rows = Number of features in the input dataset
             - Number of cols = Number of input rows to consider per batch (*for us the batch size is no.of data-objects/rows in the dataset*)
-            - *Simple example:* The output of the model (i.e. from the SoftMax Layer) will have *2* Rows and *no.of data-objects/rows in the dataset* number of Cols, where each column is the output for the corresponding input row from the dataset
+            - *Simple example:* The output of the model (i.e. from the SoftMax Layer) will have *2* Rows and *no.of data-objects/rows in the dataset* number of Cols, where each column in **Z<sub>Matrix</sub>** is the output for the corresponding input row from the dataset
         1. As the batch size is set to the total number of examples in the training dataset, what we are performing is called as Batch Gradient Descent
             1. [The steps for selecting a batch of a given size from the data set](https://stackoverflow.com/questions/13693966/neural-net-selecting-data-for-each-mini-batch)
             1. [The different batching techniques and describing what Batch Gradient Descent is](https://machinelearningmastery.com/how-to-control-the-speed-and-stability-of-training-neural-networks-with-gradient-descent-batch-size/)
             1. [This resource describes how Batch Gradient Descent is implemented in words](https://machinelearningmastery.com/gentle-introduction-mini-batch-gradient-descent-configure-batch-size/)
+            1. As batches of input data is fed into the model, the output of the model as well as each layer of it will be **Z<sub>Matrix</sub>** which is composed of multiple column vectors, each called **Z<sub>Vector</sub>** stacked once next to the other.
+                - Each **Z<sub>Vector</sub>** is basically the output vector of the layer for a particular input **X<sub>Vector</sub>** which could come from either the previous layer or the input **X<sub>Matrix</sub>** itself if it is the first layer of the model
+                - *Simple example:* The output of the first layer (i.e. the 8 Neuron Layer in our model) will have *8* Rows (1 for each neuron) and *no.of data-objects/rows in the dataset* number of Cols, where each column of **Z<sub>Matrix</sub>** is the output for the corresponding **X<sub>Vector</sub>** in the input **X<sub>Matrix</sub>**
+                - In this case the dimensions of the **Z<sub>Matrix</sub>** are:
+                    * Number of rows = Number of neurons in the layer whose output is **Z<sub>Matrix</sub>**, the *Simple Example* above it is 8
+                    * Number of cols = Number of data objects in the batch (in our case it is the number of rows in the entire batch itself)
     1. **Early Stopping**
         1. Store the list of the weight-bias matrices
         1. Compare the loss values after every epoch
