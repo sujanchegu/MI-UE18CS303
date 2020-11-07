@@ -1,9 +1,20 @@
 # Current Model Design Architecture
 
 ## Layer Class
+<p align="center">
+  <img width="1600" height="400" src="https://i.imgur.com/RG5dstB.png"><br>
+  <b>Diagram how a layer interacts with the other layers in the Neural Netwok</b>
+</p>
+
 ### Attributes:
-1. Weights matrix
-2. Bias matrix
+1. **Weights matrix:**
+  - The dimensions of the weight matrix are:
+    - Number of rows = Number of neurons in the current layer
+    - Number of cols = Number of neurons in the previous layer. For the first layer this would the number of features in the dataset fed into the model
+2. **Bias matrix:**
+  - The dimensions of the bias matrix are:
+    - Number of rows = Number of neurons in the current layer
+    - Number of cols = 1
 ### Methods:
 0. **init:** 
   - Create the weights and bias matrices with the [GlorotNormal](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) initialization with seed=42
