@@ -66,12 +66,20 @@
         1. The column vector **X<sub>Vector</sub>** contains each input row from the dataset as a column vector
         1. The dimensions of the **X<sub>Matrix</sub>** are:
             - Number of rows = Number of features in the input dataset
-            - Number of cols = Number of input rows to consider per batch (*for us the batch size is 48*)
-            - *Simple example:* The output of the model will have *2 Rows* and *48 Cols*, where each column is the output for the corresponding input row from the dataset, which was selected in the batch which was used as input to the model
+            - Number of cols = Number of input rows to consider per batch (*for us the batch size is no.of data-objects/rows in the dataset*)
+            - *Simple example:* The output of the model (i.e. from the SoftMax Layer) will have *2* Rows and *no.of data-objects/rows in the dataset* number of Cols, where each column is the output for the corresponding input row from the dataset
+        1. As the batch size is set to the total number of examples in the training dataset, what we are performing is called as Batch Gradient Descent
+            1. [The steps for selecting a batch of a given size from the data set](https://stackoverflow.com/questions/13693966/neural-net-selecting-data-for-each-mini-batch)
+            1. [The different batching techniques and describing what Batch Gradient Descent is](https://machinelearningmastery.com/how-to-control-the-speed-and-stability-of-training-neural-networks-with-gradient-descent-batch-size/)
+            1. [This resource describes how Batch Gradient Descent is implemented in words](https://machinelearningmastery.com/gentle-introduction-mini-batch-gradient-descent-configure-batch-size/)
     1. **Early Stopping**
         1. Store the list of the weight-bias matrices
         1. Compare the loss values after every epoch
         1. Count timer sort of technique
+        
+    2. **SGD**
+        1. [Code for Stochastic Gradient Descent](https://adventuresinmachinelearning.com/stochastic-gradient-descent/)
+            1. This will be modified for Adam
 
 functon for binary_crossentropy (pred_y_train, true_y_train)
 
