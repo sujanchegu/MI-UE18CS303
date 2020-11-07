@@ -18,6 +18,7 @@
   f. Apply the activation function to the elements in the *z vector* for each of the neurons in the layer
     - Activation will be implement as a callback function to make coding easier and increase modularity of the code
 2. **Backward function**: Take the loss from the next layer, calculate the adjustment to the neurons in the current layer and then pass the current neurons' loss to the prev. layer
+  - [How dropouts work with forward and backward propagation](https://stats.stackexchange.com/questions/219236/dropout-forward-prop-vs-back-prop-in-machine-learning-neural-network)
 3. **ReLU function (Class function)**: This will apply the ReLU activation function to its input
 4. **SoftMax function (Class Function)**: This will apply the SoftMax activation function to its input
   - This function needs the outputs of the other neurons in the layer before acitvation function output, i.e. wTx + b for the denominator term which is common to all neurons in the layer using SoftMax
