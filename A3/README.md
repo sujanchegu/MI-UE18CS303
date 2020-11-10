@@ -149,7 +149,7 @@
         - https://towardsdatascience.com/monte-carlo-dropout-7fd52f8b6571
             - This resouce uses numpy to implement the Monte Carlo dropout section of the model
             - This could be adapted for out model as well, because at the moment the dropouts in our model continue to happen even when testing
-            - This is exactly the primary requirements of *Monte Carlo dropout* so implementing this should be easy
+                - This is exactly the primary requirements of *Monte Carlo dropout* so implementing this should be easy
 
 ## Note
 **TBD**: *To Be Decided*, which means we can proceed and add items to this *while coding* or *after discussion*. The spec. sheet has not yet defined any requirements on this topic.
