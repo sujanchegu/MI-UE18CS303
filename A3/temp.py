@@ -27,7 +27,8 @@ class Layer:
         return self.weights
 
     def forward(self, _input, _train=False):
-        # Input should include 1 as the value of x0
+        # Input should include 1 as the value of x0 at the end
+        # Eg. x = <x1,x2,x0>
         self.output = np.dot(self.weights.T, _input)
         if _train:
             self.output *= np.random.binomial(1, self.droprate, size=self.shape) / self.droprate
