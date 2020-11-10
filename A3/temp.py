@@ -12,8 +12,7 @@ class Layer:
         sd = np.sqrt(6.0 / (self.prevShape + self.shape))
         self.weights = np.random.uniform(-sd,
                                          sd, (self.shape, self.prevShape))
-        for i in range(self.shape):
-            self.weights[i][0] = 1
+        
 
     def set_params(self, _weights):
         temp_weights = self.weights
@@ -28,7 +27,7 @@ class Layer:
         return self.weights
 
     def forward(self, _input, _train=False):
-        # Input should include bias
+        # Input should include 1 as the value of x0
         self.output = np.dot(self.weights, _input)
         if _train:
             self.output *= np.random.binomial(1, self.droprate, size=self.shape) / self.droprate
