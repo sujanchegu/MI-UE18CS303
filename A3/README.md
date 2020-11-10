@@ -160,7 +160,9 @@
     - This resource has literally has all the code needed to get kickstarted!
 2. https://www.jeremyjordan.me/intro-to-neural-networks/
     - Very good visual, matrix-wise description of Neural Networks
-
+3. https://towardsdatascience.com/under-the-hood-of-neural-network-forward-propagation-the-dreaded-matrix-multiplication-a5360b33426
+    - Theoretical **(i.e. only words, no code)** but very thorough resource on forward propagation
+    - This resource should be helpful in understanding how to interpret the matrices and how they evolve (or change) during the process of forward propagation
 Adam Optimizer:
 https://mlfromscratch.com/optimizers-explained/
 https://github.com/jiexunsee/Adam-Optimizer-from-scratch/blob/master/adamoptimizer.py
