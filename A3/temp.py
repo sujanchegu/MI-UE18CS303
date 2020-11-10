@@ -3,15 +3,15 @@ import numpy as np
 
 class Layer:
     def __init__(self, _numInputs, _numNeurons):
-        # Note, numInputs = number of neurons in the previous layer + 1 (bias)
-        self.prevShape = _numInputs
+        # Note, numInputs = number of neurons in the previous layer
+        self.prevShape = _numInputs + 1 # For bias
         self.shape = _numNeurons
         self.droprate = 0.1
         self.seed = np.random.RandomState(42)
         # self.biases = np.zeros((1, self.shape))
         sd = np.sqrt(6.0 / (self.prevShape + self.shape))
         self.weights = np.random.uniform(-sd,
-                                         sd, (self.shape, self.prevShape))
+                                         sd, (self.prevShape, self.shape))
         
 
     def set_params(self, _weights):
@@ -28,7 +28,7 @@ class Layer:
 
     def forward(self, _input, _train=False):
         # Input should include 1 as the value of x0
-        self.output = np.dot(self.weights, _input)
+        self.output = np.dot(self.weights.T, _input)
         if _train:
             self.output *= np.random.binomial(1, self.droprate, size=self.shape) / self.droprate
         
