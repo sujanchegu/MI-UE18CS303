@@ -164,9 +164,20 @@
     - An **X<sub>Vector</sub>** is essentially a single row of from the input dataset
         - Here by ***row*** I mean the row from the input dataset ***with only all the input features (or columns) from the row*** and no output or target features of the row
         - In our case there are 3 input features (or columns) per row, in our dataset: **Weight**, **HB** and **BP**
-        - This means that the **number of rows** in **X<sub>Matrix</sub>** is equal to 3
+        - This means that the **number of rows** in **X<sub>Matrix</sub>** is equal to 3 + 1
+        - **NOTE:** The **+ 1** is done so that we can combine the *weights matrix* and *bias vector* of the current layer together into only a single weigths matrix *(by considering the bias as a weight with input 1)*
     - The number of columns in **X<sub>Matrix</sub>** is equal to the number of rows from the input dataset which is taken for one batch of forward propagation
         - In our case as we feed in all the rows in the input dataset as a single batch, the **number of columns* in **X<sub>Matrix</sub>** is equal to the number of rows in the input dataset
+    - ***Notice*** that the last row of the **X<sub>Matrix</sub>** is all ***1's***, this is done so that we can combine the *weights matrix* and *bias vector* of the current layer together into only a single weigths matrix *(by considering the bias as a weight with input 1)*
+
+1. How does the Weights matrix look when the bias terms are also considered as a part of the Weights matrix?
+    - The following image of **W<sup>T</sup><sub>Matrix</sub>** should clear it up:
+![The diagram and **W<sup>T</sup><sub>Matrix</sub>** for the first layer of the Neural Network](https://i.imgur.com/JI6y8TH.jpg)
+    - In the **W<sup>T</sup><sub>Matrix</sub>** matrix above, every row contains the weights and the bias of a particular neuron
+        - For example in the first row, we can see the weights and biases of the first neuron in the 8 neuron layer
+    - The number of rows in **W<sup>T</sup><sub>Matrix</sub>** is equal to the number of neurons in the current layer
+    - The number of columns in **W<sup>T</sup><sub>Matrix</sub>** is equal to: The *number of rows in **X<sub>Matrix</sub>***
+    - Always remember that there is a bias term, which as you can see above is at the last column of each row of the **W<sup>T</sup><sub>Matrix</sub>**
 
 ## Note
 **TBD**: *To Be Decided*, which means we can proceed and add items to this *while coding* or *after discussion*. The spec. sheet has not yet defined any requirements on this topic.
