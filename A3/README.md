@@ -163,6 +163,9 @@
 3. https://towardsdatascience.com/under-the-hood-of-neural-network-forward-propagation-the-dreaded-matrix-multiplication-a5360b33426
     - Theoretical **(i.e. only words, no code)** but very thorough resource on forward propagation
     - This resource should be helpful in understanding how to interpret the matrices and how they evolve (or change) during the process of forward propagation
+4. https://github.com/jrios6/Adam-vs-SGD-Numpy/blob/master/Adam%20vs%20SGD%20-%20On%20Kaggle's%20Titanic%20Dataset.ipynb
+    - Good explanation and complete code for forward and backward propagation using only NumPy, it also implements Adam optimizer with the derivatives portion as well.
+
 Adam Optimizer:
 https://mlfromscratch.com/optimizers-explained/
 https://github.com/jiexunsee/Adam-Optimizer-from-scratch/blob/master/adamoptimizer.py
