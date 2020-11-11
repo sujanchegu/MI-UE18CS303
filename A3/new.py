@@ -57,7 +57,7 @@ class Layer:
     #     return 1 / (1 + np.exp(-x))
 
 
-class NueralNet:
+class NeuralNet:
     def __init__(self):
         self.hL1 = Layer(4,8)
         self.hL2 = Layer(8,6)
