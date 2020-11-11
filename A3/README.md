@@ -151,6 +151,23 @@
             - This could be adapted for out model as well, because at the moment the dropouts in our model continue to happen even when testing
                 - This is exactly the primary requirements of *Monte Carlo dropout* so implementing this should be easy
 
+<p align="center">
+        <img width="750" height="700" src="https://i.imgur.com/QCdLJcX.jpg"><br>
+    <b>The X<sub>Matrix</sub> Matrix which is made up of many X<sub>Vector</sub></b>
+    </p>
+
+## FAQs
+1. How exactly **X<sub>Matrix</sub>** look and how does it relate to **X<sub>Vector</sub>**?
+    - The following image should clear it up:
+![The X<sub>Matrix</sub> Matrix which is made up of many X<sub>Vector</sub>](https://i.imgur.com/QCdLJcX.jpg)
+    - In the **X<sub>Matrix</sub>** matrix above, each and every column is a **X<sub>Vector</sub>**
+    - An **X<sub>Vector</sub>** is essentially a single row of from the input dataset
+        - Here by ***row*** I mean the row from the input dataset ***with only all the input features (or columns) from the row*** and no output or target features of the row
+        - In our case there are 3 input features (or columns) per row, in our dataset: **Weight**, **HB** and **BP**
+        - This means that the **number of rows** in **X<sub>Matrix</sub>** is equal to 3
+    - The number of columns in **X<sub>Matrix</sub>** is equal to the number of rows from the input dataset which is taken for one batch of forward propagation
+        - In our case as we feed in all the rows in the input dataset as a single batch, the **number of columns* in **X<sub>Matrix</sub>** is equal to the number of rows in the input dataset
+
 ## Note
 **TBD**: *To Be Decided*, which means we can proceed and add items to this *while coding* or *after discussion*. The spec. sheet has not yet defined any requirements on this topic.
 
