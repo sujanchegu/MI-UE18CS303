@@ -160,25 +160,39 @@
 1. How exactly **X<sub>Matrix</sub>** look and how does it relate to **X<sub>Vector</sub>**?
     - The following image should clear it up:
 ![The X<sub>Matrix</sub> Matrix which is made up of many X<sub>Vector</sub>](https://i.imgur.com/QCdLJcX.jpg)
+    - **Above:** The **X<sub>Matrix</sub>** Matrix which is made up of many **X<sub>Vector</sub>**
     - In the **X<sub>Matrix</sub>** matrix above, each and every column is a **X<sub>Vector</sub>**
-    - An **X<sub>Vector</sub>** is essentially a single row of from the input dataset
-        - Here by ***row*** I mean the row from the input dataset ***with only all the input features (or columns) from the row*** and no output or target features of the row
+    - An **X<sub>Vector</sub>** is essentially a single row from the input dataset
+        - Here, by ***row*** I mean any row from the input dataset, ***considering only all the input features (or input columns) from that row*** and not considering the output(s) column(s) **or** target feature(s) column(s) of that row
+        - In our case there are 2 output(s) column(s)  **or** target feature(s) column(s) per row, in our dataset: **Result_0.0** and **Result_1.0**
+            - As mentioned before these two rows **will not be considered as input to the model for forward propagation**
+            - Hence, **they are neither included/considered** in **X<sub>Vector</sub>** **nor** **X<sub>Matrix</sub>**
         - In our case there are 3 input features (or columns) per row, in our dataset: **Weight**, **HB** and **BP**
-        - This means that the **number of rows** in **X<sub>Matrix</sub>** is equal to 3 + 1
-        - **NOTE:** The **+ 1** is done so that we can combine the *weights matrix* and *bias vector* of the current layer together into only a single weigths matrix *(by considering the bias as a weight with input 1)*
+        - This means that the **number of rows** in **X<sub>Matrix</sub>** is equal to 3 **+ 1**
+        - **NOTE:** The **+ 1** is done so that we can combine the *weights matrix* and *bias vector* of the current layer together into only a single weights matrix *(by considering the bias as a weight with input 1)*
     - The number of columns in **X<sub>Matrix</sub>** is equal to the number of rows from the input dataset which is taken for one batch of forward propagation
-        - In our case as we feed in all the rows in the input dataset as a single batch, the **number of columns* in **X<sub>Matrix</sub>** is equal to the number of rows in the input dataset
-    - ***Notice*** that the last row of the **X<sub>Matrix</sub>** is all ***1's***, this is done so that we can combine the *weights matrix* and *bias vector* of the current layer together into only a single weigths matrix *(by considering the bias as a weight with input 1)*
+        - In our case as we feed in all the rows in the input dataset as a single batch, the **number of columns** in **X<sub>Matrix</sub>** is equal to the number of rows in the input dataset
+    - ***Notice*** that the last row of the **X<sub>Matrix</sub>** is all ***1's***, this is done so that we can combine the *weights matrix* and *bias vector* of the current layer together into only a single weights matrix *(by considering the bias as a weight with input 1)*
 
 1. How does the Weights matrix look when the bias terms are also considered as a part of the Weights matrix?
-    - The following image of **W<sup>T</sup><sub>Matrix</sub>** should clear it up:
+    - The following illustration and image of **W<sup>T</sup><sub>Matrix</sub>** should clear it up:
 ![The diagram and **W<sup>T</sup><sub>Matrix</sub>** for the first layer of the Neural Network](https://i.imgur.com/JI6y8TH.jpg)
-    - In the **W<sup>T</sup><sub>Matrix</sub>** matrix above, every row contains the weights and the bias of a particular neuron
+    - **Above:** The diagram and **W<sup>T</sup><sub>Matrix</sub>** for the first layer of the Neural Network
+    - In the **W<sup>T</sup><sub>Matrix</sub>** matrix above, every row contains the weights and the bias of a particular neuron in that layer
         - For example in the first row, we can see the weights and biases of the first neuron in the 8 neuron layer
     - The number of rows in **W<sup>T</sup><sub>Matrix</sub>** is equal to the number of neurons in the current layer
     - The number of columns in **W<sup>T</sup><sub>Matrix</sub>** is equal to: The *number of rows in **X<sub>Matrix</sub>***
     - Always remember that there is a bias term, which as you can see above is at the last column of each row of the **W<sup>T</sup><sub>Matrix</sub>**
 
+
+1. What exactly is the matrix-vector multiplication that takes place at each and every layer? How do I visualize it?
+    - The following two images answer this question,
+    <p align="center">
+      <img src="https://i.imgur.com/B4zdOfF.jpg"><br>
+        <b>The Matrix multiplication formula we use at each layer of the model</b>
+      <img src="https://i.imgur.com/9ZmPDvS.jpg"><br>
+        <b>A more expanded form of the above image, showing the contents of the two matrices: W<sup>T</sup><sub>Matrix</sub> and X<sub>Vector</sub></b>
+    </p>
 ## Note
 **TBD**: *To Be Decided*, which means we can proceed and add items to this *while coding* or *after discussion*. The spec. sheet has not yet defined any requirements on this topic.
 
