@@ -37,7 +37,7 @@ class Layer:
         return self.weights
 
     def drop(self):
-        return np.random.binomial(1, self.droprate, size=self.shape) / (1 - self.droprate)
+        return np.random.binomial(1, 1 - self.droprate, size=self.shape)
 
     def forward(self, _input, _train=False):
         self.output = np.dot(self.weights.T, _input)
@@ -46,7 +46,7 @@ class Layer:
             self.output *= self.activeNeurons
             
             # self.output *= np.random.binomial(1, self.droprate, size=self.shape) / (1 - self.droprate)
-            # self.output /= (1 - self.droprate)
+            self.output /= (1 - self.droprate)
         #TODO return activationFunc(self.output)
 
     # def backward(self, _nextLayerInputs):
