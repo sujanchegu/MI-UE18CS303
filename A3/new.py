@@ -40,7 +40,7 @@ class Layer:
         return np.random.binomial(1, self.droprate, size=self.shape) / (1 - self.droprate)
 
     def forward(self, _input, _train=False):
-        self.output = np.dot(self.weights.T, _input) + self.biases
+        self.output = np.dot(self.weights.T, _input)
         if _train:
             self.activeNeurons = drop()
             self.output *= self.activeNeurons
