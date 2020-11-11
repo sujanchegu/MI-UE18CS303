@@ -190,6 +190,7 @@
     <p align="center">
       <img src="https://i.imgur.com/B4zdOfF.jpg"><br>
         <b>The Matrix multiplication formula we use at each layer of the model</b>
+      <br><br><br>
       <img src="https://i.imgur.com/9ZmPDvS.jpg"><br>
         <b>A more expanded form of the above image, showing the contents of the two matrices: W<sup>T</sup><sub>Matrix</sub> and X<sub>Vector</sub></b>
     </p>
