@@ -1,11 +1,11 @@
 import numpy as np
 
 
-
 class Layer:
-    def __init__(self, _numInputs, _numNeurons):
+    def __init__(self, _numInputs, _numNeurons, _activFunc):
         # Note, numInputs = number of neurons in the previous layer
-        self.prevShape = _numInputs + 1 # For bias
+        self.activFuncName = _activFunc
+        self.prevShape = _numInputs + 1  # For bias
         self.shape = _numNeurons
         self.droprate = 0.1
         self.seed = np.random.RandomState(42)
@@ -15,12 +15,16 @@ class Layer:
                                          sd, (self.prevShape, self.shape))
 
     @classmethod
-    def ReLU(cls, _nextInputs):
-        return np.array([max(0.0,x) for x in _nextInputs])
+    def ReLU(cls, inputs):
+        return np.array([max(0.0, x) for x in inputs])
 
     @classmethod
-    def softmax(cls, _nextInputs):
-        exps = [np.exp(x) for x in _nextInputs]
+    def ReLU_Prime(cls, ):
+        pass
+
+    @classmethod
+    def softmax(cls, inputs):
+        exps = [np.exp(x) for x in inputs]
         sumexps = sum(exps)
         return np.array([exps[i]/sumexps for i in range(len(exps))])
 
@@ -44,35 +48,28 @@ class Layer:
         if _train:
             self.activeNeurons = drop()
             self.output *= self.activeNeurons
-            
             # self.output *= np.random.binomial(1, self.droprate, size=self.shape) / (1 - self.droprate)
             self.output /= (1 - self.droprate)
-        #TODO return activationFunc(self.output)
+        return self.activationFunc(self.activFuncName, self.output)
 
-    # def backward(self, _nextLayerInputs):
+    def activationFunc(self, _activFuncName, inputs):
+        if(_activFuncName == 'ReLU'):
+            return self.ReLU(inputs)
+        elif(_activFuncName == 'softmax'):
+            return self.softmax(inputs)
+        else:
+            printf("Wrong Activation Function Name")
         
 
-    
+    # def backward(self, _nextLayerInputs):
 
-
-    
-
-
-    # def _decorator(func):
-    #     def wrapper(*args, **kwargs):
-    #         return func(args[0])
-    #     return wrapper
-    
-    # @_decorator
-    # def sigmoid(self, x):
-    #     return 1 / (1 + np.exp(-x))
 
 
 class NeuralNet:
     def __init__(self):
-        self.hL1 = Layer(4,8)
-        self.hL2 = Layer(8,6)
-        self.outL = Layer(6,2)
+        self.hL1 = Layer(4, 8)
+        self.hL2 = Layer(8, 6)
+        self.outL = Layer(6, 2)
         self.layers = [self.hL1, self.hL2, self.outL]
 
     def fit(self, inputs, _train, truthValues):
@@ -81,10 +78,6 @@ class NeuralNet:
             output = layer.forward(output, _train)
         self.loss(output, truthValues)
         self.accuracy(output, truthValues)
-
-
-
-
 
     def loss(self):
         pass
