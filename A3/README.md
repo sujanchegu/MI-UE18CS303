@@ -119,7 +119,7 @@
             - Else
                 - Continue another epoch of training
         1. Store the complete list of the weight-bias matrices form each layer, of the least loss NN model so far
-    1. **Loss Function**
+    1. **Loss Function (Class function):**
         1. This will be called on the train, validation and test sets
         1. It will take the *train set features values* (**Weight**, **HB**, **BP**) and the corresponding *true outputs* (**Result_0.0**, **Result_1.0**) as input to the function
         1. The loss function used in our model is the Binary crossentropy ( i.e. binary_crossentropy (pred_(train|valid|test), true_(train|valid|test)) )
