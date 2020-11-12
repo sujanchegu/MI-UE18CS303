@@ -64,8 +64,20 @@ class Layer:
         else:
             printf("Wrong Activation Function Name")
         
-    def backward(self, _nextLayerInputs):
-        pass
+    def backward(self, _currentLayerDelta, _prevLayerOutputs):
+        """
+            Computes delta values for previous layer
+        """
+        # If the previous layer is a hidden layer
+        prevlayer = [0 for i in range(_prevLayerOutputs.size)]
+        for i in range(_prevLayerOutputs.size):
+            if (_prevLayerOutputs[i] > 0):
+                prevlayer[i] = 1
+            else:
+                0
+        prevlayer = np.array(prevlayer)
+        a = np.dot(self.weights, _currentLayerDelta)
+        return np.dot(a, prevlayer)
 
 
 
