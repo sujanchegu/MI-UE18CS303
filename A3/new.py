@@ -9,18 +9,16 @@ class Layer:
         self.shape = _numNeurons
         self.droprate = 0.1
         self.seed = np.random.RandomState(42)
-        # self.biases = np.zeros((1, self.shape))
         sd = np.sqrt(6.0 / (self.prevShape + self.shape))
-        self.weights = np.random.uniform(-sd,
-                                         sd, (self.prevShape, self.shape))
+        self.weights = np.random.uniform(-sd, sd, (self.prevShape, self.shape))
 
     @classmethod
     def ReLU(cls, inputs):
         return np.array([max(0.0, x) for x in inputs])
 
     @classmethod
-    def ReLU_Prime(cls, ):
-        pass
+    def ReLU_Prime(cls, inputs):
+        return np.array([1 if i > 0 else 0 for i in inputs])
 
     @classmethod
     def softmax(cls, inputs):
@@ -28,16 +26,21 @@ class Layer:
         sumexps = sum(exps)
         return np.array([exps[i]/sumexps for i in range(len(exps))])
 
+    @classmethod
+    def softmax_Prime(cls, inputs):
+        '''
+            d(S(Zi))/dZj = derivatives[i][j]
+        '''
+        exps = [np.exp(x) for x in inputs]
+        derivatives = [[exps[i]*(1-exps[i]) if i==j else exps[i] * -1 * exps[j] for j in range(len(inputs))] for i in range(len(inputs))]
+        return np.array(derivatives)
+
     def set_params(self, _weights, _biases):
         temp_weights = self.weights
-        # temp_biases = self.biases
         self.weights = _weights
-        # self.biases = _biases
-        # return (temp_weights, temp_biases)
         return temp_weights
 
     def get_params(self):
-        # return (self.weights, self.biases)
         return self.weights
 
     def drop(self):
@@ -48,8 +51,7 @@ class Layer:
         if _train:
             self.activeNeurons = drop()
             self.output *= self.activeNeurons
-            # self.output *= np.random.binomial(1, self.droprate, size=self.shape) / (1 - self.droprate)
-            self.output /= (1 - self.droprate)
+            self.output /= self.droprate
         return self.activationFunc(self.activFuncName, self.output)
 
     def activationFunc(self, _activFuncName, inputs):
@@ -60,8 +62,8 @@ class Layer:
         else:
             printf("Wrong Activation Function Name")
         
-
-    # def backward(self, _nextLayerInputs):
+    def backward(self, _nextLayerInputs):
+        pass
 
 
 
