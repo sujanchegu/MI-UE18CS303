@@ -106,10 +106,4 @@ class NeuralNet:
 
 l1 = Layer(3, 5, 'ReLU')
 print(l1.weights)
-<<<<<<< HEAD
 
-
-
-
-=======
->>>>>>> af34e0c4446a6861add11028d670eedea680ec94
