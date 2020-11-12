@@ -74,7 +74,7 @@ class Layer:
             if (_prevLayerOutputs[i] > 0):
                 prevlayer[i] = 1
             else:
-                0
+                prevlayer[i] = 0
         prevlayer = np.array(prevlayer)
         a = np.dot(self.weights, _currentLayerDelta)
         return np.dot(a, prevlayer)
