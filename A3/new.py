@@ -11,6 +11,8 @@ class Layer:
         self.seed = np.random.RandomState(42)
         sd = np.sqrt(6.0 / (self.prevShape + self.shape))
         self.weights = np.random.uniform(-sd, sd, (self.prevShape, self.shape))
+        for i in range(self.shape):
+            self.weights[-1][i] = 0
 
     @classmethod
     def ReLU(cls, inputs):
@@ -86,3 +88,7 @@ class NeuralNet:
 
     def accuracy(self):
         pass
+
+
+l1 = Layer(3, 5, 'ReLU')
+print(l1.weights)
