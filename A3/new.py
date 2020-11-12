@@ -75,9 +75,12 @@ class Layer:
                 prevlayer[i] = 1
             else:
                 0
+
         prevlayer = np.array(prevlayer)
         a = np.dot(self.weights, _currentLayerDelta)
-        return np.dot(a, prevlayer)
+        print(prevlayer)
+        print(a)
+        return np.multiply(a, prevlayer)
 
 
 
@@ -104,3 +107,7 @@ class NeuralNet:
 
 l1 = Layer(3, 5, 'ReLU')
 print(l1.weights)
+
+
+
+
