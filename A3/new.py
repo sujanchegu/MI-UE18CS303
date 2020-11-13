@@ -63,7 +63,7 @@ class Layer:
         if _train:
             self.activeNeurons = drop()
             self.output *= self.activeNeurons
-            self.output /= self.droprate
+            self.output /= (np.count_nonzero(self.activeNeurons)/np.size(self.activeNeurons))
         return self.activationFunc(self.activFuncName, self.output)
 
     def activationFunc(self, _activFuncName, inputs):
