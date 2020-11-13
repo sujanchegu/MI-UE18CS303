@@ -1,5 +1,5 @@
 import numpy as np
-
+import sys
 
 class Layer:
     def __init__(self, _numInputs, _numNeurons, _activFunc):
@@ -80,6 +80,10 @@ class Layer:
             self.activeNeurons = self.drop()
             # Performs elements wise multiplication
             self.output *= self.activeNeurons
+
+            # Divide the output matrix by the fraction of outputs
+            # kept and not dropped
+            # We perform elements wise division here
             self.output /= (np.count_nonzero(self.activeNeurons) /
                             np.size(self.activeNeurons))
         return self.activationFunc(self.activFuncName, self.output)
@@ -90,7 +94,9 @@ class Layer:
         elif(_activFuncName == 'softmax'):
             return self.softmax(inputs)
         else:
-            print("Wrong Activation Function Name")
+            # Exit the program on failure
+            print("Wrong Activation Function Name!")
+            sys.exit(1)
 
     def backward(self, _currentLayerDelta, _prevLayerOutputs):
         """
