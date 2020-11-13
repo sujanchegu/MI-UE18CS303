@@ -208,6 +208,8 @@
     - This resource should be helpful in understanding how to interpret the matrices and how they evolve (or change) during the process of forward propagation
 4. https://github.com/jrios6/Adam-vs-SGD-Numpy/blob/master/Adam%20vs%20SGD%20-%20On%20Kaggle's%20Titanic%20Dataset.ipynb
     - Good explanation and complete code for forward and backward propagation using only NumPy, it also implements Adam optimizer with the derivatives portion as well.
+5. https://stackoverflow.com/questions/41409248/softmax-and-sigmoid-function-for-the-output-layer
+    - Explanation for why we are using softmax activation fucntion and not sigmoid in the last layer
 
 Adam Optimizer:
 https://mlfromscratch.com/optimizers-explained/
