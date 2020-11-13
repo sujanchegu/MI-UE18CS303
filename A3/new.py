@@ -7,10 +7,12 @@ class Layer:
         self.activFuncName = _activFunc
         self.prevShape = _numInputs + 1  # For bias
         self.shape = _numNeurons
-        self.droprate = 0.1
+        self.droprate = 0.1  # The proportion of neurons to drop at a layer
         self.seed = np.random.RandomState(42)
         sd = np.sqrt(6.0 / (self.prevShape + self.shape))
         self.weights = np.random.uniform(-sd, sd, (self.prevShape, self.shape))
+
+        # Setting the bias values to 0 in the weights matrix
         for i in range(self.shape):
             self.weights[-1][i] = 0
 
@@ -26,12 +28,17 @@ class Layer:
 
     @classmethod
     def softmax(cls, inputs):
+        # After this transpose, every output for a particular
+        # input row to the model will be place row wise
         matrix = np.transpose(inputs)
         ret = []
         for row in matrix:
             exps = [np.exp(x) for x in row]
             sumexps = sum(exps)
-            ret.append(np.array([exps[i]/sumexps for i in range(len(exps))]))
+            ret.append(np.array([exps[i] / sumexps for i in range(len(exps))]))
+
+        # This step of transpose is needed so the every output for
+        # a particular input row to the model, is now columnwise
         return np.transpose(ret)
 
     @classmethod
@@ -47,7 +54,7 @@ class Layer:
             ret.append(np.array(derivatives))
         return np.transpose(ret)
 
-    def set_params(self, _weights, _biases):
+    def set_params(self, _weights):  # , _biases):
         temp_weights = self.weights
         self.weights = _weights
         return temp_weights
@@ -59,9 +66,10 @@ class Layer:
         return np.random.binomial(1, 1 - self.droprate, size=self.shape)
 
     def forward(self, _input, _train=False):
+        # Here we perform the matrix multiplication of W^T * X
         self.output = np.dot(self.weights.T, _input)
         if _train:
-            self.activeNeurons = drop()
+            self.activeNeurons = self.drop()
             self.output *= self.activeNeurons
             self.output /= (np.count_nonzero(self.activeNeurons)/np.size(self.activeNeurons))
         return self.activationFunc(self.activFuncName, self.output)
