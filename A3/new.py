@@ -171,9 +171,8 @@ class NeuralNet:
                     trueval += 1
             ret.append(trueval/len(rowYHAT))
         return np.array(ret)
-        
+
 
 
 l1 = Layer(3, 5, 'ReLU')
 print(l1.weights)
-
