@@ -85,9 +85,9 @@ class Layer:
 
 class NeuralNet:
     def __init__(self):
-        self.hL1 = Layer(4, 8)
-        self.hL2 = Layer(8, 6)
-        self.outL = Layer(6, 2)
+        self.hL1 = Layer(4, 8, 'ReLU')
+        self.hL2 = Layer(8, 6, 'ReLU')
+        self.outL = Layer(6, 2, 'softmax')
         self.layers = [self.hL1, self.hL2, self.outL]
 
     def fit(self, inputs, _train, truthValues):
