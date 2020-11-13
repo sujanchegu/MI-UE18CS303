@@ -118,6 +118,8 @@ class Layer:
 
 
 class NeuralNet:
+    _THRESHOLD = 0.5
+
     def __init__(self):
         self.hL1 = Layer(3, 8, 'ReLU')
         self.hL2 = Layer(8, 6, 'ReLU')
@@ -140,11 +142,16 @@ class NeuralNet:
         yHatT = np.transpose(yHat)
         # yT = np.transpose(y)
         ret = []
-        for rowYHAT, rowY in zip(yHatT, y):
+        # The dimensions must be the same
+        assert yHat.shape == y.shape
+
+        # Going row-wise, i.e. corresponding input and output-wise
+        for rowYHAT, rowY in zip(yHatT, y):  # yT):
             # They need to be of the same length as if there
             # are 2 target values then we need 2 outputs, per
             # row
             assert len(rowYHAT) == len(rowY)
+
             ret.append(
                         -1 * sum(
                                  np.array(
@@ -159,20 +166,53 @@ class NeuralNet:
                         )
         return np.array(ret)
 
-    def accuracy(self, yHat, y):
+    @classmethod
+    def threshold_func(cls, x):
+        return 0 if x <= cls._THRESHOLD else 1
+
+    def accuracy(self, yHat, y) -> float:
+        # We take the transpose so that the output for
+        # each input row from the dataset is now row-wise in yHat
         yHatT = np.transpose(yHat)
-        yT = np.transpose(y)
-        ret = []
-        for rowYHAT, rowY in zip(yHatT, yT):
-            trueval = 0
-            print(rowYHAT, rowY)
+        # yT = np.transpose(y)
+        # ret = []
+        # The dimensions must be the same
+        assert yHatT.shape == y.shape
+
+        # Count for the number of correctly classified training samples
+        correctly_classified_count = 0
+
+        # Going row-wise, i.e. corresponding input and output-wise
+        for rowYHAT, rowY in zip(yHatT, y):  # yT):
+            # They need to be of the same length as if there
+            # are 2 target values then we need 2 outputs per
+            # row
+            assert len(rowYHAT) == len(rowY)
+            # print(rowYHAT, rowY)
+
+            rowYHAT_after_threshold = rowYHAT.astype(int)
+
             for i in range(len(rowYHAT)):
-                if((rowYHAT[i] >= 0.5 and rowY[i] == 1) or (rowYHAT[i] <=0.5 and rowY[i] == 0)):
-                    trueval += 1
-            ret.append(trueval/len(rowYHAT))
-        return np.array(ret)
+                # Apply the threshold on rowYHAT values
+                rowYHAT_after_threshold[i] = NeuralNet.\
+                                                threshold_func(rowYHAT[i])
+            if all(rowYHAT_after_threshold == rowY):
+                correctly_classified_count += 1
 
+            #     # if True_Positive or False_Positive
+            #     rowYHAT_after_threshold = [lambda x : 0 if x <= _THRESHOLD else 1]
+            #     if (rowYHAT[i] >= _THRESHOLD and rowY[i] == 1) \
+            #        or (rowYHAT[i] <= _THRESHOLD and rowY[i] == 0):
+            #         correctly_classified_count += 1
 
+        # The number of true values cannot be more than the number of input
+        # rows
+        assert correctly_classified_count <= y.shape[0]
 
-l1 = Layer(3, 5, 'ReLU')
-print(l1.weights)
+        # ret.append(correctly_classified_count / y.shape[0])
+        # return ret
+
+        return correctly_classified_count / y.shape[0]
+
+# l1 = Layer(3, 5, 'ReLU')
+# print(l1.weights)
