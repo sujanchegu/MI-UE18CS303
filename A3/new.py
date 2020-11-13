@@ -141,6 +141,10 @@ class NeuralNet:
         # yT = np.transpose(y)
         ret = []
         for rowYHAT, rowY in zip(yHatT, y):
+            # They need to be of the same length as if there
+            # are 2 target values then we need 2 outputs, per
+            # row
+            assert len(rowYHAT) == len(rowY)
             ret.append(
                         -1 * sum(
                                  np.array(
@@ -151,7 +155,7 @@ class NeuralNet:
                                            for i in range(len(rowYHAT))
                                            ]
                                           )
-                                )
+                                ) / len(rowY)
                         )
         return np.array(ret)
 
