@@ -126,11 +126,13 @@
         1. This loss function is essentially similar to entropy which we learnt from decision trees *(except we are now restricted to only 2 possible outputs, i.e. 1 and 0)*, so some code sharing is possible with the Decision Trees Assignment
         1. Piazza post: @75, which is all about Binary crossentropy, is also a very handy resource
         1. [This resource has the complete formula for Binary crossentropy](https://peltarion.com/knowledge-center/documentation/modeling-view/build-an-ai-model/loss-functions/binary-crossentropy)
+        1. [Perfect resource for understanding the formula as well as some examples](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a)
         1. [Code resource for implementing Binary crossentropy, but it is missing the averaging step which is present in the immediate previous resource](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#cross-entropy)
         1. [Code resource for implementation but with better integration with the forward and backward propagation](https://gombru.github.io/2018/05/23/cross_entropy_loss/)
             - This resource includes forward and backward propagation steps
             - You may have to scroll down a bit to get to the code
         1. [This resource is purely theoretical and is only for verification of the formula](https://www.machinecurve.com/index.php/2019/10/22/how-to-use-binary-categorical-crossentropy-with-keras/#binary-crossentropy-for-binary-classification)
+        1. [Formula for how SkLearn implements Binary crossentropy loss otherwise known as Log Loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#:~:text=Log%20loss%2C%20aka%20logistic%20loss,for%20its%20training%20data%20y_true%20.)
     1. **Accuracy Function**
         1. This will be called on the train, validation and test sets
             1. It will take the *train set features values* (**Weight**, **HB**, **BP**) and the corresponding *true outputs* (**Result_0.0**, **Result_1.0**) as input to the function
@@ -201,19 +203,18 @@
 ### Real Gold Resources:
 1. https://github.com/wiseodd/hipsternet
     - This resource has literally has all the code needed to get kickstarted!
-2. https://www.jeremyjordan.me/intro-to-neural-networks/
+1. https://www.jeremyjordan.me/intro-to-neural-networks/
     - Very good visual, matrix-wise description of Neural Networks
-3. https://towardsdatascience.com/under-the-hood-of-neural-network-forward-propagation-the-dreaded-matrix-multiplication-a5360b33426
+1. https://towardsdatascience.com/under-the-hood-of-neural-network-forward-propagation-the-dreaded-matrix-multiplication-a5360b33426
     - Theoretical **(i.e. only words, no code)** but very thorough resource on forward propagation
     - This resource should be helpful in understanding how to interpret the matrices and how they evolve (or change) during the process of forward propagation
-4. https://github.com/jrios6/Adam-vs-SGD-Numpy/blob/master/Adam%20vs%20SGD%20-%20On%20Kaggle's%20Titanic%20Dataset.ipynb
+1. https://github.com/jrios6/Adam-vs-SGD-Numpy/blob/master/Adam%20vs%20SGD%20-%20On%20Kaggle's%20Titanic%20Dataset.ipynb
     - Good explanation and complete code for forward and backward propagation using only NumPy, it also implements Adam optimizer with the derivatives portion as well.
-5. https://stackoverflow.com/questions/41409248/softmax-and-sigmoid-function-for-the-output-layer
+1. https://stackoverflow.com/questions/41409248/softmax-and-sigmoid-function-for-the-output-layer
     - Explanation for why we are using softmax activation fucntion and not sigmoid in the last layer
+1. Neural Networks from Scratch: https://www.youtube.com/playlist?list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3
 
 Adam Optimizer:
 https://mlfromscratch.com/optimizers-explained/
 https://github.com/jiexunsee/Adam-Optimizer-from-scratch/blob/master/adamoptimizer.py
 
-
-Neural Networks from Scratch: https://www.youtube.com/playlist?list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3
