@@ -1,6 +1,7 @@
 import numpy as np
 import sys
 
+
 class Layer:
     def __init__(self, _numInputs, _numNeurons, _activFunc):
         # Note, numInputs = number of neurons in the previous layer
@@ -73,7 +74,7 @@ class Layer:
     def drop(self):
         return np.random.binomial(1, 1 - self.droprate, size=self.shape)
 
-    def forward(self, _input, _train=False):
+    def forward(self, _input, _train=True):
         # Here we perform the matrix multiplication of W^T * X
         self.output = np.dot(self.weights.T, _input)
         if _train:
@@ -130,6 +131,7 @@ class NeuralNet:
                 output = layer.forward(output, _train)
             epoch_loss = self.loss(output, truthValues)
             epoch_accuracy = self.accuracy(output, truthValues)
+            print(f"> Epoch: {i} --> Loss: {epoch_loss}, Accuracy: {epoch_accuracy}")
 
     @classmethod
     def loss(self, yHat, y):
