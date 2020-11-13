@@ -16,26 +16,36 @@ class Layer:
 
     @classmethod
     def ReLU(cls, inputs):
-        return np.array([max(0.0, x) for x in inputs])
+        matrix = np.transpose(inputs)
+        return np.transpose(np.array([[max(0.0, x) for x in matrix[j]] for j in range(len(matrix))]))
 
     @classmethod
     def ReLU_Prime(cls, inputs):
-        return np.array([1 if i > 0 else 0 for i in inputs])
+        matrix = np.transpose(inputs)
+        return np.transpose(np.array([[1 if i > 0 else 0 for i in matrix[j]] for j in range(len(matrix))]))
 
     @classmethod
     def softmax(cls, inputs):
-        exps = [np.exp(x) for x in inputs]
-        sumexps = sum(exps)
-        return np.array([exps[i]/sumexps for i in range(len(exps))])
+        matrix = np.transpose(inputs)
+        ret = []
+        for row in matrix:
+            exps = [np.exp(x) for x in row]
+            sumexps = sum(exps)
+            ret.append(np.array([exps[i]/sumexps for i in range(len(exps))]))
+        return np.transpose(ret)
 
     @classmethod
     def softmax_Prime(cls, inputs):
         '''
             d(S(Zi))/dZj = derivatives[i][j]
         '''
-        exps = [np.exp(x) for x in inputs]
-        derivatives = [[exps[i]*(1-exps[i]) if i==j else exps[i] * -1 * exps[j] for j in range(len(inputs))] for i in range(len(inputs))]
-        return np.array(derivatives)
+        matrix = np.transpose(inputs)
+        ret = []
+        for row in matrix:
+            exps = [np.exp(x) for x in row]
+            derivatives = [[exps[i]*(1-exps[i]) if i==j else exps[i] * -1 * exps[j] for j in range(len(row))] for i in range(len(row))]
+            ret.append(np.array(derivatives))
+        return np.transpose(ret)
 
     def set_params(self, _weights, _biases):
         temp_weights = self.weights
@@ -83,11 +93,13 @@ class NeuralNet:
         self.loss(output, truthValues)
         self.accuracy(output, truthValues)
 
-    def loss(self):
-        pass
+    def loss(self, yHat, y):
+        ret = np.array([np.log2(yHat[i]) if y==1 else np.log2(1-yHat[i]) for i in range(len(yHat))])
+        return sum(ret)*-1
 
     def accuracy(self):
         pass
+        
 
 
 l1 = Layer(3, 5, 'ReLU')
