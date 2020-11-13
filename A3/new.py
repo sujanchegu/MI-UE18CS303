@@ -72,18 +72,32 @@ class Layer:
         elif(_activFuncName == 'softmax'):
             return self.softmax(inputs)
         else:
-            printf("Wrong Activation Function Name")
+            print("Wrong Activation Function Name")
         
-    def backward(self, _nextLayerInputs):
-        pass
+    def backward(self, _currentLayerDelta, _prevLayerOutputs):
+        """
+            Computes delta values for previous layer
+        """
+        # If the previous layer is a hidden layer
+        prevlayer = [0 for i in range(_prevLayerOutputs.size)]
+        for i in range(_prevLayerOutputs.size):
+            if (_prevLayerOutputs[i] > 0):
+                prevlayer[i] = 1
+            else:
+                prevlayer[i] = 0
+        prevlayer = np.array(prevlayer)
+        a = np.dot(self.weights, _currentLayerDelta)
+        print(prevlayer)
+        print(a)
+        return np.multiply(a, prevlayer)
 
 
 
 class NeuralNet:
     def __init__(self):
-        self.hL1 = Layer(4, 8)
-        self.hL2 = Layer(8, 6)
-        self.outL = Layer(6, 2)
+        self.hL1 = Layer(4, 8, 'ReLU')
+        self.hL2 = Layer(8, 6, 'ReLU')
+        self.outL = Layer(6, 2, 'softmax')
         self.layers = [self.hL1, self.hL2, self.outL]
 
     def fit(self, inputs, _train, truthValues):
@@ -104,3 +118,4 @@ class NeuralNet:
 
 l1 = Layer(3, 5, 'ReLU')
 print(l1.weights)
+
