@@ -145,9 +145,9 @@ class NeuralNet:
                         -1 * sum(
                                  np.array(
                                           [
-                                           np.log2(rowYHAT[i])
+                                           np.log(rowYHAT[i])
                                            if rowY[i] == 1
-                                           else np.log2(1 - rowYHAT[i])
+                                           else np.log(1 - rowYHAT[i])
                                            for i in range(len(rowYHAT))
                                            ]
                                           )
