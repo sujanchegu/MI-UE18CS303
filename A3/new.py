@@ -100,19 +100,35 @@ class NeuralNet:
         self.outL = Layer(6, 2, 'softmax')
         self.layers = [self.hL1, self.hL2, self.outL]
 
-    def fit(self, inputs, _train, truthValues):
-        output = truthValues
-        for layer in self.layers:
-            output = layer.forward(output, _train)
-        self.loss(output, truthValues)
-        self.accuracy(output, truthValues)
+    def fit(self, inputs, _train, _numEpochs, truthValues):
+        for i in range(_numEpochs):
+            output = inputs[i]
+            for layer in self.layers:
+                output = layer.forward(output, _train)
+            epoch_loss = self.loss(output, truthValues)
+            epoch_accuracy = self.accuracy(output, truthValues)
 
+    @classmethod
     def loss(self, yHat, y):
-        ret = np.array([np.log2(yHat[i]) if y==1 else np.log2(1-yHat[i]) for i in range(len(yHat))])
-        return sum(ret)*-1
+        yHatT = np.transpose(yHat)
+        yT = np.transpose(y)
+        ret = []
+        for rowYHAT,rowY in zip(yHatT, yT):
+            ret.append(-1*sum(np.array([np.log2(rowYHAT[i]) if rowY[i]==1 else np.log2(1-rowYHAT[i]) for i in range(len(rowYHAT))])))
+        return np.array(ret)
 
-    def accuracy(self):
-        pass
+    def accuracy(self, yHat, y):
+        yHatT = np.transpose(yHat)
+        yT = np.transpose(y)
+        ret = []
+        for rowYHAT,rowY in zip(yHatT, yT):
+            trueval = 0
+            print(rowYHAT, rowY)
+            for i in range(len(rowYHAT)):
+                if((rowYHAT[i] >= 0.5 and rowY[i] == 1) or (rowYHAT[i] <=0.5 and rowY[i] == 0)):
+                    trueval += 1
+            ret.append(trueval/len(rowYHAT))
+        return np.array(ret)
         
 
 
