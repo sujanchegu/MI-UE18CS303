@@ -19,12 +19,20 @@ class Layer:
     @classmethod
     def ReLU(cls, inputs):
         matrix = np.transpose(inputs)
-        return np.transpose(np.array([[max(0.0, x) for x in matrix[j]] for j in range(len(matrix))]))
+        return np.transpose(np.array([
+                                      [max(0.0, x) for x in matrix[j]]
+                                      for j in range(len(matrix))
+                                      ])
+                            )
 
     @classmethod
     def ReLU_Prime(cls, inputs):
         matrix = np.transpose(inputs)
-        return np.transpose(np.array([[1 if i > 0 else 0 for i in matrix[j]] for j in range(len(matrix))]))
+        return np.transpose(np.array([
+                                      [1 if i > 0 else 0 for i in matrix[j]]
+                                      for j in range(len(matrix))
+                                      ])
+                            )
 
     @classmethod
     def softmax(cls, inputs):
@@ -70,8 +78,10 @@ class Layer:
         self.output = np.dot(self.weights.T, _input)
         if _train:
             self.activeNeurons = self.drop()
+            # Performs elements wise multiplication
             self.output *= self.activeNeurons
-            self.output /= (np.count_nonzero(self.activeNeurons)/np.size(self.activeNeurons))
+            self.output /= (np.count_nonzero(self.activeNeurons) /
+                            np.size(self.activeNeurons))
         return self.activationFunc(self.activFuncName, self.output)
 
     def activationFunc(self, _activFuncName, inputs):
@@ -81,7 +91,7 @@ class Layer:
             return self.softmax(inputs)
         else:
             print("Wrong Activation Function Name")
-        
+
     def backward(self, _currentLayerDelta, _prevLayerOutputs):
         """
             Computes delta values for previous layer
@@ -98,7 +108,6 @@ class Layer:
         print(prevlayer)
         print(a)
         return np.multiply(a, prevlayer)
-
 
 
 class NeuralNet:
