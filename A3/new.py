@@ -62,7 +62,7 @@ class Layer:
         elif(_activFuncName == 'softmax'):
             return self.softmax(inputs)
         else:
-            printf("Wrong Activation Function Name")
+            print("Wrong Activation Function Name")
         
     def backward(self, _currentLayerDelta, _prevLayerOutputs):
         """
