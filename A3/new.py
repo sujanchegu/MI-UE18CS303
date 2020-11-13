@@ -47,7 +47,7 @@ class Layer:
             ret.append(np.array([exps[i] / sumexps for i in range(len(exps))]))
 
         # This step of transpose is needed so the every output for
-        # a particular input row to the model, is now columnwise
+        # a particular input row to the model, is now column-wise
         return np.transpose(ret)
 
     @classmethod
@@ -135,18 +135,31 @@ class NeuralNet:
 
     @classmethod
     def loss(self, yHat, y):
+        # We take the transpose so that the output for
+        # each input row from the dataset is now row-wise in yHat
         yHatT = np.transpose(yHat)
-        yT = np.transpose(y)
+        # yT = np.transpose(y)
         ret = []
-        for rowYHAT,rowY in zip(yHatT, yT):
-            ret.append(-1*sum(np.array([np.log2(rowYHAT[i]) if rowY[i]==1 else np.log2(1-rowYHAT[i]) for i in range(len(rowYHAT))])))
+        for rowYHAT, rowY in zip(yHatT, y):
+            ret.append(
+                        -1 * sum(
+                                 np.array(
+                                          [
+                                           np.log2(rowYHAT[i])
+                                           if rowY[i] == 1
+                                           else np.log2(1 - rowYHAT[i])
+                                           for i in range(len(rowYHAT))
+                                           ]
+                                          )
+                                )
+                        )
         return np.array(ret)
 
     def accuracy(self, yHat, y):
         yHatT = np.transpose(yHat)
         yT = np.transpose(y)
         ret = []
-        for rowYHAT,rowY in zip(yHatT, yT):
+        for rowYHAT, rowY in zip(yHatT, yT):
             trueval = 0
             print(rowYHAT, rowY)
             for i in range(len(rowYHAT)):
