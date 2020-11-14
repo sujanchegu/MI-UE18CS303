@@ -130,6 +130,7 @@ class NeuralNet:
         for i in range(_numEpochs):
             output = inputs[i]
             for layer in self.layers:
+                output = np.vstack((output, np.array([1 for i in range(output.shape[1])])))
                 output = layer.forward(output, _train)
             epoch_loss = self.loss(output, truthValues)
             epoch_accuracy = self.accuracy(output, truthValues)
