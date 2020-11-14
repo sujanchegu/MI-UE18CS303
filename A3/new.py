@@ -79,6 +79,11 @@ class Layer:
         self.output = np.dot(self.weights.T, _input)
         if _train:
             self.activeNeurons = self.drop()
+            temp1 = self.activeNeurons.copy()
+            temp = self.output.shape[1]
+            for i in range(temp - 1):
+                self.activeNeurons = np.vstack((self.activeNeurons, temp1))
+            self.activeNeurons = self.activeNeurons.transpose()
             # Performs elements wise multiplication
             self.output *= self.activeNeurons
 
@@ -128,7 +133,7 @@ class NeuralNet:
 
     def fit(self, inputs, _train, _numEpochs, truthValues):
         for i in range(_numEpochs):
-            output = inputs[i]
+            output = inputs
             for layer in self.layers:
                 output = np.vstack((output, np.array([1 for i in range(output.shape[1])])))
                 output = layer.forward(output, _train)
