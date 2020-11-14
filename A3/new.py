@@ -85,7 +85,7 @@ class Layer:
             # Divide the output matrix by the fraction of outputs
             # kept and not dropped
             # We perform elements wise division here
-            self.output /= (np.count_nonzero(self.activeNeurons) /
+            self.output = self.output/(np.count_nonzero(self.activeNeurons) /
                             np.size(self.activeNeurons))
         return self.activationFunc(self.activFuncName, self.output)
 
