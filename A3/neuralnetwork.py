@@ -256,7 +256,7 @@ class NeuralNet:
             epoch_loss = self.loss(output, truthValues)
             epoch_accuracy = self.accuracy(output, truthValues)
             epoch_loss = np.mean(epoch_loss)
-            print()
+            # print()
             # print(f"> Epoch: {i} --> Loss: \n{epoch_loss}, \
             #       Accuracy: {epoch_accuracy}")
             return epoch_accuracy, epoch_loss
@@ -408,7 +408,7 @@ class Chromosome:
     def mutate(self, n=2):
         # Select n non-input nodes from the chromosome
         nodes_to_mutate = np.random\
-                            .randint(0, Chromosome.numberOfNeuronsInNetwork, n)
+                            .randint(0, self.numberOfNeuronsInNetwork, n)
 
         # Find the weight matrix to which n belongs to and mutate its weights,
         # i.e. that particular column
@@ -418,9 +418,9 @@ class Chromosome:
                 neuron -= self.numberOfNeuronsPerLayer[layerNo]
                 layerNo += 1
             selected_weight_matrix = self.getWeights()[layerNo]
-            assert type(selected_weight_matrix) == np.array, \
-                   "The type of the selected_weight_matrix is not a numpy\
-                        array"
+            assert type(selected_weight_matrix) is np.ndarray, \
+                   f"The type of the selected_weight_matrix is not a numpy\
+                        array, but it is {type(selected_weight_matrix)}"
 
             # A column of the W matrix is the weights and bias of the neuron
             input_links_of_selected_neuron = selected_weight_matrix[:,
@@ -523,7 +523,18 @@ class Chromosome:
                                     .copy())
         assert len(child_layer_list) == 3, f"The child_layer_list looks like \
                                              this: {child_layer_list}"
-        return Chromosome(child_layer_list)
+
+        temp = NeuralNet()
+        for ind, layer in enumerate(temp.layers):
+            layer.set_params(child_layer_list[ind])
+
+        assert np.allclose(temp.layers[0].get_params(), child_layer_list[0]) \
+            is True, f"{temp.layers[0].get_params()} != {child_layer_list[0]}"
+        assert np.allclose(temp.layers[1].get_params(), child_layer_list[1]) \
+            is True, f"{temp.layers[1].get_params()} != {child_layer_list[1]}"
+        assert np.allclose(temp.layers[2].get_params(), child_layer_list[2]) \
+            is True, f"{temp.layers[2].get_params()} != {child_layer_list[2]}"
+        return Chromosome(temp)
 
 
 class GeneticAlgo:
@@ -707,12 +718,18 @@ class GeneticAlgo:
         # Randomly select individuals without replacement from the new
         # population to perform mutation on
         rng = default_rng()
-        mutation_candidates_index = np\
-            .random\
-            .shuffle(rng.choice(self.population_count,
-                     size=round(self.population_count * mutation_frac),
-                     replace=False))
+        # mutation_candidates_index = np\
+        #     .random\
+        #     .shuffle(rng.choice(self.population_count,
+        #              size=round(self.population_count * mutation_frac),
+        #              replace=False))
 
+        mutation_candidates_index = rng.choice(self.population_count,
+                                               size=round(
+                                                          self.population_count * mutation_frac
+                                                          ),
+                                               replace=False)
+        np.random.shuffle(mutation_candidates_index)
         _accuracy = None
         _loss = None
         for _ in range(self.population_count):
