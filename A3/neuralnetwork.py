@@ -612,7 +612,7 @@ class GeneticAlgo:
         self.population.sort(reverse=True)
 
         # Perform elitism, let the best parent go forward unchanged
-        for i in range(elitism_frac * self.population_count):
+        for i in range(round(elitism_frac * self.population_count)):
             temp = copy.deepcopy(self.population[i])
             temp[GeneticAlgo._TIE_BREAKING_INDEX] = i
             newPopulation.append(copy.deepcopy(temp))
@@ -682,31 +682,59 @@ class GeneticAlgo:
         """
         Mutation has to be done after the new population has been created
         """
-        # Randomly select individuals without replacement from the new population to perform
-        # mutation on
+        # Randomly select individuals without replacement from the new
+        # population to perform mutation on
         rng = default_rng()
-        mutation_candidates_index = np.random.shuffle(rng.choice(self.population_count, size=self.population_count * mutation_frac, replace=False))
-       for _ in range(self.population_count):
-           if _ in mutation_candidates_index:
-               newPopulation[_][_CHROMOSOME_INDEX].mutate()
+        mutation_candidates_index = np\
+            .random\
+            .shuffle(rng.choice(self.population_count,
+                     size=round(self.population_count * mutation_frac),
+                     replace=False))
 
+        _accuracy = None
+        _loss = None
+        for _ in range(self.population_count):
+            if _ in mutation_candidates_index:
+                newPopulation[_][GeneticAlgo._CHROMOSOME_INDEX].mutate()
+
+                mutatedNode = newPopulation[_][GeneticAlgo._CHROMOSOME_INDEX]
                 # Recalculate the individual's accuracy and loss
                 MonteCarloList = []
                 for i in range(10):
-                    MonteCarloList.append(child_node.evaluate(GeneticAlgo._INPUTS, GeneticAlgo._TRUTH_VALUES, [random.choice([True, False]) for i in range(2)] + False))
-                    _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
-              
-                newPopulation[_] = (_accuracy, _loss, newPopulation[_][_CHROMOSOME_INDEX])
-        
-        self.population = newPopulation
+                    MonteCarloList.append(mutatedNode
+                                          .evaluate(GeneticAlgo._INPUTS,
+                                                    GeneticAlgo._TRUTH_VALUES,
+                                                    [random.choice([
+                                                                    True,
+                                                                    False
+                                                                    ])
+                                                     for i in range(2)]
+                                                    + False)
+                                          )
+                    _accuracy, _loss = np.mean(np.array(MonteCarloList),
+                                               axis=0)
+                assert _accuracy is not None
+                assert _loss is not None
+                newPopulation[_] = (_accuracy, _loss, newPopulation[_]
+                                    [GeneticAlgo._TIE_BREAKING_INDEX],
+                                    mutatedNode)
+
+        self.population = copy.deepcopy(newPopulation)
         self.population.sort(reverse=True)
 
     def runner(self, noOfGenerations):
         for _ in noOfGenerations:
             self.createNextGeneration()
-        
+            print("The accuracy and loss of the best 5 individuals are:")
+            for ind, individual in enumerate(self.population[:5]):
+                print(f"Individual no. : {ind}")
+                print(individual[GeneticAlgo._ACCURACY_INDEX])
+                print(individual[GeneticAlgo._LOSS_INDEX])
+                print("-"*80)
+
         # Return the best Chromosome object
         return self.population[0]
+
 
 df = pd.read_csv("train_split.csv")
 df.head()
@@ -719,11 +747,11 @@ numpyoutput = df[['Result_0.0', 'Result_1.0']].to_numpy()
 # numpyoutput = numpyoutput.transpose()
 # numpyoutput
 
-network = NeuralNet()
-network.fit(numpyinput, [True, True, False], 1, numpyoutput)
+# network = NeuralNet()
+# network.fit(numpyinput, [True, True, False], 1, numpyoutput)
 
--sum([np.log(0.48958263+10e-8), 0])/2, -np.log(0.48958263+10e-8)/2
+# -sum([np.log(0.48958263+10e-8), 0])/2, -np.log(0.48958263+10e-8)/2
 
-a = [[1, 2, 3],[3, 4, 5],[6, 7, 8]]
-a = np.array(a).transpose()
-Layer.softmax_Prime(a)
+# a = [[1, 2, 3],[3, 4, 5],[6, 7, 8]]
+# a = np.array(a).transpose()
+# Layer.softmax_Prime(a)
