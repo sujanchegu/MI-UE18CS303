@@ -254,6 +254,7 @@ class NeuralNet:
 
             epoch_loss = self.loss(output, truthValues)
             epoch_accuracy = self.accuracy(output, truthValues)
+            epoch_loss = np.mean(epoch_loss)
             print()
             print(f"> Epoch: {i} --> Loss: \n{epoch_loss}, \
                   Accuracy: {epoch_accuracy}")
@@ -447,7 +448,7 @@ class Chromosome:
         # Set the weights of the chromosome to the layer object
         for layerInd, layer in enumerate(layerList):
             layer.set_params(new_weights[layerInd])
-        
+
         self.chromosome_accuracy, self.chromosome_loss = Chromosome.neural_net_obj.fit(inputs, _train, 1, truthValues)  # (self, inputs, _train, _numEpochs, truthValues):
 
         return self.chromosome_accuracy, self.chromosome_loss
