@@ -494,6 +494,9 @@ class Chromosome:
                                     .T[neuronInd, :]
                     childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
 
+            assert np.transpose(childlayer_weight_matrix).shape[1] in [2, 6, 8],\
+                   f"{np.transpose(childlayer_weight_matrix)} has the shape\
+                       {np.transpose(childlayer_weight_matrix).shape}"
             child_layer_list.append(np.transpose(childlayer_weight_matrix)
                                     .copy())
         assert len(child_layer_list) == 3, f"The child_layer_list looks like \
@@ -512,7 +515,7 @@ class GeneticAlgo:
     def __init__(self, init_population=50, inputs=None, truthValues=None):
         assert inputs is not None, "input not provided!"
         assert truthValues is not None, "truthValues not provided!"
-
+        self.tournament_size = 0
         GeneticAlgo._INPUTS = inputs
         GeneticAlgo._TRUTH_VALUES = truthValues
         """
@@ -561,9 +564,19 @@ class GeneticAlgo:
         del(temp)
 
     def tournament_selection(self, participant_list):
+        """tournament_selection Runs a tournament with the list of
+        participant tuples of Chromosomes and their metrics
+
+        :param participant_list: List of tuples of individuals
+        :type participant_list: List of tuples of Chromosomes and their metrics
+        :return: Tuple containing the 2 selected tuples of Chromosomes and their
+        metrics
+        :rtype: Tuple of tuples
+        """
         assert len(participant_list) == self.tournament_size, \
             f"tournament_size {self.tournament_size} and participants_list \
                 length: {len(participant_list)}, are not equal!"
+        winner = None
         # Run multiple round as long as the number of participants does not
         # reduce to 2
         while len(participant_list) != 2:
@@ -571,23 +584,28 @@ class GeneticAlgo:
             for battle_participants_ind in range(0, len(participant_list), 2):
                 # If there are 2 participants in a round
                 if battle_participants_ind <= len(participant_list) - 2:
-                    if participant_list[battle_participants_ind] > participant_list[battle_participants_ind + 1]:
+                    if participant_list[battle_participants_ind] > \
+                       participant_list[battle_participants_ind + 1]:
                         winner = participant_list[battle_participants_ind]
                     else:
                         winner = participant_list[battle_participants_ind + 1]
-                
-                # If there is only participant in the round then that participant moves forward
+
+                # If there is only participant in the round then that
+                # participant moves forward
                 elif battle_participants_ind == len(participant_list) - 1:
                     winner = participant_list[battle_participants_ind]
 
+                assert winner is not None, "Winner is None for some reason \
+                and not a tuple of Chromosomes with metrics"
                 winners_of_rounds.append(winner)
 
             participants_list = winners_of_rounds
             random.shuffle(participants_list)
-        
+
         return participant_list
 
-    def createNextGeneration(self, elitism_frac=0.1, tournament_size=20, mutation_frac=0.1):
+    def createNextGeneration(self, elitism_frac=0.1, tournament_size=20,
+                             mutation_frac=0.1):
         self.tournament_size = tournament_size
         newPopulation = []
         # Order the parents based on the accuracy, loss and tie-breaking value
@@ -596,7 +614,7 @@ class GeneticAlgo:
         # Perform elitism, let the best parent go forward unchanged
         for i in range(elitism_frac * self.init_population):
             newPopulation.append(self.population[i])
-        
+
         """
         Tournament selection and Crossover have to be performed until the next generation's
         population size is not equal self.population_count
@@ -613,13 +631,14 @@ class GeneticAlgo:
                     # Add the participant as many times as its index showed up in the _participant_indices
                     for freq in range(np.count_nonzero(_participant_indices==_)):
                         _participant_list.append( self.population[_][np.copy(GeneticAlgo._CHROMOSOME_INDEX)] )
-            
+
             assert len(_participant_list) == tournament_size, f"Participant list length {len(_participant_list)} != tournament_size {tournament_size}"
             # Shuffle up the participants
             random.shuffle(_participant_list)
 
             # Run the tournament
-            _winner_1, _winner_2 = tournament_selection(_participant_list.copy())
+            _winner_1, _winner_2 = self.tournament_selection(copy
+                                                             .deepcopy(_participant_list))
 
 
             # Perform cross-over on the 2 remaining winners at the end to get the child node
