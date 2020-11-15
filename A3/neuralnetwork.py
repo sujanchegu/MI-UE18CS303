@@ -502,7 +502,8 @@ class Chromosome:
 
 
 class GeneticAlgo:
-    _CHROMOSOME_INDEX = 2
+    _CHROMOSOME_INDEX = 3
+    _TIE_BREAKING_INDEX = 2
     _LOSS_INDEX = 1
     _ACCURACY_INDEX = 0
     _TRUTH_VALUES = None
@@ -548,10 +549,15 @@ class GeneticAlgo:
 
             temp.append(
                         (_accuracy, -np.absolute(_loss),
+                         individual[GeneticAlgo._TIE_BREAKING_INDEX],
                          node)
                         )
 
         self.population = copy.deepcopy(temp)
+
+        # Sort the population based on the fitness, such that the fittest
+        # setup is first
+        self.population.sort(reverse=True)
         del(temp)
 
     def tournament_selection(self, participant_list):
