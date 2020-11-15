@@ -234,7 +234,7 @@ class NeuralNet:
     def __init__(self):
         self.hL1 = Layer(3, 8, 'ReLU')
         self.hL2 = Layer(8, 6, 'ReLU')
-        self.outL = Layer(6, 2, 'softmax', dr)
+        self.outL = Layer(6, 2, 'softmax')
         self.layers = [self.hL1, self.hL2, self.outL]
         # self.layer_outputs = []
 
@@ -744,6 +744,9 @@ numpyinput = numpyinput.transpose()
 # numpyinput
 
 numpyoutput = df[['Result_0.0', 'Result_1.0']].to_numpy()
+
+darwin = GeneticAlgo(inputs=numpyinput, truthValues=numpyoutput)
+darwin.runner(10)
 # numpyoutput = numpyoutput.transpose()
 # numpyoutput
 
