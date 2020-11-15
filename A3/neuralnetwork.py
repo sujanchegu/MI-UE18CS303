@@ -447,34 +447,58 @@ class Chromosome:
 
         # Set the weights of the chromosome to the layer object
         for layerInd, layer in enumerate(layerList):
+            # Change the weight matrix associated with the layer object
             layer.set_params(new_weights[layerInd])
 
-        self.chromosome_accuracy, self.chromosome_loss = Chromosome.neural_net_obj.fit(inputs, _train, 1, truthValues)  # (self, inputs, _train, _numEpochs, truthValues):
+        self.chromosome_accuracy, self.chromosome_loss = Chromosome\
+            .neural_net_obj.fit(inputs, _train, 1, truthValues)\
+            # (self, inputs, _train, _numEpochs, truthValues):
 
         return self.chromosome_accuracy, self.chromosome_loss
-    winner
+
     @classmethod
-    def cross_over(cls, parent_1:Chromosome, parent_2:Chromosome) -> Chromosome:
-        assert parent_1.numberOfNeuronsInNetwork == parent_2.numberOfNeuronsInNetwork, \
-            "The number of neurons in both the networks are not the same!"
+    def cross_over(cls, parent_1, parent_2):
+        """cross_over Generate a new Chromosome object from the 2 input
+        parent chromosome objects
+
+        :param parent_1: First parent for crossover
+        :type parent_1: Chromosome class
+        :param parent_2: Second parent for crossover
+        :type parent_2: Chromosome class
+        :return: Child object created from the 2 parent objects
+        :rtype: Chromosome class
+        """
+        assert parent_1.numberOfNeuronsInNetwork == parent_2\
+               .numberOfNeuronsInNetwork, "The number of neurons in \
+                                           both the networks are \
+                                           not the same!"
+        # Contains the weights matrices for all the layers of the child
+        # chromosome
         child_layer_list = []
-        for layerInd, neuronsCount in enumerate(parent_1.numberOfNeuronsPerLayer):
+        for layerInd, neuronsCount in enumerate(parent_1
+                                                .numberOfNeuronsPerLayer):
             childlayer_weight_matrix = np.array([])
             for neuronInd in range(neuronsCount):
                 # Randomly pick between the parent_1 and parent_2
-                choosen_parent_index = np.random.randint(0, 2, 1)
-                if choosen_parent_index == 0:  # parent_1 is choosen
-                    # Get the weights and bias of a particular neuron in parent_1
-                    incoming_links = parent_1.getWeights[layerInd].T[neuronInd,:]
+                chosen_parent_index = np.random.randint(0, 2, 1)
+                if chosen_parent_index == 0:  # parent_1 is chosen
+                    # Get the weights and bias of a particular neuron in
+                    # parent_1
+                    incoming_links = parent_1.getWeights[layerInd]\
+                                     .T[neuronInd, :]
                     childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
-                else:  # parent_2 is choosen
+                else:  # parent_2 is chosen
                     # Get the weights and bias of a particular neuron in parent_2
-                    incoming_links = parent_2.getWeights[layerInd].T[neuronInd,:]
+                    incoming_links = parent_2.getWeights[layerInd]\
+                                    .T[neuronInd, :]
                     childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
-                
-            child_layer_list.append(np.transpose(childlayer_weight_matrix).copy())
 
+            child_layer_list.append(np.transpose(childlayer_weight_matrix)
+                                    .copy())
+        assert len(child_layer_list) == 3, f"The child_layer_list looks like \
+                                             this: {child_layer_list}"
         return Chromosome(child_layer_list)
+
 
 class GeneticAlgo:
     _CHROMOSOME_INDEX = 2
@@ -483,7 +507,9 @@ class GeneticAlgo:
     _TRUTH_VALUES = None
     _INPUTS = None
 
-    def __init__(self, init_population=50, inputs, truthValues):
+    def __init__(self, init_population=50, inputs=None, truthValues=None):
+        assert inputs is not None, "input not provided!"
+        assert truthValues is not None, "truthValues not provided!"
         _INPUTS = inputs
         _TRUTH_VALUES = truthValues
         """
