@@ -724,7 +724,7 @@ class GeneticAlgo:
         self.population.sort(reverse=True)
 
     def runner(self, noOfGenerations):
-        for _ in noOfGenerations:
+        for _ in range(noOfGenerations):
             self.createNextGeneration()
             print("The accuracy and loss of the best 5 individuals are:")
             for ind, individual in enumerate(self.population[:5]):
