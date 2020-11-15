@@ -12,7 +12,7 @@ from numpy.random import default_rng
 import pandas as pd
 import sys
 import random
-
+import copy
 
 class Layer:
     def __init__(self, _numInputs, _numNeurons, _activFunc):
@@ -488,7 +488,8 @@ class Chromosome:
                                      .T[neuronInd, :]
                     childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
                 else:  # parent_2 is chosen
-                    # Get the weights and bias of a particular neuron in parent_2
+                    # Get the weights and bias of a particular neuron in
+                    # parent_2
                     incoming_links = parent_2.getWeights[layerInd]\
                                     .T[neuronInd, :]
                     childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
@@ -519,25 +520,51 @@ class GeneticAlgo:
         The format for every member of the population list is:
         (<Chromosome_Accuracy>, -1 * abs(<Chromosome_Loss>), <Tie_Breaking_Value>, <Chromosome_Object>)
         """
-        self.generation = 0  # We have created the initial population, so generation-0
+        # We have created the initial population, so generation-0
+        self.generation = 0
         self.population = []
         self.population_count = init_population
         for _ in range(init_population):
-            self.population.append( (1, -np.absolute(2), _, Chromosome(NeuralNet().layers)) )
-        
+            self.population.append((1, -np.absolute(2), _,
+                                   Chromosome(NeuralNet().layers)))
+
+        temp = []
         # Create generation-1, after evaluating the generation 0
-        #...
-    
+        MonteCarloList = []
+        for individual in self.population:
+            node = individual[GeneticAlgo._CHROMOSOME_INDEX]
+            for trials in range(10):
+                MonteCarloList.append(node.evaluate(GeneticAlgo._INPUTS,
+                                                    GeneticAlgo._TRUTH_VALUES,
+                                                    [
+                                                     random.choice([
+                                                                    True,
+                                                                    False])
+                                                     for _ in range(2)
+                                                     ] + False)
+                                      )
+
+            _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
+
+            temp.append(
+                        (_accuracy, -np.absolute(_loss),
+                         node)
+                        )
+
+        self.population = copy.deepcopy(temp)
+        del(temp)
+
     def tournament_selection(self, participant_list):
-        assert len(participants_list) == self.tournament_size, \
-            f"tournament_size {self.tournament_size} and participants_list length: {len(participants_list)}, are not equal!"
-        # Run mutiple round as long as the number of participants does not
+        assert len(participant_list) == self.tournament_size, \
+            f"tournament_size {self.tournament_size} and participants_list \
+                length: {len(participant_list)}, are not equal!"
+        # Run multiple round as long as the number of participants does not
         # reduce to 2
         while len(participant_list) != 2:
             winners_of_rounds = []
             for battle_participants_ind in range(0, len(participant_list), 2):
                 # If there are 2 participants in a round
-                if battle_participants_ind <= len(participant_list) - 2:  
+                if battle_participants_ind <= len(participant_list) - 2:
                     if participant_list[battle_participants_ind] > participant_list[battle_participants_ind + 1]:
                         winner = participant_list[battle_participants_ind]
                     else:
