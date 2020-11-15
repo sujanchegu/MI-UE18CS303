@@ -485,15 +485,36 @@ class Chromosome:
                 if chosen_parent_index == 0:  # parent_1 is chosen
                     # Get the weights and bias of a particular neuron in
                     # parent_1
-                    incoming_links = parent_1.getWeights[layerInd]\
+                    incoming_links = parent_1.getWeights()[layerInd]\
                                      .T[neuronInd, :]
-                    childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
+
+                    if childlayer_weight_matrix.shape == (0,):
+                        childlayer_weight_matrix = np\
+                            .hstack((childlayer_weight_matrix, incoming_links))
+                    else:
+                        assert childlayer_weight_matrix.shape != (0,)
+                        # print(incoming_links, incoming_links.shape, type(incoming_links))
+                        # print(childlayer_weight_matrix)
+                        # print(childlayer_weight_matrix)
+                        childlayer_weight_matrix = np\
+                            .vstack((childlayer_weight_matrix, incoming_links))
                 else:  # parent_2 is chosen
                     # Get the weights and bias of a particular neuron in
                     # parent_2
-                    incoming_links = parent_2.getWeights[layerInd]\
-                                    .T[neuronInd, :]
-                    childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
+                    incoming_links = parent_2.getWeights()[layerInd]\
+                        .T[neuronInd, :]
+
+                    if childlayer_weight_matrix.shape == (0,):
+                        childlayer_weight_matrix = np\
+                            .hstack((childlayer_weight_matrix, incoming_links))
+                    else:
+                        assert childlayer_weight_matrix.shape != (0,)
+                        # print(incoming_links, incoming_links.shape, type(incoming_links))
+                        # print(childlayer_weight_matrix)
+                        # print(childlayer_weight_matrix)
+                        childlayer_weight_matrix = np\
+                            .vstack((childlayer_weight_matrix, incoming_links))
+                    # childlayer_weight_matrix = np.vstack((childlayer_weight_matrix, incoming_links))
 
             assert np.transpose(childlayer_weight_matrix).shape[1] in [2, 6, 8],\
                    f"{np.transpose(childlayer_weight_matrix)} has the shape\
@@ -530,8 +551,8 @@ class GeneticAlgo:
         self.population = []
         self.population_count = init_population
         for _ in range(init_population):
-            self.population.append((1, -np.absolute(2), _,
-                                   Chromosome(NeuralNet().layers)))
+            self.population.append([1, -np.absolute(2), _,
+                                   Chromosome(NeuralNet().layers)])
 
         temp = []
         # Create generation-1, after evaluating the generation 0
@@ -552,9 +573,9 @@ class GeneticAlgo:
             _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
 
             temp.append(
-                        (_accuracy, -np.absolute(_loss),
+                        [_accuracy, -np.absolute(_loss),
                          individual[GeneticAlgo._TIE_BREAKING_INDEX],
-                         node)
+                         node]
                         )
 
         self.population = copy.deepcopy(temp)
@@ -600,8 +621,8 @@ class GeneticAlgo:
                 and not a tuple of Chromosomes with metrics"
                 winners_of_rounds.append(winner)
 
-            participants_list = winners_of_rounds
-            random.shuffle(participants_list)
+            participant_list = winners_of_rounds
+            random.shuffle(participant_list)
 
         return participant_list
 
@@ -674,8 +695,8 @@ class GeneticAlgo:
 
             _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
 
-            newPopulation.append((_accuracy, _loss, len(newPopulation),
-                                  child_node))
+            newPopulation.append([_accuracy, _loss, len(newPopulation),
+                                  child_node])
 
         assert all([len(x) == 4 for x in newPopulation]) is True, "The Length\
             of all members of newPopulation is not 4!"
@@ -716,9 +737,9 @@ class GeneticAlgo:
                                                axis=0)
                 assert _accuracy is not None
                 assert _loss is not None
-                newPopulation[_] = (_accuracy, _loss, newPopulation[_]
+                newPopulation[_] = [_accuracy, _loss, newPopulation[_]
                                     [GeneticAlgo._TIE_BREAKING_INDEX],
-                                    mutatedNode)
+                                    mutatedNode]
 
         self.population = copy.deepcopy(newPopulation)
         self.population.sort(reverse=True)
