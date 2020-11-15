@@ -510,8 +510,9 @@ class GeneticAlgo:
     def __init__(self, init_population=50, inputs=None, truthValues=None):
         assert inputs is not None, "input not provided!"
         assert truthValues is not None, "truthValues not provided!"
-        _INPUTS = inputs
-        _TRUTH_VALUES = truthValues
+
+        GeneticAlgo._INPUTS = inputs
+        GeneticAlgo._TRUTH_VALUES = truthValues
         """
         Creating the initial population, for the genetic algorithm
 
