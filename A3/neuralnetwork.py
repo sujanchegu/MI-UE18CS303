@@ -369,7 +369,7 @@ class Chromosome:
         self.chromosome = np.array([])
 
         for layer in layer_list:
-            flattened_weight_matrix = np.flatten(layer.weights)
+            flattened_weight_matrix = layer.weights.flatten()
             self.chromosome = np.hstack((self.chromosome,
                                          flattened_weight_matrix))
             self.numberOfNeuronsPerLayer.append(layer.weights.shape[1])
@@ -545,7 +545,7 @@ class GeneticAlgo:
                                                                     True,
                                                                     False])
                                                      for _ in range(2)
-                                                     ] + False)
+                                                     ] + [False])
                                       )
 
             _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
@@ -668,7 +668,7 @@ class GeneticAlgo:
                                       .evaluate(GeneticAlgo._INPUTS,
                                                 GeneticAlgo._TRUTH_VALUES,
                                                 [random.choice([True, False])
-                                                 for i in range(2)] + False)
+                                                 for i in range(2)] + [False])
                                       )
 
             _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
@@ -709,7 +709,7 @@ class GeneticAlgo:
                                                                     False
                                                                     ])
                                                      for i in range(2)]
-                                                    + False)
+                                                    + [False])
                                           )
                     _accuracy, _loss = np.mean(np.array(MonteCarloList),
                                                axis=0)
