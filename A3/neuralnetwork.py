@@ -14,6 +14,7 @@ import sys
 import random
 import copy
 
+
 class Layer:
     def __init__(self, _numInputs, _numNeurons, _activFunc):
         # Note, numInputs = number of neurons in the previous layer
@@ -84,7 +85,7 @@ class Layer:
         # a particular input row to the model, is now column-wise
         return ans
 
-        # The code below has been decommisioned
+        # The code below has been decommissioned
         # for row in matrix:
         #     exps = [np.exp(x) for x in row]
         #     sumexps = sum(exps)
@@ -256,8 +257,8 @@ class NeuralNet:
             epoch_accuracy = self.accuracy(output, truthValues)
             epoch_loss = np.mean(epoch_loss)
             print()
-            print(f"> Epoch: {i} --> Loss: \n{epoch_loss}, \
-                  Accuracy: {epoch_accuracy}")
+            # print(f"> Epoch: {i} --> Loss: \n{epoch_loss}, \
+            #       Accuracy: {epoch_accuracy}")
             return epoch_accuracy, epoch_loss
             # Backpropagation takes place here...
             # print(BackPropagation.outputLayerBackpropGradient(
