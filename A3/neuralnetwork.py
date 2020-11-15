@@ -398,9 +398,9 @@ class Chromosome:
             self.chromosome[86:] = selected_weight_matrix.flatten()
 
     def getWeights(self):
-        weight_matrix_1 = np.reshape(self.chromosome[:32], shape=(4, 8))
-        weight_matrix_2 = np.reshape(self.chromosome[32:86], shape=(9, 6))
-        weight_matrix_3 = np.reshape(self.chromosome[86:], shape=(7, 2))
+        weight_matrix_1 = np.reshape(self.chromosome[:32], newshape=(4, 8))
+        weight_matrix_2 = np.reshape(self.chromosome[32:86], newshape=(9, 6))
+        weight_matrix_3 = np.reshape(self.chromosome[86:], newshape=(7, 2))
 
         return weight_matrix_1, weight_matrix_2, weight_matrix_3
 
