@@ -569,8 +569,8 @@ class GeneticAlgo:
 
         :param participant_list: List of tuples of individuals
         :type participant_list: List of tuples of Chromosomes and their metrics
-        :return: Tuple containing the 2 selected tuples of Chromosomes and their
-        metrics
+        :return: Tuple containing the 2 selected tuples of Chromosomes and
+        their metrics
         :rtype: Tuple of tuples
         """
         assert len(participant_list) == self.tournament_size, \
@@ -612,47 +612,72 @@ class GeneticAlgo:
         self.population.sort(reverse=True)
 
         # Perform elitism, let the best parent go forward unchanged
-        for i in range(elitism_frac * self.init_population):
-            newPopulation.append(self.population[i])
+        for i in range(elitism_frac * self.population_count):
+            temp = copy.deepcopy(self.population[i])
+            temp[GeneticAlgo._TIE_BREAKING_INDEX] = i
+            newPopulation.append(copy.deepcopy(temp))
+            del(temp)
 
         """
-        Tournament selection and Crossover have to be performed until the next generation's
-        population size is not equal self.population_count
+        Tournament selection and Crossover have to be performed until the next
+        generation's population size is not equal self.population_count
         """
         while len(newPopulation) != self.population_count:
             # Select 2 parent from the initial population, and perfrom
             # crossover, using tournament selection
             # Select participants for the tournament
             _participant_list = []
-            _participant_indices = np.random.shuffle(np.random.randint(0, self.population_count, tournament_size))
+            # A participant may appear multiple times in the tournament
+            _participant_indices = np.random.randint(0, self.population_count,
+                                                     tournament_size)
             for _ in range(self.population_count):
                 # Check if the population member is a participant
                 if _ in _participant_indices:
-                    # Add the participant as many times as its index showed up in the _participant_indices
-                    for freq in range(np.count_nonzero(_participant_indices==_)):
-                        _participant_list.append( self.population[_][np.copy(GeneticAlgo._CHROMOSOME_INDEX)] )
+                    # Add the participant as many times as its index showed up
+                    # in the _participant_indices
+                    for _freq in range(np.
+                                       count_nonzero(_participant_indices == _)
+                                       ):
+                        _participant_list.append(self.population[_])
+                        # ..[np.copy(GeneticAlgo._CHROMOSOME_INDEX)])
 
-            assert len(_participant_list) == tournament_size, f"Participant list length {len(_participant_list)} != tournament_size {tournament_size}"
-            # Shuffle up the participants
+            assert len(_participant_list) == tournament_size,\
+                f"Participant list length {len(_participant_list)} \
+                    != tournament_size {tournament_size}"
+            # Shuffle the participants
             random.shuffle(_participant_list)
 
             # Run the tournament
-            _winner_1, _winner_2 = self.tournament_selection(copy
-                                                             .deepcopy(_participant_list))
+            _winner_1, _winner_2 = self\
+                .tournament_selection(copy
+                                      .deepcopy(_participant_list))
 
+            # Perform cross-over on the 2 remaining winners at the end to
+            # get the child node
+            child_node = Chromosome\
+                .cross_over(_winner_1[GeneticAlgo._CHROMOSOME_INDEX],
+                            _winner_2[GeneticAlgo._CHROMOSOME_INDEX])
 
-            # Perform cross-over on the 2 remaining winners at the end to get the child node
-            child_node = Chromosome.cross_over(_winner_1, _winner_2)
-            # Find the accuracy and loss of the child node and append it to the new population
-            # Randomly enable or disbale dropouts in the different layers of the neural networks
+            # Find the accuracy and loss of the child node and append it to
+            # the new population
+            # Randomly enable or disbale dropouts in the different layers of
+            # the neural network - MonteCarlo Dropout
             MonteCarloList = []
             for i in range(10):
-                MonteCarloList.append(child_node.evaluate(GeneticAlgo._INPUTS, GeneticAlgo._TRUTH_VALUES, [random.choice([True, False]) for i in range(2)] + False))
+                MonteCarloList.append(child_node
+                                      .evaluate(GeneticAlgo._INPUTS,
+                                                GeneticAlgo._TRUTH_VALUES,
+                                                [random.choice([True, False])
+                                                 for i in range(2)] + False)
+                                      )
 
             _accuracy, _loss = np.mean(np.array(MonteCarloList), axis=0)
 
-            newPopulation.append((_accuracy, _loss, child_node))
+            newPopulation.append((_accuracy, _loss, len(newPopulation),
+                                  child_node))
 
+        assert all([len(x) == 4 for x in newPopulation]) is True, "The Length\
+            of all members of newPopulation is not 4!"
 
         """
         Mutation has to be done after the new population has been created
