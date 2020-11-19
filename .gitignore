@@ -1,6 +1,7 @@
 **/__pycache__
 .DS_Store
 **/.vscode/
+**/roughpad
 
 !verification\ pit/test_file_copy/test.py
 !verification\ pit/test.py
